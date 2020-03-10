@@ -1,0 +1,6 @@
+[book]
+authors = ["Jim Pick"]
+language = "en"
+multilingual = false
+src = "docs"
+title = "Lotus JS Client"
