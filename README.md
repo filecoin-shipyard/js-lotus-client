@@ -35,7 +35,7 @@ In addition to the low level methods, we will be building additional higher-leve
 
 ## Contributing
 
-Feel free to join in. All welcome. [Open an issue](https://github.com/filecoin-project/js-lotus-client/issues)!
+Feel free to join in. All welcome. [Open an issue](https://github.com/filecoin-shipyard/js-lotus-client/issues)!
 
 ## License
 
