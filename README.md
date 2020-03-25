@@ -6,24 +6,36 @@ The Lotus JS Client is a collection of small JavaScript libraries that you can u
 
 All of the **low-level** JSON-RPC methods will soon be wrapped for easy access from JavaScript:
 
-```js
-import LotusRPC from '@filecoin-shipyard/lotus-client-rpc'
-import BrowserProvider from '@filecoin-shipyard/lotus-client-provider-browser'
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Get Version</title>
+  </head>
+  <body>
+    <h1>Get Version</h1>
+    <pre></pre>
+    <script type="module">
+      import LotusRPC from 'https://unpkg.com/@filecoin-shipyard/lotus-client-rpc?module'
+      import BrowserProvider from 'https://unpkg.com/@filecoin-shipyard/lotus-client-provider-browser?module'
+      import schema from 'https://unpkg.com/@filecoin-shipyard/lotus-client-schema/prototype/testnet-v3.js?module'
 
-async function run () {
-  const client = new LotusRPC(new BrowserProvider('http://localhost:1234'))
+      const wsUrl = 'wss://lotus.testground.ipfs.team/api/0/node/rpc/v0'
+      const provider = new BrowserProvider(wsUrl)
+      const client = new LotusRPC(provider, { schema })
 
-  const {
-    version,
-    apiVersion,
-    blockDelay
-  } = await client.version()
-
-  console.log('Version:', version)
-}
-
-run()
+      async function run () {
+        const result = await client.version()
+        const preEl = document.querySelector('pre')
+        preEl.textContent = JSON.stringify(result)
+      }
+      run()
+    </script>
+  </body>
+</html>
 ```
+
+[See it running here!](https://bafybeidafp4gkpy5hx6geh3wmbt5h5x4knyw3acjrbatr5xxphdjhmrpwq.ipfs.dweb.link/)
 
 **(The usage example above is an initial concept of what the API could be)**
 
