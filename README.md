@@ -37,7 +37,11 @@ All of the **low-level** JSON-RPC methods will soon be wrapped for easy access f
 
 [See it running here!](https://bafybeidafp4gkpy5hx6geh3wmbt5h5x4knyw3acjrbatr5xxphdjhmrpwq.ipfs.dweb.link/)
 
-**(The usage example above is an initial concept of what the API could be)**
+The usage example above connects to a test "local net" running Lotus via a reverse proxy with SSL and CORS enabled, and loads the library as an "ES module" via the unpkg.com CDN.
+
+Here's the same example, but running [entirely off of IPFS](https://bafybeicwfcxfntlfdvikz3vnnlpapgmg5ogwfgqwpwui44z3yhkn4pvcqq.ipfs.dweb.link/) -- individual library dependencies have been bundled and published using [Snowpack](https://www.snowpack.dev/).
+
+Here's a full demo connected to the same test "local net" using React.js + Snowpack: [jimpick/lotus-js-client-snowpac-react-demo](https://github.com/jimpick/lotus-js-client-snowpack-react-demo#readme)
 
 Full API docs are coming soon! Plus examples and tutorials! In the meantime, you can refer to the Lotus source code to see the list of API methods available:
 
