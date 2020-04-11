@@ -1,3 +1,5 @@
 # Summary
 
-- [Chapter 1](./chapter_1.md)
+- [Intro](./intro.md)
+- [Quick Start](./quick-start.md)
+- [Endpoint Deployment](./endpoint-deployment.md)
