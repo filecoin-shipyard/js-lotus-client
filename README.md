@@ -56,7 +56,7 @@ in this repo.
 
 The current draft (generated using `mdbook`) has been published to IPFS here:
 
-* https://ipfs.io/ipfs/QmP3QbaorVdE2KKkoLFw2faFSW8WW4sZdDZmA92hLPP8vy/
+* https://ipfs.io/ipfs/QmRDdjWwwp64ypQxEyVmpmPwrix16f5aZdeiZgq4dHc2Ly/
 
 ## Contributing
 
