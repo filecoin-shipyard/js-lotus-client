@@ -49,6 +49,15 @@ Full API docs are coming soon! Plus examples and tutorials! In the meantime, you
 
 In addition to the low level methods, we will be building additional higher-level libraries that make coding common tasks easier with a more expressive and idiomatic JavaScript API.
 
+## Documentation
+
+The docs are under heavy development, and are only partially done so far. The source for the docs are in Markdown format in the `docs` directory
+in this repo.
+
+The current draft (generated using `mdbook`) has been published to IPFS here:
+
+* https://ipfs.io/ipfs/QmP3QbaorVdE2KKkoLFw2faFSW8WW4sZdDZmA92hLPP8vy/
+
 ## Contributing
 
 Feel free to join in. All welcome. [Open an issue](https://github.com/filecoin-shipyard/js-lotus-client/issues)!
