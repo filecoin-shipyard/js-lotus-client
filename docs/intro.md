@@ -2,6 +2,9 @@
 
 The [Lotus JS Client](https://github.com/filecoin-shipyard/js-lotus-client) is a collection of small JavaScript libraries that you can use to communicate with the [Lotus implementation](https://github.com/filecoin-project/lotus) of [Filecoin](https://filecoin.io/) via it's JSON-RPC API.
 
+The Lotus daemons exposes JSON-RPC methods via HTTP and WebSockets that can be called from any language. Applications and websites written in JavaScript can make calls to the endpoints directly using the raw JSON-RPC API, or they can use
+these libraries to make accessing the APIs more convenient and ergonomic from common JavaScript environments.
+
 ## Lotus JSON-RPC API
 
 [JSON-RPC](https://en.wikipedia.org/wiki/JSON-RPC) is a standardized way to encode remote procedure calls in JSON. Projects such as [Bitcoin](https://en.bitcoin.it/wiki/API_reference_(JSON-RPC)) and [Ethereum](https://github.com/ethereum/wiki/wiki/JSON-RPC) have adopted it for use in their APIs.
@@ -30,9 +33,9 @@ The Lotus daemon will return a response that looks something like:
 {"jsonrpc":"2.0","result":{"Version":"0.3.0+gite4b5f1df.dirty","APIVersion":512,"BlockDelay":6},"id":1}
 ```
 
-Most of the time, when you run commands using the `lotus` command line client, for example, `lotus version`, it is actually connecting to the daemon using a websocket, and executing methods using JSON-RPC.
+Most of the time, when you run commands using the `lotus` command line client, for example, `lotus version`, it is actually connecting to the daemon using a WebSocket, and it is executing methods using JSON-RPC.
 
-Different daemons that are part of Lotus support different sets of methods. For example, when you run `lotus-storage-miner run`, it will listen on port 2345 (by default), and it has a number of methods for doing things such as querying the status of sectors.
+Different daemons that are part of Lotus support different sets of methods. When you execute `lotus daemon`, it will listen on port 1234 (by default), exposes JSON-RPC methods for wallets, making deals, checking chain sync status, etc. When you run `lotus-storage-miner run`, it will listen on port 2345 (by default), and it has a number of methods for doing things such as querying the status of sectors.
 
 More details about the JSON-RPC API, including links to the lists of methods available, are at: [https://lotu.sh/en+api](https://lotu.sh/en+api)
 
