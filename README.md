@@ -41,13 +41,19 @@ The usage example above connects to a test "local net" running Lotus via a rever
 
 Here's the same example, but running [entirely off of IPFS](https://bafybeicwfcxfntlfdvikz3vnnlpapgmg5ogwfgqwpwui44z3yhkn4pvcqq.ipfs.dweb.link/) -- individual library dependencies have been bundled and published using [Snowpack](https://www.snowpack.dev/).
 
-Here's a full demo connected to the same test "local net" using React.js + Snowpack: [jimpick/lotus-js-client-snowpac-react-demo](https://github.com/jimpick/lotus-js-client-snowpack-react-demo#readme)
+Here are some more examples to get started:
 
-Full API docs are coming soon! Plus examples and tutorials! In the meantime, you can refer to the Lotus source code to see the list of API methods available:
+* [ObservableHQ Notebooks](https://observablehq.com/@jimpick/lotus-js-client?collection=@jimpick/lotus-js-client) - Observable Notebooks are a great way to learn about and try out the API.
+  * Here's the [simplest example](https://observablehq.com/@jimpick/lotus-js-client?collection=@jimpick/lotus-js-client), which connects to the "local net" and gets the chain head
+  * A [more complex example](https://observablehq.com/@jimpick/lotus-js-client-testnet?collection=@jimpick/lotus-js-client) connects to the Testnet and gets a list of miners and displays them on a 3D map using Deck.gl
+  * And here's an example of how to [query an ask](https://observablehq.com/@jimpick/lotus-js-client-testnet-querying-ask?collection=@jimpick/lotus-js-client) from a miner on the Testnet
+  * ... more to come. Submissions welcome!
 
-* [api/apistruct/struct.go](https://github.com/filecoin-project/lotus/blob/master/api/apistruct/struct.go)
+We also built a workshop for the [Ready Layer One](https://www.youtube.com/channel/UC-JxjKyX63VGkRM-8jziK8Q/videos) conference. We have been updating it since the conference and it contains code that shows how to store and retrieve files using a Lotus node (connected to our demo "local net").
 
-In addition to the low level methods, we will be building additional higher-level libraries that make coding common tasks easier with a more expressive and idiomatic JavaScript API.
+  * YouTube: [Demo at IPFS Pinning Summit](https://www.youtube.com/watch?v=hCNr5Sj323k&list=PLuhRWgmPaHtTvsxuZ9T-tMlu_v0lja6v5)
+  * GitHub: [filecoin-shipyard/rl1-lotus-workshop](https://github.com/filecoin-shipyard/rl1-lotus-workshop)
+  * Glitch: [Try it here or remix it!](https://glitch.com/edit/#!/rl1-lotus-workshop)
 
 ## Documentation
 
@@ -57,10 +63,16 @@ in this repo.
 The current draft (generated using `mdbook`) has been published to IPFS here:
 
 * https://ipfs.io/ipfs/QmRRp9Y5i6d3Lkf4UbNvnhtaNqyaB4jnALuJ2vcHnVpphL/
+* **New!** Lotus now has the ability to generate docs. Here's a preview of the API docs for just the Node API: https://gist.github.com/jimpick/7c227fc9f8e7267634cf989dec8c0323
+
+The main documentation site for Lotus also has a [guide to the API](https://lotu.sh/en+api).
 
 ## Contributing
 
 Feel free to join in. All welcome. [Open an issue](https://github.com/filecoin-shipyard/js-lotus-client/issues)!
+
+Conversations and questions about the Lotus JS Client libraries are welcome in the `#fil-storage-dev` channel in the Filecoin Commmunity Slack. Find out how to sign up over at the
+[Filecoin Community](https://filecoin.io/#community) page.
 
 ## License
 
