@@ -43,7 +43,7 @@ Here's the same example, but running [entirely off of IPFS](https://bafybeicwfcx
 
 Here are some more examples to get started:
 
-* [ObservableHQ Notebooks](https://observablehq.com/@jimpick/lotus-js-client?collection=@jimpick/lotus-js-client) - Observable Notebooks are a great way to learn about and try out the API.
+* [ObservableHQ Notebooks](https://observablehq.com/collection/@jimpick/lotus-js-client) - Observable Notebooks are a great way to learn about and try out the API.
   * Here's the [simplest example](https://observablehq.com/@jimpick/lotus-js-client?collection=@jimpick/lotus-js-client), which connects to the "local net" and gets the chain head
   * A [more complex example](https://observablehq.com/@jimpick/lotus-js-client-testnet?collection=@jimpick/lotus-js-client) connects to the Testnet and gets a list of miners and displays them on a 3D map using Deck.gl
   * And here's an example of how to [query an ask](https://observablehq.com/@jimpick/lotus-js-client-testnet-querying-ask?collection=@jimpick/lotus-js-client) from a miner on the Testnet
