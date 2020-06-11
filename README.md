@@ -16,13 +16,13 @@ All of the **low-level** JSON-RPC methods will soon be wrapped for easy access f
     <h1>Get Version</h1>
     <pre></pre>
     <script type="module">
-      import LotusRPC from 'https://unpkg.com/@filecoin-shipyard/lotus-client-rpc?module'
-      import BrowserProvider from 'https://unpkg.com/@filecoin-shipyard/lotus-client-provider-browser?module'
-      import schema from 'https://unpkg.com/@filecoin-shipyard/lotus-client-schema/prototype/testnet-v3.js?module'
+      import { LotusRPC } from 'https://unpkg.com/@filecoin-shipyard/lotus-client-rpc?module'
+      import { BrowserProvider } from 'https://unpkg.com/@filecoin-shipyard/lotus-client-provider-browser?module'
+      import { testnet } from 'https://unpkg.com/@filecoin-shipyard/lotus-client-schema?module'
 
-      const wsUrl = 'wss://lotus.testground.ipfs.team/api/0/node/rpc/v0'
-      const provider = new BrowserProvider(wsUrl)
-      const client = new LotusRPC(provider, { schema })
+      const endpointUrl = 'wss://lotus.testground.ipfs.team/api/0/node/rpc/v0'
+      const provider = new BrowserProvider(endpointUrl)
+      const client = new LotusRPC(provider, { schema: testnet.fullNode })
 
       async function run () {
         const result = await client.version()
