@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>List of Libraries - Lotus JS Client</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="intro/intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="expanded "><a href="intro/json-rpc.html"><strong aria-hidden="true">1.1.</strong> JSON-RPC API</a></li><li class="expanded "><a href="intro/json-rpc-and-js.html"><strong aria-hidden="true">1.2.</strong> JSON-RPC and JavaScript</a></li><li class="expanded "><a href="intro/lotus-js-client.html"><strong aria-hidden="true">1.3.</strong> Lotus JS Client</a></li></ol></li><li class="expanded "><a href="list-of-libraries.html" class="active"><strong aria-hidden="true">2.</strong> List of Libraries</a></li><li class="expanded "><a href="quick-start.html"><strong aria-hidden="true">3.</strong> Quick Start</a></li><li class="expanded "><a href="endpoint-deployment.html"><strong aria-hidden="true">4.</strong> Endpoint Deployment</a></li><li class="expanded "><a href="api/api.html"><strong aria-hidden="true">5.</strong> API</a></li><li><ol class="section"><li class="expanded "><a href="api/common/index.html"><strong aria-hidden="true">5.1.</strong> Common</a></li><li><ol class="section"><li class="expanded "><a href="api/common/auth.html"><strong aria-hidden="true">5.1.1.</strong> Auth</a></li><li class="expanded "><a href="api/common/network.html"><strong aria-hidden="true">5.1.2.</strong> Network</a></li><li class="expanded "><a href="api/common/id.html"><strong aria-hidden="true">5.1.3.</strong> ID</a></li><li class="expanded "><a href="api/common/version.html"><strong aria-hidden="true">5.1.4.</strong> Version</a></li><li class="expanded "><a href="api/common/log.html"><strong aria-hidden="true">5.1.5.</strong> Log</a></li></ol></li><li class="expanded "><a href="api/full-node/index.html"><strong aria-hidden="true">5.2.</strong> Full Node</a></li><li><ol class="section"><li class="expanded "><a href="api/full-node/chain.html"><strong aria-hidden="true">5.2.1.</strong> Chain</a></li><li class="expanded "><a href="api/full-node/sync.html"><strong aria-hidden="true">5.2.2.</strong> Sync</a></li><li class="expanded "><a href="api/full-node/mpool.html"><strong aria-hidden="true">5.2.3.</strong> Message Pool</a></li><li class="expanded "><a href="api/full-node/miner.html"><strong aria-hidden="true">5.2.4.</strong> Miner</a></li><li class="expanded "><a href="api/full-node/wallet.html"><strong aria-hidden="true">5.2.5.</strong> Wallet</a></li><li class="expanded "><a href="api/full-node/client.html"><strong aria-hidden="true">5.2.6.</strong> Client</a></li><li class="expanded "><a href="api/full-node/state.html"><strong aria-hidden="true">5.2.7.</strong> State</a></li><li class="expanded "><a href="api/full-node/msig.html"><strong aria-hidden="true">5.2.8.</strong> Multisig</a></li><li class="expanded "><a href="api/full-node/market.html"><strong aria-hidden="true">5.2.9.</strong> Market</a></li><li class="expanded "><a href="api/full-node/paych.html"><strong aria-hidden="true">5.2.10.</strong> Payment Channels</a></li></ol></li><li class="expanded "><a href="api/storage-miner/index.html"><strong aria-hidden="true">5.3.</strong> Storage Miner</a></li><li><ol class="section"><li class="expanded "><a href="api/storage-miner/actor.html"><strong aria-hidden="true">5.3.1.</strong> Actor</a></li><li class="expanded "><a href="api/storage-miner/sectors.html"><strong aria-hidden="true">5.3.2.</strong> Sectors</a></li><li class="expanded "><a href="api/storage-miner/storage.html"><strong aria-hidden="true">5.3.3.</strong> Storage</a></li><li class="expanded "><a href="api/storage-miner/worker.html"><strong aria-hidden="true">5.3.4.</strong> Worker</a></li><li class="expanded "><a href="api/storage-miner/market.html"><strong aria-hidden="true">5.3.5.</strong> Market</a></li><li class="expanded "><a href="api/storage-miner/deals.html"><strong aria-hidden="true">5.3.6.</strong> Deals</a></li></ol></li><li class="expanded "><a href="api/worker.html"><strong aria-hidden="true">5.4.</strong> Worker</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Lotus JS Client</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#list-of-libraries" id="list-of-libraries">List of Libraries</a></h1>
+<p>Here is the list of libraries that make up the Lotus JS Client ecosystem.</p>
+<h2><a class="header" href="#all-in-one-libraries" id="all-in-one-libraries">All-in-one Libraries</a></h2>
+<p>At the moment, we are not shipping any JavaScript libraries that combine a schema, plus a provider, plus low-level or high-level API wrappers. We may prepare an opinionated bundle in the future in order to make it easier for apps to integrate the most common configurations with a single library import. In the meantime, feel free to combine the following libraries yourself, or contribute new libraries to the community.</p>
+<h2><a class="header" href="#schema" id="schema">Schema</a></h2>
+<p>Contains JSON data representing the available methods in the Lotus JSON-RPC API (and possibly others in the future). This data can be used by other libraries to make calls against the API, or to generate documentation, etc.</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/@filecoin-shipyard/lotus-client-schema">@filecoin-shipyard/lotus-client-schema</a> (<a href="https://github.com/filecoin-shipyard/js-lotus-client-schema">GitHub</a>) - contains schemas for the current master branch of Lotus + additional development branches</li>
+</ul>
+<h2><a class="header" href="#provider-libraries" id="provider-libraries">Provider Libraries</a></h2>
+<p>Pluggable &quot;Providers&quot; let you select a module with the code you need to connect to a Lotus node from a particular environment, such as a web page, from Node.js, or from a mobile app. Inspired by &quot;providers&quot; in the Ethereum ecosystem. </p>
+<ul>
+<li><a href="https://www.npmjs.com/package/@filecoin-shipyard/lotus-client-provider-browser">@filecoin-shipyard/lotus-client-provider-browser</a> (<a href="https://github.com/filecoin-shipyard/js-lotus-client-provider-browser">GitHub</a>) - lightweight provider for web browsers that communicates to Lotus using WebSockets or HTTP</li>
+</ul>
+<p>Coming soon: Node.js support using the <a href="https://github.com/filecoin-shipyard/js-lotus-client/issues/21">rpc-websockets</a> npm package.</p>
+<p>The interfaces that providers must implement are not yet defined, and will likely evolve over time.</p>
+<h2><a class="header" href="#low-level-libraries" id="low-level-libraries">Low-level Libraries</a></h2>
+<p>These libraries are used together with a schema for a particular API and a provider library to allow JavaScript programs to call JavaScript methods in the library which will get sent to the Lotus API as JSON-RPC requests.</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/@filecoin-shipyard/lotus-client-rpc">@filecoin-shipyard/lotus-client-rpc</a> (<a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc">GitHub</a>) - a very simple library that simply passes parameters to JSON-RPC with no extra formatting, and results are returned as plain JavaScript objects</li>
+</ul>
+<p>In the future, we will introduce additional low-level libraries that have more knowledge of how to marshall/unmarshall requests and responses to/from the JSON-RPC API into appropriate JavaScript classes with extra support for specific data types and Filecoin features.</p>
+<h2><a class="header" href="#high-level-libraries" id="high-level-libraries">High-level Libraries</a></h2>
+<p>We will be experimenting and collecting feedback on ideas for useful abstractions that build on top of the low level libraries to make it even easier to build applications with Lotus and Filecoin.</p>
+<h2><a class="header" href="#helper-libraries" id="helper-libraries">Helper Libraries</a></h2>
+<p>The following libraries provide support for handling specific data types or features and work well with the Lotus JS Client libraries:</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/@openworklabs/filecoin-number">@openworklabs/filecoin-number</a> (<a href="https://github.com/openworklabs/filecoin-number">GitHub</a>) - A wrapper around bignumber with AttoFil and currency conversions</li>
+<li><a href="https://www.npmjs.com/package/@openworklabs/filecoin-message">@openworklabs/filecoin-message</a> (<a href="https://github.com/openworklabs/filecoin-message">GitHub</a>) - JS implementation of the Filecoin message type, used to transfer tokens and make state changes</li>
+<li><a href="https://www.npmjs.com/package/@zondax/filecoin-signer-wasm">@zondax/filecoin-signer-wasm</a> (<a href="https://github.com/Zondax/filecoin-rs">GitHub</a>) (<a href="https://zondax.github.io/filecoin-rs/wasm/">Docs</a>) - Filecoin Signing Library - Rust / WASM / JSONRPC Service</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="intro/lotus-js-client.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="quick-start.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="intro/lotus-js-client.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="quick-start.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

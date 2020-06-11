@@ -1,0 +1,1296 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Lotus JS Client</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="intro/intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="expanded "><a href="intro/json-rpc.html"><strong aria-hidden="true">1.1.</strong> JSON-RPC API</a></li><li class="expanded "><a href="intro/json-rpc-and-js.html"><strong aria-hidden="true">1.2.</strong> JSON-RPC and JavaScript</a></li><li class="expanded "><a href="intro/lotus-js-client.html"><strong aria-hidden="true">1.3.</strong> Lotus JS Client</a></li></ol></li><li class="expanded "><a href="list-of-libraries.html"><strong aria-hidden="true">2.</strong> List of Libraries</a></li><li class="expanded "><a href="quick-start.html"><strong aria-hidden="true">3.</strong> Quick Start</a></li><li class="expanded "><a href="endpoint-deployment.html"><strong aria-hidden="true">4.</strong> Endpoint Deployment</a></li><li class="expanded "><a href="api/api.html"><strong aria-hidden="true">5.</strong> API</a></li><li><ol class="section"><li class="expanded "><a href="api/common/index.html"><strong aria-hidden="true">5.1.</strong> Common</a></li><li><ol class="section"><li class="expanded "><a href="api/common/auth.html"><strong aria-hidden="true">5.1.1.</strong> Auth</a></li><li class="expanded "><a href="api/common/network.html"><strong aria-hidden="true">5.1.2.</strong> Network</a></li><li class="expanded "><a href="api/common/id.html"><strong aria-hidden="true">5.1.3.</strong> ID</a></li><li class="expanded "><a href="api/common/version.html"><strong aria-hidden="true">5.1.4.</strong> Version</a></li><li class="expanded "><a href="api/common/log.html"><strong aria-hidden="true">5.1.5.</strong> Log</a></li></ol></li><li class="expanded "><a href="api/full-node/index.html"><strong aria-hidden="true">5.2.</strong> Full Node</a></li><li><ol class="section"><li class="expanded "><a href="api/full-node/chain.html"><strong aria-hidden="true">5.2.1.</strong> Chain</a></li><li class="expanded "><a href="api/full-node/sync.html"><strong aria-hidden="true">5.2.2.</strong> Sync</a></li><li class="expanded "><a href="api/full-node/mpool.html"><strong aria-hidden="true">5.2.3.</strong> Message Pool</a></li><li class="expanded "><a href="api/full-node/miner.html"><strong aria-hidden="true">5.2.4.</strong> Miner</a></li><li class="expanded "><a href="api/full-node/wallet.html"><strong aria-hidden="true">5.2.5.</strong> Wallet</a></li><li class="expanded "><a href="api/full-node/client.html"><strong aria-hidden="true">5.2.6.</strong> Client</a></li><li class="expanded "><a href="api/full-node/state.html"><strong aria-hidden="true">5.2.7.</strong> State</a></li><li class="expanded "><a href="api/full-node/msig.html"><strong aria-hidden="true">5.2.8.</strong> Multisig</a></li><li class="expanded "><a href="api/full-node/market.html"><strong aria-hidden="true">5.2.9.</strong> Market</a></li><li class="expanded "><a href="api/full-node/paych.html"><strong aria-hidden="true">5.2.10.</strong> Payment Channels</a></li></ol></li><li class="expanded "><a href="api/storage-miner/index.html"><strong aria-hidden="true">5.3.</strong> Storage Miner</a></li><li><ol class="section"><li class="expanded "><a href="api/storage-miner/actor.html"><strong aria-hidden="true">5.3.1.</strong> Actor</a></li><li class="expanded "><a href="api/storage-miner/sectors.html"><strong aria-hidden="true">5.3.2.</strong> Sectors</a></li><li class="expanded "><a href="api/storage-miner/storage.html"><strong aria-hidden="true">5.3.3.</strong> Storage</a></li><li class="expanded "><a href="api/storage-miner/worker.html"><strong aria-hidden="true">5.3.4.</strong> Worker</a></li><li class="expanded "><a href="api/storage-miner/market.html"><strong aria-hidden="true">5.3.5.</strong> Market</a></li><li class="expanded "><a href="api/storage-miner/deals.html"><strong aria-hidden="true">5.3.6.</strong> Deals</a></li></ol></li><li class="expanded "><a href="api/worker.html"><strong aria-hidden="true">5.4.</strong> Worker</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Lotus JS Client</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+<p>The <a href="https://github.com/filecoin-shipyard/js-lotus-client">Lotus JS Client</a> is a collection of small JavaScript libraries that you can use to communicate with the <a href="https://github.com/filecoin-project/lotus">Lotus implementation</a> of <a href="https://filecoin.io/">Filecoin</a> via it's JSON-RPC API.</p>
+<p>The Lotus daemons exposes JSON-RPC methods via HTTP and WebSockets that can be called from any language. Applications and websites written in JavaScript can make calls to the endpoints directly using the raw JSON-RPC API, or they can use these libraries to make accessing the APIs more convenient and ergonomic from common JavaScript environments.</p>
+<h2><a class="header" href="#lotus-json-rpc-api" id="lotus-json-rpc-api">Lotus JSON-RPC API</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/JSON-RPC">JSON-RPC</a> is a standardized way to encode remote procedure calls in JSON. Projects such as <a href="https://en.bitcoin.it/wiki/API_reference_(JSON-RPC)">Bitcoin</a> and <a href="https://github.com/ethereum/wiki/wiki/JSON-RPC">Ethereum</a> have adopted it for use in their APIs.</p>
+<p>Lotus uses JSON-RPC calls transported via HTTP or Websockets to communicate between different daemons and command line tools.</p>
+<p>For example, when you run the Lotus node with <code>lotus daemon</code>, it will listen for connections on TCP port 1234 (by default).</p>
+<p>Applications may connect to this port and issue JSON-RPC calls. For example, using <a href="https://curl.haxx.se/">CURL</a>, if we want to call the <a href="https://github.com/filecoin-project/lotus/blob/1120298b0520f0d5965b89abd71437f6d65496b7/api/apistruct/struct.go#L35">Filecoin.Version</a> method, we might do this:</p>
+<pre><code>curl -X POST \
+  -H &quot;Content-Type: application/json&quot; \
+  --data '{ 
+      &quot;jsonrpc&quot;: &quot;2.0&quot;, 
+      &quot;method&quot;: &quot;Filecoin.Version&quot;, 
+      &quot;params&quot;: [], 
+      &quot;id&quot;: 1 
+    }' \
+  http://127.0.0.1:1234/rpc/v0 
+</code></pre>
+<p>The Lotus daemon will return a response that looks something like:</p>
+<pre><code>{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;result&quot;:{&quot;Version&quot;:&quot;0.3.0+gite4b5f1df.dirty&quot;,&quot;APIVersion&quot;:512,&quot;BlockDelay&quot;:6},&quot;id&quot;:1}
+</code></pre>
+<p>Most of the time, when you run commands using the <code>lotus</code> command line client, for example, <code>lotus version</code>, it is actually connecting to the daemon using a WebSocket, and it is executing methods using JSON-RPC.</p>
+<p>Different daemons that are part of Lotus support different sets of methods. When you execute <code>lotus daemon</code>, it will listen on port 1234 (by default), exposes JSON-RPC methods for wallets, making deals, checking chain sync status, etc. When you run <code>lotus-storage-miner run</code>, it will listen on port 2345 (by default), and it has a number of methods for doing things such as querying the status of sectors.</p>
+<p>More details about the JSON-RPC API, including links to the lists of methods available, are at: <a href="https://lotu.sh/en+api">https://lotu.sh/en+api</a></p>
+<h1><a class="header" href="#json-rpc-and-javascript" id="json-rpc-and-javascript">JSON-RPC and JavaScript</a></h1>
+<p>Calling the JSON-RPC using JavaScript from a web application is very simple, as HTTP and Websockets are part of almost every web browser, and JSON parsing is built into JavaScript. For example, the following code uses the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Fetch API</a> and <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await">async/await</a> features found in any modern browser to query the <code>Filecoin.Version</code> JSON-RPC method via HTTP:</p>
+<pre><code class="language-js">async getVersion () {
+  const response = await fetch('http://127.0.0.1:1234/rpc/v0', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      jsonrpc: '2.0',
+      method: `Filecoin.Version`,
+      params: [],
+      id: 1
+    }
+  })
+  const { result, error } = await response.json()
+}
+</code></pre>
+<p><strong>Caution:</strong> There is a big problem with the above code. Due to the web's <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">Same-origin policy</a>, the above code will not usually work unmodified in a web page as the API endpoint is likely on a different &quot;origin&quot; than the location the web page is hosted at. Read more about how to set up an endpoint in the <a href="intro/endpoint-deployment.html">endpoint deployment</a> chapter.</p>
+<h1><a class="header" href="#lotus-js-client" id="lotus-js-client">Lotus JS Client</a></h1>
+<h1><a class="header" href="#lotus-js-client-1" id="lotus-js-client-1">Lotus JS Client</a></h1>
+<p>To make developing applications as easy as possible, the <a href="https://github.com/filecoin-shipyard/js-lotus-client">Lotus JS Client</a> libraries are available. These libraries contain re-useable code to make the chore of interfacing with your Lotus Filecoin nodes and miners much more enjoyable.</p>
+<p><strong>Caution:</strong> These libraries are very new and currently under heavy development, as is Lotus and Filecoin. Expect many breaking changes. As the ecosystem matures, these libraries will evolve to become more stable and production ready.</p>
+<p>These libraries are intended to be used in many different environments, including web pages, mobile apps, desktop apps, and server-side applications. Additionally, they will target different types of Lotus daemons, such as nodes or miners, and potentially other Filecoin implementations in the future. Also, it is expected that APIs will change over time, sometimes in incompatible ways, and it may be necessary to talk to multiple different versions in a heterogeneous environment.</p>
+<p>For these reasons, and also with an eye towards encouraging a healthy ecosystem of community developed open-source modules, we have decided to develop many small modular JavaScript libraries that work well together.</p>
+<p>We decided against developing a single monolithic library as it might get too large for lightweight use cases (eg. mobile web) and it would likely have a higher barrier for accepting individual contributions.</p>
+<p>In the future, we may develop some convenience libraries that will bundle together multiple smaller libraries that are optimized for specific use cases. In the beginning, though, we will focus on modularity.</p>
+<h1><a class="header" href="#list-of-libraries" id="list-of-libraries">List of Libraries</a></h1>
+<p>Here is the list of libraries that make up the Lotus JS Client ecosystem.</p>
+<h2><a class="header" href="#all-in-one-libraries" id="all-in-one-libraries">All-in-one Libraries</a></h2>
+<p>At the moment, we are not shipping any JavaScript libraries that combine a schema, plus a provider, plus low-level or high-level API wrappers. We may prepare an opinionated bundle in the future in order to make it easier for apps to integrate the most common configurations with a single library import. In the meantime, feel free to combine the following libraries yourself, or contribute new libraries to the community.</p>
+<h2><a class="header" href="#schema" id="schema">Schema</a></h2>
+<p>Contains JSON data representing the available methods in the Lotus JSON-RPC API (and possibly others in the future). This data can be used by other libraries to make calls against the API, or to generate documentation, etc.</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/@filecoin-shipyard/lotus-client-schema">@filecoin-shipyard/lotus-client-schema</a> (<a href="https://github.com/filecoin-shipyard/js-lotus-client-schema">GitHub</a>) - contains schemas for the current master branch of Lotus + additional development branches</li>
+</ul>
+<h2><a class="header" href="#provider-libraries" id="provider-libraries">Provider Libraries</a></h2>
+<p>Pluggable &quot;Providers&quot; let you select a module with the code you need to connect to a Lotus node from a particular environment, such as a web page, from Node.js, or from a mobile app. Inspired by &quot;providers&quot; in the Ethereum ecosystem. </p>
+<ul>
+<li><a href="https://www.npmjs.com/package/@filecoin-shipyard/lotus-client-provider-browser">@filecoin-shipyard/lotus-client-provider-browser</a> (<a href="https://github.com/filecoin-shipyard/js-lotus-client-provider-browser">GitHub</a>) - lightweight provider for web browsers that communicates to Lotus using WebSockets or HTTP</li>
+</ul>
+<p>Coming soon: Node.js support using the <a href="https://github.com/filecoin-shipyard/js-lotus-client/issues/21">rpc-websockets</a> npm package.</p>
+<p>The interfaces that providers must implement are not yet defined, and will likely evolve over time.</p>
+<h2><a class="header" href="#low-level-libraries" id="low-level-libraries">Low-level Libraries</a></h2>
+<p>These libraries are used together with a schema for a particular API and a provider library to allow JavaScript programs to call JavaScript methods in the library which will get sent to the Lotus API as JSON-RPC requests.</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/@filecoin-shipyard/lotus-client-rpc">@filecoin-shipyard/lotus-client-rpc</a> (<a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc">GitHub</a>) - a very simple library that simply passes parameters to JSON-RPC with no extra formatting, and results are returned as plain JavaScript objects</li>
+</ul>
+<p>In the future, we will introduce additional low-level libraries that have more knowledge of how to marshall/unmarshall requests and responses to/from the JSON-RPC API into appropriate JavaScript classes with extra support for specific data types and Filecoin features.</p>
+<h2><a class="header" href="#high-level-libraries" id="high-level-libraries">High-level Libraries</a></h2>
+<p>We will be experimenting and collecting feedback on ideas for useful abstractions that build on top of the low level libraries to make it even easier to build applications with Lotus and Filecoin.</p>
+<h2><a class="header" href="#helper-libraries" id="helper-libraries">Helper Libraries</a></h2>
+<p>The following libraries provide support for handling specific data types or features and work well with the Lotus JS Client libraries:</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/@openworklabs/filecoin-number">@openworklabs/filecoin-number</a> (<a href="https://github.com/openworklabs/filecoin-number">GitHub</a>) - A wrapper around bignumber with AttoFil and currency conversions</li>
+<li><a href="https://www.npmjs.com/package/@openworklabs/filecoin-message">@openworklabs/filecoin-message</a> (<a href="https://github.com/openworklabs/filecoin-message">GitHub</a>) - JS implementation of the Filecoin message type, used to transfer tokens and make state changes</li>
+<li><a href="https://www.npmjs.com/package/@zondax/filecoin-signer-wasm">@zondax/filecoin-signer-wasm</a> (<a href="https://github.com/Zondax/filecoin-rs">GitHub</a>) (<a href="https://zondax.github.io/filecoin-rs/wasm/">Docs</a>) - Filecoin Signing Library - Rust / WASM / JSONRPC Service</li>
+</ul>
+<h1><a class="header" href="#quick-start" id="quick-start">Quick Start</a></h1>
+<p>This section is yet to be written.</p>
+<p>Live Code example:</p>
+<ul>
+<li>https://embed.plnkr.co/gist/43b158c212086d2467c64d81ccf854e9?show=index.html,script.js,preview&amp;deferRun&amp;sidebar=false</li>
+</ul>
+<h1><a class="header" href="#endpoint-deployment" id="endpoint-deployment">Endpoint Deployment</a></h1>
+<p>A typical deployment will use a <a href="https://en.wikipedia.org/wiki/Reverse_proxy">reverse proxy</a> server to serve the endpoint on the same origin as the web page, or to add <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">CORS</a> headers.  <strong>TODO: Link to working NGINX and Caddy Server configurations.</strong> Unlike HTTP, using <a href="https://en.wikipedia.org/wiki/Same-origin_policy#WebSockets">WebSockets</a> shifts the security burden to the server side, so the same-origin policy does not apply. A secure deployment will still need to set up a reverse proxy to compare the header data against a whitelist of origins permitted to receive a reply. A typical production API gateway deployment will also implement TLS encryption (https/wss).</p>
+<h1><a class="header" href="#api" id="api">API</a></h1>
+<p>This is temporary API documentation for the API methods exported by the JSON-RPC API, manually extracted from the Lotus Go source code (<code>testnet/3</code> branch). These will be replaced
+with documentation showing how to use the JS Client equivalent calls.</p>
+<h2><a class="header" href="#json-rpc-postman-docs" id="json-rpc-postman-docs">JSON-RPC Postman Docs</a></h2>
+<ul>
+<li>https://documenter.getpostman.com/view/4872192/SWLh5mUd?version=latest</li>
+</ul>
+<h1><a class="header" href="#common" id="common">Common</a></h1>
+<ul>
+<li><a href="https://github.com/filecoin-project/lotus/blob/master/api/api_common.go">https://github.com/filecoin-project/lotus/blob/master/api/api_common.go</a></li>
+</ul>
+<h1><a class="header" href="#auth" id="auth">Auth</a></h1>
+<ul>
+<li>
+<p>AuthVerify</p>
+<p><code>AuthVerify(ctx context.Context, token string) ([]Permission, error)</code></p>
+</li>
+<li>
+<p>AuthNew</p>
+<p><code>AuthNew(ctx context.Context, perms []Permission) ([]byte, error)</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#cli" id="cli">CLI</a></h2>
+<pre><code>$ lotus auth
+NAME:
+   lotus auth - Manage RPC permissions
+
+USAGE:
+   lotus auth command [command options] [arguments...]
+
+COMMANDS:
+     create-token  Create token
+     help, h       Shows a list of commands or help for one command
+
+OPTIONS:
+   --help, -h     show help (default: false)
+   --version, -v  print the version (default: false)
+</code></pre>
+<h1><a class="header" href="#network" id="network">Network</a></h1>
+<ul>
+<li>
+<p>NetConnectedness</p>
+<p><code>NetConnectedness(context.Context, peer.ID) (network.Connectedness, error)</code></p>
+</li>
+<li>
+<p>NetPeers</p>
+<p><code>NetPeers(context.Context) ([]peer.AddrInfo, error)</code></p>
+</li>
+<li>
+<p>NetConnect</p>
+<p><code>NetConnect(context.Context, peer.AddrInfo) error</code></p>
+</li>
+<li>
+<p>NetAddrsListen</p>
+<p><code>NetAddrsListen(context.Context) (peer.AddrInfo, error)</code></p>
+</li>
+<li>
+<p>NetDisconnect</p>
+<p><code>NetDisconnect(context.Context, peer.ID) error</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#cli-1" id="cli-1">CLI</a></h2>
+<pre><code>$ lotus net
+NAME:
+   lotus net - Manage P2P Network
+
+USAGE:
+   lotus net command [command options] [arguments...]
+
+COMMANDS:
+     peers    Print peers
+     connect  Connect to a peer
+     listen   List listen addresses
+     id       Get node identity
+     help, h  Shows a list of commands or help for one command
+
+OPTIONS:
+   --help, -h     show help (default: false)
+   --version, -v  print the version (default: false)
+</code></pre>
+<h1><a class="header" href="#id" id="id">ID</a></h1>
+<ul>
+<li>
+<p>ID</p>
+<p>ID returns peerID of libp2p node backing this API</p>
+<p><code>ID(context.Context) (peer.ID, error)</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#cli-2" id="cli-2">CLI</a></h2>
+<pre><code>$ lotus net
+NAME:
+   lotus net - Manage P2P Network
+
+USAGE:
+   lotus net command [command options] [arguments...]
+
+COMMANDS:
+     peers    Print peers
+     connect  Connect to a peer
+     listen   List listen addresses
+     id       Get node identity
+     help, h  Shows a list of commands or help for one command
+
+OPTIONS:
+   --help, -h     show help (default: false)
+   --version, -v  print the version (default: false)
+</code></pre>
+<h1><a class="header" href="#version" id="version">Version</a></h1>
+<ul>
+<li>
+<p>Version</p>
+<p>Version provides information about API provider</p>
+<p><code>Version(context.Context) (Version, error)</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#cli-3" id="cli-3">CLI</a></h2>
+<pre><code>$ lotus 
+NAME:
+   lotus - Filecoin decentralized storage network client
+
+USAGE:
+   lotus [global options] command [command options] [arguments...]
+
+VERSION:
+   0.2.5+git9fc5f0cd
+
+COMMANDS:
+     daemon        Start a lotus daemon process
+     auth          Manage RPC permissions
+     chain         Interact with filecoin blockchain
+     client        Make deals, store data, retrieve data
+     fetch-params  Fetch proving parameters
+     mpool         Manage message pool
+     msig          Interact with a multisig wallet
+     net           Manage P2P Network
+     paych         Manage payment channels
+     send          Send funds between accounts
+     state         Interact with and query filecoin chain state
+     sync          Inspect or interact with the chain syncer
+     version       Print version
+     wallet        Manage wallet
+     help, h       Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --help, -h     show help (default: false)
+   --version, -v  print the version (default: false)
+</code></pre>
+<pre><code>$ lotus version
+0.2.5+git9fc5f0cd+api0.1.6
+lotus version 0.2.5+git9fc5f0cd
+</code></pre>
+<h1><a class="header" href="#log" id="log">Log</a></h1>
+<ul>
+<li>
+<p>LogList</p>
+<p><code>LogList(context.Context) ([]string, error)</code></p>
+</li>
+<li>
+<p>LogSetLevel</p>
+<p><code>LogSetLevel(context.Context, string, string) error</code></p>
+</li>
+</ul>
+<h1><a class="header" href="#full-node" id="full-node">Full Node</a></h1>
+<p>(includes common API from above)</p>
+<ul>
+<li><a href="https://github.com/filecoin-project/lotus/blob/master/api/api_full.go">https://github.com/filecoin-project/lotus/blob/master/api/api_full.go</a></li>
+</ul>
+<h1><a class="header" href="#chain" id="chain">Chain</a></h1>
+<ul>
+<li>
+<p>ChainNotify</p>
+<p><code>ChainNotify(context.Context) (&lt;-chan []*store.HeadChange, error)</code></p>
+<p>ChainNotify returns channel with chain head updates</p>
+<p>First message is guaranteed to be of len == 1, and type == 'current'</p>
+</li>
+<li>
+<p>ChainHead</p>
+<p><code>ChainHead(context.Context) (*types.TipSet, error)</code></p>
+</li>
+<li>
+<p>ChainGetRandomness</p>
+<p><code>ChainGetRandomness(ctx context.Context, tsk types.TipSetKey, personalization crypto.DomainSeparationTag, randEpoch abi.ChainEpoch, entropy []byte) (abi.Randomness, error)</code></p>
+</li>
+<li>
+<p>ChainGetBlock</p>
+<p><code>ChainGetBlock(context.Context, cid.Cid) (*types.BlockHeader, error)</code></p>
+</li>
+<li>
+<p>ChainGetTipSet</p>
+<p><code>ChainGetTipSet(context.Context, types.TipSetKey) (*types.TipSet, error)</code></p>
+</li>
+<li>
+<p>ChainGetBlockMessages</p>
+<p><code>ChainGetBlockMessages(context.Context, cid.Cid) (*BlockMessages, error)</code></p>
+</li>
+<li>
+<p>ChainGetParentReceipts</p>
+<p><code>ChainGetParentReceipts(context.Context, cid.Cid) ([]*types.MessageReceipt, error)</code></p>
+</li>
+<li>
+<p>ChainGetParentMessages</p>
+<p><code>ChainGetParentMessages(context.Context, cid.Cid) ([]Message, error)</code></p>
+</li>
+<li>
+<p>ChainGetTipSetByHeight</p>
+<p><code>ChainGetTipSetByHeight(context.Context, abi.ChainEpoch, types.TipSetKey) (*types.TipSet, error)</code></p>
+</li>
+<li>
+<p>ChainReadObj</p>
+<p><code>ChainReadObj(context.Context, cid.Cid) ([]byte, error)</code></p>
+</li>
+<li>
+<p>ChainHasObj</p>
+<p><code>ChainHasObj(context.Context, cid.Cid) (bool, error)</code></p>
+</li>
+<li>
+<p>ChainStatObj</p>
+<p><code>ChainStatObj(context.Context, cid.Cid, cid.Cid) (ObjStat, error)</code></p>
+</li>
+<li>
+<p>ChainSetHead</p>
+<p><code>ChainSetHead(context.Context, types.TipSetKey) error</code></p>
+</li>
+<li>
+<p>ChainGetGenesis</p>
+<p><code>ChainGetGenesis(context.Context) (*types.TipSet, error)</code></p>
+</li>
+<li>
+<p>ChainTipSetWeight</p>
+<p><code>ChainTipSetWeight(context.Context, types.TipSetKey) (types.BigInt, error)</code></p>
+</li>
+<li>
+<p>ChainGetNode</p>
+<p><code>ChainGetNode(ctx context.Context, p string) (*IpldObject, error)</code></p>
+</li>
+<li>
+<p>ChainGetMessage</p>
+<p><code>ChainGetMessage(context.Context, cid.Cid) (*types.Message, error)</code></p>
+</li>
+<li>
+<p>ChainGetPath</p>
+<p><code>ChainGetPath(ctx context.Context, from types.TipSetKey, to types.TipSetKey) ([]*store.HeadChange, error)</code></p>
+</li>
+<li>
+<p>ChainExport</p>
+<p><code>ChainExport(context.Context, types.TipSetKey) (&lt;-chan []byte, error)</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#cli-4" id="cli-4">CLI</a></h2>
+<pre><code>$ lotus chain
+NAME:
+   lotus chain - Interact with filecoin blockchain
+
+USAGE:
+   lotus chain command [command options] [arguments...]
+
+COMMANDS:
+     head        Print chain head
+     getblock    Get a block and print its details
+     read-obj    Read the raw bytes of an object
+     getmessage  Get and print a message by its cid
+     sethead     manually set the local nodes head tipset (Caution: normally only used for recovery)
+     list        View a segment of the chain
+     get         Get chain DAG node by path
+     export      export chain to a car file
+     help, h     Shows a list of commands or help for one command
+
+OPTIONS:
+   --help, -h     show help (default: false)
+   --version, -v  print the version (default: false)
+</code></pre>
+<h1><a class="header" href="#sync" id="sync">Sync</a></h1>
+<ul>
+<li>
+<p>SyncState</p>
+<p><code>SyncState(context.Context) (*SyncState, error)</code></p>
+</li>
+<li>
+<p>SyncSubmitBlock</p>
+<p><code>SyncSubmitBlock(ctx context.Context, blk *types.BlockMsg) error</code></p>
+</li>
+<li>
+<p>SyncIncomingBlocks</p>
+<p><code>SyncIncomingBlocks(ctx context.Context) (&lt;-chan *types.BlockHeader, error)</code></p>
+</li>
+<li>
+<p>SyncMarkBad</p>
+<p><code>SyncMarkBad(ctx context.Context, bcid cid.Cid) error</code></p>
+</li>
+<li>
+<p>SyncCheckBad</p>
+<p><code>SyncCheckBad(ctx context.Context, bcid cid.Cid) (string, error)</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#cli-5" id="cli-5">CLI</a></h2>
+<pre><code>$ lotus sync
+NAME:
+   lotus sync - Inspect or interact with the chain syncer
+
+USAGE:
+   lotus sync command [command options] [arguments...]
+
+COMMANDS:
+     status    check sync status
+     wait      Wait for sync to be complete
+     mark-bad  Mark the given block as bad, will prevent syncing to a chain that contains it
+     help, h   Shows a list of commands or help for one command
+
+OPTIONS:
+   --help, -h     show help (default: false)
+   --version, -v  print the version (default: false)
+</code></pre>
+<h1><a class="header" href="#message-pool" id="message-pool">Message Pool</a></h1>
+<ul>
+<li>
+<p>MpoolPending</p>
+<p><code>MpoolPending(context.Context, types.TipSetKey) ([]*types.SignedMessage, error)</code></p>
+</li>
+<li>
+<p>MpoolPush</p>
+<p><code>MpoolPush(context.Context, *types.SignedMessage) (cid.Cid, error)</code></p>
+</li>
+<li>
+<p>MpoolPushMessage</p>
+<p><code>MpoolPushMessage(context.Context, *types.Message) (*types.SignedMessage, error) // get nonce, sign, push</code></p>
+</li>
+<li>
+<p>MpoolGetNonce</p>
+<p><code>MpoolGetNonce(context.Context, address.Address) (uint64, error)</code></p>
+</li>
+<li>
+<p>MpoolSub</p>
+<p><code>MpoolSub(context.Context) (&lt;-chan MpoolUpdate, error)</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#cli-6" id="cli-6">CLI</a></h2>
+<pre><code>$ lotus mpool
+NAME:
+   lotus mpool - Manage message pool
+
+USAGE:
+   lotus mpool command [command options] [arguments...]
+
+COMMANDS:
+     pending  Get pending messages
+     sub      Subscibe to mpool changes
+     stat     print mempool stats
+     help, h  Shows a list of commands or help for one command
+
+OPTIONS:
+   --help, -h     show help (default: false)
+   --version, -v  print the version (default: false)
+</code></pre>
+<h1><a class="header" href="#miner" id="miner">Miner</a></h1>
+<ul>
+<li>
+<p>MinerGetBaseInfo</p>
+<p><code>MinerGetBaseInfo(context.Context, address.Address, types.TipSetKey) (*MiningBaseInfo, error)</code></p>
+</li>
+<li>
+<p>MinerCreateBlock</p>
+<p><code>MinerCreateBlock(context.Context, *BlockTemplate) (*types.BlockMsg, error)</code></p>
+</li>
+</ul>
+<h1><a class="header" href="#wallet" id="wallet">Wallet</a></h1>
+<ul>
+<li>
+<p>WalletNew</p>
+<p><code>WalletNew(context.Context, crypto.SigType) (address.Address, error)</code></p>
+</li>
+<li>
+<p>WalletHas</p>
+<p><code>WalletHas(context.Context, address.Address) (bool, error)</code></p>
+</li>
+<li>
+<p>WalletList</p>
+<p><code>WalletList(context.Context) ([]address.Address, error)</code></p>
+</li>
+<li>
+<p>WalletBalance</p>
+<p><code>WalletBalance(context.Context, address.Address) (types.BigInt, error)</code></p>
+</li>
+<li>
+<p>WalletSign</p>
+<p><code>WalletSign(context.Context, address.Address, []byte) (*crypto.Signature, error)</code></p>
+</li>
+<li>
+<p>WalletSignMessage</p>
+<p><code>WalletSignMessage(context.Context, address.Address, *types.Message) (*types.SignedMessage, error)</code></p>
+</li>
+<li>
+<p>WalletVerify</p>
+</li>
+</ul>
+<p><code>WalletVerify(context.Context, address.Address, []byte, *crypto.Signature) bool</code></p>
+<ul>
+<li>
+<p>WalletDefaultAddress</p>
+<p><code>WalletDefaultAddress(context.Context) (address.Address, error)</code></p>
+</li>
+<li>
+<p>WalletSetDefault</p>
+<p><code>WalletSetDefault(context.Context, address.Address) error</code></p>
+</li>
+<li>
+<p>WalletExport</p>
+<p><code>WalletExport(context.Context, address.Address) (*types.KeyInfo, error)</code></p>
+</li>
+<li>
+<p>WalletImport</p>
+<p><code>WalletImport(context.Context, *types.KeyInfo) (address.Address, error)</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#cli-7" id="cli-7">CLI</a></h2>
+<pre><code>$ lotus wallet
+NAME:
+   lotus wallet - Manage wallet
+
+USAGE:
+   lotus wallet command [command options] [arguments...]
+
+COMMANDS:
+     new          Generate a new key of the given type
+     list         List wallet address
+     balance      Get account balance
+     export       export keys
+     import       import keys
+     default      Get default wallet address
+     set-default  Set default wallet address
+     help, h      Shows a list of commands or help for one command
+
+OPTIONS:
+   --help, -h     show help (default: false)
+   --version, -v  print the version (default: false)
+</code></pre>
+<h1><a class="header" href="#client" id="client">Client</a></h1>
+<ul>
+<li>
+<p>ClientImport</p>
+<p>ClientImport imports file under the specified path into filestore</p>
+<p><code>ClientImport(ctx context.Context, ref FileRef) (cid.Cid, error)</code></p>
+</li>
+<li>
+<p>ClientStartDeal</p>
+<p>`ClientStartDeal(ctx context.Context, params *StartDealParams) (*cid.Cid, error)</p>
+</li>
+<li>
+<p>ClientGetDealInfo</p>
+<p><code>ClientGetDealInfo(context.Context, cid.Cid) (*DealInfo, error)</code></p>
+</li>
+<li>
+<p>ClientListDeals</p>
+<p><code>ClientListDeals(ctx context.Context) ([]DealInfo, error)</code></p>
+</li>
+<li>
+<p>ClientHasLocal</p>
+<p><code>ClientHasLocal(ctx context.Context, root cid.Cid) (bool, error)</code></p>
+</li>
+<li>
+<p>ClientFindData</p>
+<p><code>ClientFindData(ctx context.Context, root cid.Cid) ([]QueryOffer, error)</code></p>
+</li>
+<li>
+<p>ClientRetrieve</p>
+<p><code>ClientRetrieve(ctx context.Context, order RetrievalOrder, ref FileRef) error</code></p>
+</li>
+<li>
+<p>ClientQueryAsk</p>
+<p><code>ClientQueryAsk(ctx context.Context, p peer.ID, miner address.Address) (*storagemarket.SignedStorageAsk, error)</code></p>
+</li>
+<li>
+<p>ClientCalcCommP</p>
+<p><code>ClientCalcCommP(ctx context.Context, inpath string, miner address.Address) (*CommPRet, error)</code></p>
+</li>
+<li>
+<p>ClientGenCar</p>
+<p><code>ClientGenCar(ctx context.Context, ref FileRef, outpath string) error</code></p>
+</li>
+<li>
+<p>ClientListImports</p>
+<p><code>ClientListImports(ctx context.Context) ([]Import, error)</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#cli-8" id="cli-8">CLI</a></h2>
+<pre><code>$ lotus client
+NAME:
+   lotus client - Make deals, store data, retrieve data
+
+USAGE:
+   lotus client command [command options] [arguments...]
+
+COMMANDS:
+     import      Import data
+     local       List locally imported data
+     deal        Initialize storage deal with a miner
+     find        find data in the network
+     retrieve    retrieve data from network
+     query-ask   find a miners ask
+     list-deals  List storage market deals
+     help, h     Shows a list of commands or help for one command
+
+OPTIONS:
+   --help, -h     show help (default: false)
+   --version, -v  print the version (default: false)
+</code></pre>
+<h1><a class="header" href="#state" id="state">State</a></h1>
+<ul>
+<li>
+<p>StateCall</p>
+<p>if tipset is nil, we'll use heaviest</p>
+<p><code>StateCall(context.Context, *types.Message, types.TipSetKey) (*InvocResult, error)</code></p>
+</li>
+<li>
+<p>StateReplay</p>
+<p><code>StateReplay(context.Context, types.TipSetKey, cid.Cid) (*InvocResult, error)</code></p>
+</li>
+<li>
+<p>StateGetActor</p>
+<p><code>StateGetActor(ctx context.Context, actor address.Address, tsk types.TipSetKey) (*types.Actor, error)</code></p>
+</li>
+<li>
+<p>StateReadState</p>
+<p><code>StateReadState(ctx context.Context, act *types.Actor, tsk types.TipSetKey) (*ActorState, error)</code></p>
+</li>
+<li>
+<p>StateListMessages</p>
+<p><code>StateListMessages(ctx context.Context, match *types.Message, tsk types.TipSetKey, toht abi.ChainEpoch) ([]cid.Cid, error)</code></p>
+</li>
+<li>
+<p>StateNetworkName</p>
+</li>
+<li>
+<p><code>StateNetworkName(context.Context) (dtypes.NetworkName, error)</code></p>
+</li>
+<li>
+<p>StateMinerSectors</p>
+<p><code>StateMinerSectors(context.Context, address.Address, types.TipSetKey) ([]*ChainSectorInfo, error)</code></p>
+</li>
+<li>
+<p>StateMinerProvingSet</p>
+<p><code>StateMinerProvingSet(context.Context, address.Address, types.TipSetKey) ([]*ChainSectorInfo, error)</code></p>
+</li>
+<li>
+<p>StateMinerPower</p>
+<p><code>StateMinerPower(context.Context, address.Address, types.TipSetKey) (*MinerPower, error)</code></p>
+</li>
+<li>
+<p>StateMinerWorker</p>
+<p><code>StateMinerWorker(context.Context, address.Address, types.TipSetKey) (address.Address, error)</code></p>
+</li>
+<li>
+<p>StateMinerPeerID</p>
+<p><code>StateMinerPeerID(ctx context.Context, m address.Address, tsk types.TipSetKey) (peer.ID, error)</code></p>
+</li>
+<li>
+<p>StateMinerPostState</p>
+<p><code>StateMinerPostState(ctx context.Context, actor address.Address, tsk types.TipSetKey) (*miner.PoStState, error)</code></p>
+</li>
+<li>
+<p>StateMinerSectorSize</p>
+<p><code>StateMinerSectorSize(context.Context, address.Address, types.TipSetKey) (abi.SectorSize, error)</code></p>
+</li>
+<li>
+<p>StateMinerFaults</p>
+<p><code>StateMinerFaults(context.Context, address.Address, types.TipSetKey) ([]abi.SectorNumber, error)</code></p>
+</li>
+<li>
+<p>StateSectorPreCommitInfo</p>
+<p><code>StateSectorPreCommitInfo(context.Context, address.Address, abi.SectorNumber, types.TipSetKey) (miner.SectorPreCommitOnChainInfo, error)</code></p>
+</li>
+<li>
+<p>StatePledgeCollateral</p>
+<p><code>StatePledgeCollateral(context.Context, types.TipSetKey) (types.BigInt, error)</code></p>
+</li>
+<li>
+<p>StateWaitMsg</p>
+<p><code>StateWaitMsg(context.Context, cid.Cid) (*MsgLookup, error)</code></p>
+</li>
+<li>
+<p>StateSearchMsg</p>
+<p><code>StateSearchMsg(context.Context, cid.Cid) (*MsgLookup, error)</code></p>
+</li>
+<li>
+<p>StateListMiners</p>
+<p><code>StateListMiners(context.Context, types.TipSetKey) ([]address.Address, error)</code></p>
+</li>
+<li>
+<p>StateListActors</p>
+<p><code>StateListActors(context.Context, types.TipSetKey) ([]address.Address, error)</code></p>
+</li>
+<li>
+<p>StateMarketBalance</p>
+<p><code>StateMarketBalance(context.Context, address.Address, types.TipSetKey) (MarketBalance, error)</code></p>
+</li>
+<li>
+<p>StateMarketParticipants</p>
+<p><code>StateMarketParticipants(context.Context, types.TipSetKey) (map[string]MarketBalance, error)</code></p>
+</li>
+<li>
+<p>StateMarketDeals</p>
+<p><code>StateMarketDeals(context.Context, types.TipSetKey) (map[string]MarketDeal, error)</code></p>
+</li>
+<li>
+<p>StateMarketStorageDeal</p>
+<p><code>StateMarketStorageDeal(context.Context, abi.DealID, types.TipSetKey) (*MarketDeal, error)</code></p>
+</li>
+<li>
+<p>StateLookupID</p>
+<p><code>StateLookupID(context.Context, address.Address, types.TipSetKey) (address.Address, error)</code></p>
+</li>
+<li>
+<p>StateChangedActors</p>
+<p><code>StateChangedActors(context.Context, cid.Cid, cid.Cid) (map[string]types.Actor, error)</code></p>
+</li>
+<li>
+<p>StateGetReceipt</p>
+<p><code>StateGetReceipt(context.Context, cid.Cid, types.TipSetKey) (*types.MessageReceipt, error)</code></p>
+</li>
+<li>
+<p>StateMinerSectorCount</p>
+<p><code>StateMinerSectorCount(context.Context, address.Address, types.TipSetKey) (MinerSectors, error)</code></p>
+</li>
+<li>
+<p>StateListRewards</p>
+<p><code>StateListRewards(context.Context, address.Address, types.TipSetKey) ([]reward.Reward, error)</code></p>
+</li>
+<li>
+<p>StateCompute</p>
+<p><code>StateCompute(context.Context, abi.ChainEpoch, []*types.Message, types.TipSetKey) (*ComputeStateOutput, error)</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#cli-9" id="cli-9">CLI</a></h2>
+<pre><code>$ lotus state
+NAME:
+   lotus state - Interact with and query filecoin chain state
+
+USAGE:
+   lotus state command [command options] [arguments...]
+
+COMMANDS:
+     power              Query network or miner power
+     sectors            Query the sector set of a miner
+     proving            Query the proving set of a miner
+     pledge-collateral  Get minimum miner pledge collateral
+     list-actors        list all actors in the network
+     list-miners        list all miners in the network
+     get-actor          Print actor information
+     lookup             Find corresponding ID address
+     replay             Replay a particular message within a tipset
+     sector-size        Look up miners sector size
+     read-state         View a json representation of an actors state
+     list-messages      list messages on chain matching given criteria
+     compute-state      Perform state computations
+     call               Invoke a method on an actor locally
+     help, h            Shows a list of commands or help for one command
+
+OPTIONS:
+   --tipset value  specify tipset to call method on (pass comma separated array of cids)
+   --help, -h      show help (default: false)
+   --version, -v   print the version (default: false)
+</code></pre>
+<h1><a class="header" href="#multisig" id="multisig">Multisig</a></h1>
+<ul>
+<li>
+<p>MsigGetAvailableBalance</p>
+<p><code>MsigGetAvailableBalance(context.Context, address.Address, types.TipSetKey) (types.BigInt, error)</code></p>
+</li>
+</ul>
+<h1><a class="header" href="#market" id="market">Market</a></h1>
+<ul>
+<li>
+<p>MarketEnsureAvailable</p>
+<p><code>MarketEnsureAvailable(context.Context, address.Address, address.Address, types.BigInt) error</code></p>
+</li>
+</ul>
+<h1><a class="header" href="#payment-channels" id="payment-channels">Payment Channels</a></h1>
+<ul>
+<li>
+<p>PaychGet</p>
+<p><code>PaychGet(ctx context.Context, from, to address.Address, ensureFunds types.BigInt) (*ChannelInfo, error)</code></p>
+</li>
+<li>
+<p>PaychList</p>
+<p><code>PaychList(context.Context) ([]address.Address, error)</code></p>
+</li>
+<li>
+<p>PaychStatus</p>
+<p><code>PaychStatus(context.Context, address.Address) (*PaychStatus, error)</code></p>
+</li>
+<li>
+<p>PaychClose</p>
+<p><code>PaychClose(context.Context, address.Address) (cid.Cid, error)</code></p>
+</li>
+<li>
+<p>PaychAllocateLane</p>
+<p><code>PaychAllocateLane(ctx context.Context, ch address.Address) (uint64, error)</code></p>
+</li>
+<li>
+<p>PaychNewPayment</p>
+<p><code>PaychNewPayment(ctx context.Context, from, to address.Address, vouchers []VoucherSpec) (*PaymentInfo, error)</code></p>
+</li>
+<li>
+<p>PaychVoucherCheckValid</p>
+<p><code>PaychVoucherCheckValid(context.Context, address.Address, *types.SignedVoucher) error</code></p>
+</li>
+<li>
+<p>PaychVoucherCheckSpendable</p>
+<p><code>PaychVoucherCheckSpendable(context.Context, address.Address, *types.SignedVoucher, []byte, []byte) (bool, error)</code></p>
+</li>
+<li>
+<p>PaychVoucherCreate</p>
+<p><code>PaychVoucherCreate(context.Context, address.Address, types.BigInt, uint64) (*paych.SignedVoucher, error)</code></p>
+</li>
+<li>
+<p>PaychVoucherAdd</p>
+<p><code>PaychVoucherAdd(context.Context, address.Address, *paych.SignedVoucher, []byte, types.BigInt) (types.BigInt, error)</code></p>
+</li>
+<li>
+<p>PaychVoucherList</p>
+<p><code>PaychVoucherList(context.Context, address.Address) ([]*paych.SignedVoucher, error)</code></p>
+</li>
+<li>
+<p>PaychVoucherSubmit</p>
+<p><code>PaychVoucherSubmit(context.Context, address.Address, *paych.SignedVoucher) (cid.Cid, error)</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#cli-10" id="cli-10">CLI</a></h2>
+<pre><code>$ lotus paych
+NAME:
+   lotus paych - Manage payment channels
+
+USAGE:
+   lotus paych command [command options] [arguments...]
+
+COMMANDS:
+     get      Create a new payment channel or get existing one
+     list     List all locally registered payment channels
+     voucher  Interact with payment channel vouchers
+     help, h  Shows a list of commands or help for one command
+
+OPTIONS:
+   --help, -h     show help (default: false)
+   --version, -v  print the version (default: false)
+</code></pre>
+<pre><code>$ lotus send # Send funds between accounts
+# 'send' expects two arguments, target and amount
+</code></pre>
+<h1><a class="header" href="#storage-miner" id="storage-miner">Storage Miner</a></h1>
+<ul>
+<li><a href="https://github.com/filecoin-project/lotus/blob/master/api/api_storage.go">https://github.com/filecoin-project/lotus/blob/master/api/api_storage.go</a></li>
+</ul>
+<p>(includes common API from above)</p>
+<h1><a class="header" href="#actor" id="actor">Actor</a></h1>
+<ul>
+<li>
+<p>ActorAddress</p>
+<p><code>ActorAddress(context.Context) (address.Address, error)</code></p>
+</li>
+<li>
+<p>ActorSectorSize</p>
+<p><code>ActorSectorSize(context.Context, address.Address) (abi.SectorSize, error)</code></p>
+</li>
+</ul>
+<h1><a class="header" href="#sectors" id="sectors">Sectors</a></h1>
+<ul>
+<li>
+<p>PledgeSector</p>
+<p>Temp api for testing</p>
+<p><code>PledgeSector(context.Context) error</code></p>
+</li>
+<li>
+<p>SectorsStatus</p>
+<p>Get the status of a given sector by ID</p>
+<p><code>SectorsStatus(context.Context, abi.SectorNumber) (SectorInfo, error)</code></p>
+</li>
+<li>
+<p>SectorsList</p>
+<p>List all staged sectors</p>
+<p><code>SectorsList(context.Context) ([]abi.SectorNumber, error)</code></p>
+</li>
+<li>
+<p>SectorsRefs</p>
+<p><code>SectorsRefs(context.Context) (map[string][]SealedRef, error)</code></p>
+</li>
+<li>
+<p>SectorsUpdate</p>
+<p><code>SectorsUpdate(context.Context, abi.SectorNumber, sealing.SectorState) error</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#cli-11" id="cli-11">CLI</a></h2>
+<pre><code>$ lotus-storage-miner 
+NAME:
+   lotus-storage-miner - Filecoin decentralized storage network storage miner
+
+USAGE:
+   lotus-storage-miner [global options] command [command options] [arguments...]
+
+VERSION:
+   0.2.5+git9fc5f0cd
+
+COMMANDS:
+     run            Start a lotus storage miner process
+     init           Initialize a lotus storage miner repo
+     info           Print storage miner info
+     pledge-sector  store random data in a sector
+     sectors        interact with sector store
+     auth           Manage RPC permissions
+     chain          Interact with filecoin blockchain
+     client         Make deals, store data, retrieve data
+     fetch-params   Fetch proving parameters
+     mpool          Manage message pool
+     msig           Interact with a multisig wallet
+     net            Manage P2P Network
+     paych          Manage payment channels
+     send           Send funds between accounts
+     state          Interact with and query filecoin chain state
+     sync           Inspect or interact with the chain syncer
+     version        Print version
+     wallet         Manage wallet
+     help, h        Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --storagerepo value  (default: &quot;~/.lotusstorage&quot;) [$LOTUS_STORAGE_PATH]
+   --help, -h           show help (default: false)
+   --version, -v        print the version (default: false)
+</code></pre>
+<pre><code>$ lotus-storage-miner sectors
+NAME:
+   lotus-storage-miner sectors - interact with sector store
+
+USAGE:
+   lotus-storage-miner sectors command [command options] [arguments...]
+
+COMMANDS:
+     status        Get the seal status of a sector by its ID
+     list          List sectors
+     refs          List References to sectors
+     update-state  ADVANCED: manually update the state of a sector, this may aid in error recovery
+     help, h       Shows a list of commands or help for one command
+
+OPTIONS:
+   --help, -h     show help (default: false)
+   --version, -v  print the version (default: false)
+</code></pre>
+<h1><a class="header" href="#storage" id="storage">Storage</a></h1>
+<ul>
+<li>
+<p>StorageList</p>
+<p><code>StorageList(ctx context.Context) (map[stores.ID][]stores.Decl, error)</code></p>
+</li>
+<li>
+<p>StorageLocal</p>
+<p><code>StorageLocal(ctx context.Context) (map[stores.ID]string, error)</code></p>
+</li>
+<li>
+<p>StorageStat</p>
+<p><code>StorageStat(ctx context.Context, id stores.ID) (stores.FsStat, error)</code></p>
+</li>
+<li>
+<p>StorageAddLocal</p>
+<p><code>StorageAddLocal(ctx context.Context, path string) error</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#sector-storage" id="sector-storage">sector-storage</a></h2>
+<p>See: <a href="https://github.com/filecoin-project/sector-storage/blob/master/stores/index.go">filecoin-project/sector-storage</a></p>
+<ul>
+<li>
+<p>StorageAttach</p>
+<p><code>StorageAttach(context.Context, StorageInfo, FsStat) error</code></p>
+</li>
+<li>
+<p>StorageInfo</p>
+<p><code>StorageInfo(context.Context, ID) (StorageInfo, error)</code></p>
+</li>
+<li>
+<p>StorageUpdateStats</p>
+<p><code>// TODO: StorageUpdateStats(FsStat)</code></p>
+</li>
+<li>
+<p>StorageDeclareSector</p>
+<p><code>StorageDeclareSector(ctx context.Context, storageId ID, s abi.SectorID, ft SectorFileType) error</code></p>
+</li>
+<li>
+<p>StorageDropSector</p>
+<p><code>StorageDropSector(ctx context.Context, storageId ID, s abi.SectorID, ft SectorFileType) error</code></p>
+</li>
+<li>
+<p>StorageFindSector</p>
+<p><code>StorageFindSector(ctx context.Context, sector abi.SectorID, ft SectorFileType, allowFetch bool) ([]StorageInfo, error)</code></p>
+</li>
+<li>
+<p>StorageBestAlloc</p>
+<p><code>StorageBestAlloc(ctx context.Context, allocate SectorFileType, sealing bool) ([]StorageInfo, error)</code></p>
+</li>
+</ul>
+<h1><a class="header" href="#worker" id="worker">Worker</a></h1>
+<ul>
+<li>
+<p>WorkerConnect</p>
+<p>WorkerConnect tells the node to connect to workers RPC</p>
+<p><code>WorkerConnect(context.Context, string) error</code></p>
+</li>
+<li>
+<p>WorkerStats</p>
+<p><code>WorkerStats(context.Context) (map[uint64]sectorstorage.WorkerStats, error)</code></p>
+</li>
+</ul>
+<h2><a class="header" href="#cli-12" id="cli-12">CLI</a></h2>
+<pre><code>$ lotus-storage-miner 
+NAME:
+   lotus-storage-miner - Filecoin decentralized storage network storage miner
+
+USAGE:
+   lotus-storage-miner [global options] command [command options] [arguments...]
+
+VERSION:
+   0.2.5+git9fc5f0cd
+
+COMMANDS:
+     run            Start a lotus storage miner process
+     init           Initialize a lotus storage miner repo
+     info           Print storage miner info
+     pledge-sector  store random data in a sector
+     sectors        interact with sector store
+     auth           Manage RPC permissions
+     chain          Interact with filecoin blockchain
+     client         Make deals, store data, retrieve data
+     fetch-params   Fetch proving parameters
+     mpool          Manage message pool
+     msig           Interact with a multisig wallet
+     net            Manage P2P Network
+     paych          Manage payment channels
+     send           Send funds between accounts
+     state          Interact with and query filecoin chain state
+     sync           Inspect or interact with the chain syncer
+     version        Print version
+     wallet         Manage wallet
+     help, h        Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --storagerepo value  (default: &quot;~/.lotusstorage&quot;) [$LOTUS_STORAGE_PATH]
+   --help, -h           show help (default: false)
+   --version, -v        print the version (default: false)
+</code></pre>
+<h1><a class="header" href="#market-1" id="market-1">Market</a></h1>
+<ul>
+<li>
+<p>MarketImportDealData</p>
+<p><code>MarketImportDealData(ctx context.Context, propcid cid.Cid, path string) error</code></p>
+</li>
+<li>
+<p>MarkerListDeals</p>
+<p><code>MarketListDeals(ctx context.Context) ([]storagemarket.StorageDeal, error)</code></p>
+</li>
+<li>
+<p>MarketListIncompleteDeals</p>
+<p><code>MarketListIncompleteDeals(ctx context.Context) ([]storagemarket.MinerDeal, error)</code></p>
+</li>
+<li>
+<p>MarketSetPrice</p>
+<p><code>MarketSetPrice(context.Context, types.BigInt) error</code></p>
+</li>
+</ul>
+<h1><a class="header" href="#deals" id="deals">Deals</a></h1>
+<ul>
+<li>
+<p>DealsImportData</p>
+<p><code>DealsImportData(ctx context.Context, dealPropCid cid.Cid, file string) error</code></p>
+</li>
+<li>
+<p>DealsList</p>
+<p><code>DealsList(ctx context.Context) ([]storagemarket.StorageDeal, error)</code></p>
+</li>
+</ul>
+<h1><a class="header" href="#worker-api" id="worker-api">Worker API</a></h1>
+<ul>
+<li>
+<p>Version</p>
+<p><code>Version(context.Context) (build.Version, error)</code></p>
+</li>
+<li>
+<p>TaskTypes</p>
+<p><code>TaskTypes(context.Context) (map[sealtasks.TaskType]struct{}, error)</code></p>
+</li>
+<li>
+<p>Paths</p>
+<p><code>Paths(context.Context) ([]stores.StoragePath, error)</code></p>
+</li>
+<li>
+<p>Info</p>
+<p><code>Info(context.Context) (sectorstorage.WorkerInfo, error)</code></p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

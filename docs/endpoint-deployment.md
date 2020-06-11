@@ -1,3 +1,0 @@
-# Endpoint Deployment
-
- A typical deployment will use a [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) server to serve the endpoint on the same origin as the web page, or to add [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) headers.  **TODO: Link to working NGINX and Caddy Server configurations.** Unlike HTTP, using [WebSockets](https://en.wikipedia.org/wiki/Same-origin_policy#WebSockets) shifts the security burden to the server side, so the same-origin policy does not apply. A secure deployment will still need to set up a reverse proxy to compare the header data against a whitelist of origins permitted to receive a reply. A typical production API gateway deployment will also implement TLS encryption (https/wss).
