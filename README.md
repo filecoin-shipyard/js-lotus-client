@@ -35,11 +35,9 @@ All of the **low-level** JSON-RPC methods will soon be wrapped for easy access f
 </html>
 ```
 
-[See it running here!](https://bafybeidafp4gkpy5hx6geh3wmbt5h5x4knyw3acjrbatr5xxphdjhmrpwq.ipfs.dweb.link/)
+[See it running here!](https://bafybeig57i2gkuoxp4yued7pbyo36rpuz7vuu2twfrdhxcscidg32kjpc4.ipfs.dweb.link/)
 
 The usage example above connects to a test "local net" running Lotus via a reverse proxy with SSL and CORS enabled, and loads the library as an "ES module" via the unpkg.com CDN.
-
-Here's the same example, but running [entirely off of IPFS](https://bafybeicwfcxfntlfdvikz3vnnlpapgmg5ogwfgqwpwui44z3yhkn4pvcqq.ipfs.dweb.link/) -- individual library dependencies have been bundled and published using [Snowpack](https://www.snowpack.dev/).
 
 Here are some more examples to get started:
 
@@ -52,8 +50,8 @@ Here are some more examples to get started:
 We also built a workshop for the [Ready Layer One](https://www.youtube.com/channel/UC-JxjKyX63VGkRM-8jziK8Q/videos) conference. We have been updating it since the conference and it contains code that shows how to store and retrieve files using a Lotus node (connected to our demo "local net").
 
   * YouTube: [Demo at IPFS Pinning Summit](https://www.youtube.com/watch?v=hCNr5Sj323k&list=PLuhRWgmPaHtTvsxuZ9T-tMlu_v0lja6v5)
-  * GitHub: [filecoin-shipyard/rl1-lotus-workshop](https://github.com/filecoin-shipyard/rl1-lotus-workshop)
-  * Glitch: [Try it here or remix it!](https://glitch.com/edit/#!/rl1-lotus-workshop)
+  * GitHub: [filecoin-shipyard/js-lotus-client-workshop](https://github.com/filecoin-shipyard/js-lotus-client-workshop)
+  * Glitch: [Try it here or remix it!](https://glitch.com/edit/#!/js-lotus-client-workshop)
 
 ## Documentation
 
