@@ -49,9 +49,13 @@ Here are some more examples to get started:
 
 We also built a workshop for the [Ready Layer One](https://www.youtube.com/channel/UC-JxjKyX63VGkRM-8jziK8Q/videos) conference. We have been updating it since the conference and it contains code that shows how to store and retrieve files using a Lotus node (connected to our demo "local net").
 
-  * YouTube: [Demo at IPFS Pinning Summit](https://www.youtube.com/watch?v=hCNr5Sj323k&list=PLuhRWgmPaHtTvsxuZ9T-tMlu_v0lja6v5)
   * GitHub: [filecoin-shipyard/js-lotus-client-workshop](https://github.com/filecoin-shipyard/js-lotus-client-workshop)
   * Glitch: [Try it here or remix it!](https://glitch.com/edit/#!/js-lotus-client-workshop)
+
+## Workshop Videos
+
+  * 2020.05.31: [30 minute Workshop](https://bafybeihm6irnryqsgrqbvhth7ghewrezokkpr4dajbai642mkhnk3ytpqy.ipfs.dweb.link/filecoin.mp4) from [Distributed Camp 2020](https://distributed.camp/projects/ipfs/)
+  * 2020.05.08: [5 minute Lightning Talk Demo](https://www.youtube.com/watch?v=hCNr5Sj323k&list=PLuhRWgmPaHtTvsxuZ9T-tMlu_v0lja6v5) from [IPFS Pinning Summit](https://ipfspinningsummit.com/)
 
 ## Documentation
 
