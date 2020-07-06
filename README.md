@@ -70,7 +70,7 @@ Let's try using it with JavaScript in a web page!
 </html>
 ```
 
-[See it running here!](https://bafybeig57i2gkuoxp4yued7pbyo36rpuz7vuu2twfrdhxcscidg32kjpc4.ipfs.dweb.link/)
+[See it running here!](https://bafybeihohzgi5fvbysfatkjvk4b5haussxiogyrml4p2gto2dn4cpziox4.ipfs.dweb.link/)
 
 ## From Node.js
 
