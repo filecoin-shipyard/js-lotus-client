@@ -18,7 +18,7 @@ Pluggable "Providers" let you select a module with the code you need to connect 
 
 * [@filecoin-shipyard/lotus-client-provider-browser](https://www.npmjs.com/package/@filecoin-shipyard/lotus-client-provider-browser) ([GitHub](https://github.com/filecoin-shipyard/js-lotus-client-provider-browser)) - lightweight provider for web browsers that communicates to Lotus using WebSockets or HTTP
 
-Coming soon: Node.js support using the [rpc-websockets](https://github.com/filecoin-shipyard/js-lotus-client/issues/21) npm package.
+* [@filecoin-shipyard/lotus-client-provider-nodejs](https://www.npmjs.com/package/@filecoin-shipyard/lotus-client-provider-nodejs) ([GitHub](https://github.com/filecoin-shipyard/js-lotus-client-provider-nodejs)) - provider for Node.js that communicates to Lotus using WebSockets or HTTP - it wraps the browser provider and includes `ws` and `node-fetch` for WebSocket and browser-compatible Fetch API support
 
 The interfaces that providers must implement are not yet defined, and will likely evolve over time.
 
