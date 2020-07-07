@@ -75,6 +75,7 @@ Let's try using it with JavaScript in a web page!
 It will look like this:
 
 ![Chain Head Demo](docs/images/chain-head.gif)
+
 (5x speed)
 
 ## From Node.js
