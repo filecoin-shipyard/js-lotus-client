@@ -72,6 +72,11 @@ Let's try using it with JavaScript in a web page!
 
 [See it running here!](https://bafybeihohzgi5fvbysfatkjvk4b5haussxiogyrml4p2gto2dn4cpziox4.ipfs.dweb.link/)
 
+It will look like this:
+
+![Chain Head Demo](docs/images/chain-head.gif)
+(5x speed)
+
 ## From Node.js
 
 Coming soon... ([gist with quick example](https://gist.github.com/jimpick/0b00bcd0a618238f3fe3ff89f9ac800c))
