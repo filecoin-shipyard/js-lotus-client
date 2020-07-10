@@ -80,6 +80,12 @@ It will look like this: (5x speed)
 
 Coming soon... ([gist with quick example](https://gist.github.com/jimpick/0b00bcd0a618238f3fe3ff89f9ac800c))
 
+## Full Tutorial
+
+Check out the tutorial on docs.filecoin.io:
+
+* [Filecoin Network Inspector Tutorial](https://docs.filecoin.io/build/examples/network-inspector/overview/)
+
 ## More examples
 
 Here are some more examples to get started:
@@ -102,15 +108,7 @@ We also built a workshop for the [Ready Layer One](https://www.youtube.com/chann
 
 ## Documentation
 
-The docs are under heavy development, and are only partially done so far. The source for the docs are in Markdown format in the `docs` directory
-in this repo.
-
-The current draft (generated using `mdbook`) has been published to IPFS here:
-
-* https://ipfs.io/ipfs/QmRRp9Y5i6d3Lkf4UbNvnhtaNqyaB4jnALuJ2vcHnVpphL/
-* **New!** Lotus now has the ability to generate docs. Here's a preview of the API docs for just the Node API: https://gist.github.com/jimpick/7c227fc9f8e7267634cf989dec8c0323
-
-The main documentation site for Lotus also has a [guide to the API](https://lotu.sh/en+api).
+* [Lotus JS Client Documentation](https://filecoin-shipyard.github.io/js-lotus-client/)
 
 ## Contributing
 

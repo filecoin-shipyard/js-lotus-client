@@ -15,6 +15,10 @@ Inputs:
 
 Response: `"0"`
 
+Examples:
+
+* [JS] [Filecoin Network Inspector](https://github.com/filecoin-shipyard/filecoin-network-inspector/blob/a94747f4967db2cde8bc563aa96675926d9c3193/src/redux/actions/lotus.js#L48) ([Tutorial on docs.filecoin.io](https://docs.filecoin.io/build/examples/network-inspector/overview/))
+
 ## WalletDefaultAddress
 WalletDefaultAddress returns the address marked as default in the wallet.
 

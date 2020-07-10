@@ -336,6 +336,10 @@ Response:
 }
 ```
 
+Examples:
+
+* [JS] [ObservableHQ: Lotus JS Client - Testnet - Miner Power](https://observablehq.com/@jimpick/lotus-js-client-testnet?collection=@jimpick/lotus-js-client)
+
 ## ChainHasObj
 ChainHasObj checks if a given CID exists in the chain blockstore.
 
