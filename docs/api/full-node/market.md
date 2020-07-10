@@ -1,6 +1,24 @@
 # Market
 
-* MarketEnsureAvailable
+## MarketEnsureAvailable
+MarketFreeBalance
 
-  `MarketEnsureAvailable(context.Context, address.Address, address.Address, types.BigInt) error`
+
+Perms: sign
+
+Inputs:
+```json
+[
+  "t01234",
+  "t01234",
+  "0"
+]
+```
+
+Response:
+```json
+{
+  "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+}
+```
 

@@ -4,9 +4,32 @@
 
    `AuthVerify(ctx context.Context, token string) ([]Permission, error)`
 
+Perms: read
+
+Inputs:
+```json
+[
+  "string value"
+]
+```
+
+Response: `null`
+
+
 * AuthNew
 
    `AuthNew(ctx context.Context, perms []Permission) ([]byte, error)`
+
+Perms: admin
+
+Inputs:
+```json
+[
+  null
+]
+```
+
+Response: `"Ynl0ZSBhcnJheQ=="`
 
 
 ## CLI

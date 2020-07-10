@@ -1,42 +1,181 @@
 # Message Pool
 
-* MpoolPending
+The Mpool methods are for interacting with the message pool. The message pool
+manages all incoming and outgoing 'messages' going over the network.
 
-  `MpoolPending(context.Context, types.TipSetKey) ([]*types.SignedMessage, error)`
 
-* MpoolPush
+## MpoolEstimateGasPrice
+MpoolEstimateGasPrice estimates what gas price should be used for a
+message to have high likelihood of inclusion in `nblocksincl` epochs.
 
-  `MpoolPush(context.Context, *types.SignedMessage) (cid.Cid, error)`
 
-* MpoolPushMessage
+Perms: read
 
-  `MpoolPushMessage(context.Context, *types.Message) (*types.SignedMessage, error) // get nonce, sign, push`
-
-* MpoolGetNonce
-
-  `MpoolGetNonce(context.Context, address.Address) (uint64, error)`
-
-* MpoolSub
-
-  `MpoolSub(context.Context) (<-chan MpoolUpdate, error)`
-
-## CLI
-
+Inputs:
+```json
+[
+  42,
+  "t01234",
+  9,
+  [
+    {
+      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+    },
+    {
+      "/": "bafy2bzacebp3shtrn43k7g3unredz7fxn4gj533d3o43tqn2p2ipxxhrvchve"
+    }
+  ]
+]
 ```
-$ lotus mpool
-NAME:
-   lotus mpool - Manage message pool
 
-USAGE:
-   lotus mpool command [command options] [arguments...]
+Response: `"0"`
 
-COMMANDS:
-     pending  Get pending messages
-     sub      Subscibe to mpool changes
-     stat     print mempool stats
-     help, h  Shows a list of commands or help for one command
+## MpoolGetNonce
+MpoolGetNonce gets next nonce for the specified sender.
+Note that this method may not be atomic. Use MpoolPushMessage instead.
 
-OPTIONS:
-   --help, -h     show help (default: false)
-   --version, -v  print the version (default: false)
+
+Perms: read
+
+Inputs:
+```json
+[
+  "t01234"
+]
+```
+
+Response: `42`
+
+## MpoolPending
+MpoolPending returns pending mempool messages.
+
+
+Perms: read
+
+Inputs:
+```json
+[
+  [
+    {
+      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+    },
+    {
+      "/": "bafy2bzacebp3shtrn43k7g3unredz7fxn4gj533d3o43tqn2p2ipxxhrvchve"
+    }
+  ]
+]
+```
+
+Response: `null`
+
+## MpoolPush
+MpoolPush pushes a signed message to mempool.
+
+
+Perms: write
+
+Inputs:
+```json
+[
+  {
+    "Message": {
+      "Version": 9,
+      "To": "t01234",
+      "From": "t01234",
+      "Nonce": 42,
+      "Value": "0",
+      "GasPrice": "0",
+      "GasLimit": 9,
+      "Method": 1,
+      "Params": "Ynl0ZSBhcnJheQ=="
+    },
+    "Signature": {
+      "Type": 2,
+      "Data": "Ynl0ZSBhcnJheQ=="
+    }
+  }
+]
+```
+
+Response:
+```json
+{
+  "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+}
+```
+
+## MpoolPushMessage
+MpoolPushMessage atomically assigns a nonce, signs, and pushes a message
+to mempool.
+
+
+Perms: sign
+
+Inputs:
+```json
+[
+  {
+    "Version": 9,
+    "To": "t01234",
+    "From": "t01234",
+    "Nonce": 42,
+    "Value": "0",
+    "GasPrice": "0",
+    "GasLimit": 9,
+    "Method": 1,
+    "Params": "Ynl0ZSBhcnJheQ=="
+  }
+]
+```
+
+Response:
+```json
+{
+  "Message": {
+    "Version": 9,
+    "To": "t01234",
+    "From": "t01234",
+    "Nonce": 42,
+    "Value": "0",
+    "GasPrice": "0",
+    "GasLimit": 9,
+    "Method": 1,
+    "Params": "Ynl0ZSBhcnJheQ=="
+  },
+  "Signature": {
+    "Type": 2,
+    "Data": "Ynl0ZSBhcnJheQ=="
+  }
+}
+```
+
+## MpoolSub
+There are not yet any comments for this method.
+
+Perms: read
+
+Inputs: `null`
+
+Response:
+```json
+{
+  "Type": 0,
+  "Message": {
+    "Message": {
+      "Version": 9,
+      "To": "t01234",
+      "From": "t01234",
+      "Nonce": 42,
+      "Value": "0",
+      "GasPrice": "0",
+      "GasLimit": 9,
+      "Method": 1,
+      "Params": "Ynl0ZSBhcnJheQ=="
+    },
+    "Signature": {
+      "Type": 2,
+      "Data": "Ynl0ZSBhcnJheQ=="
+    }
+  }
+}
 ```

@@ -1,70 +1,223 @@
 # Wallet
 
-* WalletNew
+## WalletBalance
+WalletBalance returns the balance of the given address at the current head of the chain.
 
-  `WalletNew(context.Context, crypto.SigType) (address.Address, error)`
 
-* WalletHas
+Perms: read
 
-  `WalletHas(context.Context, address.Address) (bool, error)`
-
-* WalletList
-
-  `WalletList(context.Context) ([]address.Address, error)`
-
-* WalletBalance
-
-  `WalletBalance(context.Context, address.Address) (types.BigInt, error)`
-
-* WalletSign
-
-  `WalletSign(context.Context, address.Address, []byte) (*crypto.Signature, error)`
-
-* WalletSignMessage
-
-  `WalletSignMessage(context.Context, address.Address, *types.Message) (*types.SignedMessage, error)`
-
-* WalletVerify
- 
-  `WalletVerify(context.Context, address.Address, []byte, *crypto.Signature) bool`
-
-* WalletDefaultAddress
-
-  `WalletDefaultAddress(context.Context) (address.Address, error)`
-
-* WalletSetDefault
-
-  `WalletSetDefault(context.Context, address.Address) error`
-
-* WalletExport
-
-  `WalletExport(context.Context, address.Address) (*types.KeyInfo, error)`
-
-* WalletImport
-
-  `WalletImport(context.Context, *types.KeyInfo) (address.Address, error)`
-
-## CLI
-
+Inputs:
+```json
+[
+  "t01234"
+]
 ```
-$ lotus wallet
-NAME:
-   lotus wallet - Manage wallet
 
-USAGE:
-   lotus wallet command [command options] [arguments...]
+Response: `"0"`
 
-COMMANDS:
-     new          Generate a new key of the given type
-     list         List wallet address
-     balance      Get account balance
-     export       export keys
-     import       import keys
-     default      Get default wallet address
-     set-default  Set default wallet address
-     help, h      Shows a list of commands or help for one command
+## WalletDefaultAddress
+WalletDefaultAddress returns the address marked as default in the wallet.
 
-OPTIONS:
-   --help, -h     show help (default: false)
-   --version, -v  print the version (default: false)
+
+Perms: write
+
+Inputs: `null`
+
+Response: `"t01234"`
+
+## WalletDelete
+WalletDelete deletes an address from the wallet.
+
+
+Perms: write
+
+Inputs:
+```json
+[
+  "t01234"
+]
 ```
+
+Response: `{}`
+
+## WalletExport
+WalletExport returns the private key of an address in the wallet.
+
+
+Perms: admin
+
+Inputs:
+```json
+[
+  "t01234"
+]
+```
+
+Response:
+```json
+{
+  "Type": "string value",
+  "PrivateKey": "Ynl0ZSBhcnJheQ=="
+}
+```
+
+## WalletHas
+WalletHas indicates whether the given address is in the wallet.
+
+
+Perms: write
+
+Inputs:
+```json
+[
+  "t01234"
+]
+```
+
+Response: `true`
+
+## WalletImport
+WalletImport receives a KeyInfo, which includes a private key, and imports it into the wallet.
+
+
+Perms: admin
+
+Inputs:
+```json
+[
+  {
+    "Type": "string value",
+    "PrivateKey": "Ynl0ZSBhcnJheQ=="
+  }
+]
+```
+
+Response: `"t01234"`
+
+## WalletList
+WalletHas indicates whether the given address is in the wallet.
+
+
+Perms: write
+
+Inputs: `null`
+
+Response: `null`
+
+## WalletNew
+WalletNew creates a new address in the wallet with the given sigType.
+
+
+Perms: write
+
+Inputs:
+```json
+[
+  2
+]
+```
+
+Response: `"t01234"`
+
+## WalletSetDefault
+WalletSetDefault marks the given address as as the default one.
+
+
+Perms: admin
+
+Inputs:
+```json
+[
+  "t01234"
+]
+```
+
+Response: `{}`
+
+## WalletSign
+WalletSign signs the given bytes using the given address.
+
+
+Perms: sign
+
+Inputs:
+```json
+[
+  "t01234",
+  "Ynl0ZSBhcnJheQ=="
+]
+```
+
+Response:
+```json
+{
+  "Type": 2,
+  "Data": "Ynl0ZSBhcnJheQ=="
+}
+```
+
+## WalletSignMessage
+WalletSignMessage signs the given message using the given address.
+
+
+Perms: sign
+
+Inputs:
+```json
+[
+  "t01234",
+  {
+    "Version": 9,
+    "To": "t01234",
+    "From": "t01234",
+    "Nonce": 42,
+    "Value": "0",
+    "GasPrice": "0",
+    "GasLimit": 9,
+    "Method": 1,
+    "Params": "Ynl0ZSBhcnJheQ=="
+  }
+]
+```
+
+Response:
+```json
+{
+  "Message": {
+    "Version": 9,
+    "To": "t01234",
+    "From": "t01234",
+    "Nonce": 42,
+    "Value": "0",
+    "GasPrice": "0",
+    "GasLimit": 9,
+    "Method": 1,
+    "Params": "Ynl0ZSBhcnJheQ=="
+  },
+  "Signature": {
+    "Type": 2,
+    "Data": "Ynl0ZSBhcnJheQ=="
+  }
+}
+```
+
+## WalletVerify
+WalletVerify takes an address, a signature, and some bytes, and indicates whether the signature is valid.
+The address does not have to be in the wallet.
+
+
+Perms: read
+
+Inputs:
+```json
+[
+  "t01234",
+  "Ynl0ZSBhcnJheQ==",
+  {
+    "Type": 2,
+    "Data": "Ynl0ZSBhcnJheQ=="
+  }
+]
+```
+
+Response: `true`

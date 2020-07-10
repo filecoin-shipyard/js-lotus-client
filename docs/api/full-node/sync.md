@@ -1,42 +1,156 @@
 # Sync
 
-* SyncState
+The Sync method group contains methods for interacting with and
+observing the lotus sync service.
 
-  `SyncState(context.Context) (*SyncState, error)`
 
-* SyncSubmitBlock
+## SyncCheckBad
+SyncCheckBad checks if a block was marked as bad, and if it was, returns
+the reason.
 
-  `SyncSubmitBlock(ctx context.Context, blk *types.BlockMsg) error`
 
-* SyncIncomingBlocks
+Perms: read
 
-  `SyncIncomingBlocks(ctx context.Context) (<-chan *types.BlockHeader, error)`
-
-* SyncMarkBad
-
-  `SyncMarkBad(ctx context.Context, bcid cid.Cid) error`
-
-* SyncCheckBad
-
-  `SyncCheckBad(ctx context.Context, bcid cid.Cid) (string, error)`
-
-## CLI
-
+Inputs:
+```json
+[
+  {
+    "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+  }
+]
 ```
-$ lotus sync
-NAME:
-   lotus sync - Inspect or interact with the chain syncer
 
-USAGE:
-   lotus sync command [command options] [arguments...]
+Response: `"string value"`
 
-COMMANDS:
-     status    check sync status
-     wait      Wait for sync to be complete
-     mark-bad  Mark the given block as bad, will prevent syncing to a chain that contains it
-     help, h   Shows a list of commands or help for one command
+## SyncIncomingBlocks
+SyncIncomingBlocks returns a channel streaming incoming, potentially not
+yet synced block headers.
 
-OPTIONS:
-   --help, -h     show help (default: false)
-   --version, -v  print the version (default: false)
+
+Perms: read
+
+Inputs: `null`
+
+Response:
+```json
+{
+  "Miner": "t01234",
+  "Ticket": {
+    "VRFProof": "Ynl0ZSBhcnJheQ=="
+  },
+  "ElectionProof": {
+    "WinCount": 9,
+    "VRFProof": "Ynl0ZSBhcnJheQ=="
+  },
+  "BeaconEntries": null,
+  "WinPoStProof": null,
+  "Parents": null,
+  "ParentWeight": "0",
+  "Height": 10101,
+  "ParentStateRoot": {
+    "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+  },
+  "ParentMessageReceipts": {
+    "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+  },
+  "Messages": {
+    "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+  },
+  "BLSAggregate": {
+    "Type": 2,
+    "Data": "Ynl0ZSBhcnJheQ=="
+  },
+  "Timestamp": 42,
+  "BlockSig": {
+    "Type": 2,
+    "Data": "Ynl0ZSBhcnJheQ=="
+  },
+  "ForkSignaling": 42
+}
 ```
+
+## SyncMarkBad
+SyncMarkBad marks a blocks as bad, meaning that it won't ever by synced.
+Use with extreme caution.
+
+
+Perms: admin
+
+Inputs:
+```json
+[
+  {
+    "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+  }
+]
+```
+
+Response: `{}`
+
+## SyncState
+SyncState returns the current status of the lotus sync system.
+
+
+Perms: read
+
+Inputs: `null`
+
+Response:
+```json
+{
+  "ActiveSyncs": null
+}
+```
+
+## SyncSubmitBlock
+SyncSubmitBlock can be used to submit a newly created block to the.
+network through this node
+
+
+Perms: write
+
+Inputs:
+```json
+[
+  {
+    "Header": {
+      "Miner": "t01234",
+      "Ticket": {
+        "VRFProof": "Ynl0ZSBhcnJheQ=="
+      },
+      "ElectionProof": {
+        "WinCount": 9,
+        "VRFProof": "Ynl0ZSBhcnJheQ=="
+      },
+      "BeaconEntries": null,
+      "WinPoStProof": null,
+      "Parents": null,
+      "ParentWeight": "0",
+      "Height": 10101,
+      "ParentStateRoot": {
+        "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+      },
+      "ParentMessageReceipts": {
+        "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+      },
+      "Messages": {
+        "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+      },
+      "BLSAggregate": {
+        "Type": 2,
+        "Data": "Ynl0ZSBhcnJheQ=="
+      },
+      "Timestamp": 42,
+      "BlockSig": {
+        "Type": 2,
+        "Data": "Ynl0ZSBhcnJheQ=="
+      },
+      "ForkSignaling": 42
+    },
+    "BlsMessages": null,
+    "SecpkMessages": null
+  }
+]
+```
+
+Response: `{}`

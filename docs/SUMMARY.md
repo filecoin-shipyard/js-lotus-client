@@ -14,6 +14,7 @@
     - [ID](./api/common/id.md)
     - [Version](./api/common/version.md)
     - [Log](./api/common/log.md)
+    - [Node Lifecycle](./api/common/node-lifecycle.md)
   - [Full Node](./api/full-node/index.md)
     - [Chain](./api/full-node/chain.md)
     - [Sync](./api/full-node/sync.md)

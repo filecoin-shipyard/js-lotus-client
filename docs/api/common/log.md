@@ -1,9 +1,26 @@
 # Log
 
-* LogList
+## LogList
 
-  `LogList(context.Context) ([]string, error)`
 
-* LogSetLevel
+Perms: write
 
-  `LogSetLevel(context.Context, string, string) error`
+Inputs: `null`
+
+Response: `null`
+
+## LogSetLevel
+
+
+Perms: write
+
+Inputs:
+```json
+[
+  "string value",
+  "string value"
+]
+```
+
+Response: `{}`
+

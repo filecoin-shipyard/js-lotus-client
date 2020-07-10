@@ -1,75 +1,306 @@
 # Payment Channels
 
-* PaychGet
+The Paych methods are for interacting with and managing payment channels
 
-  `PaychGet(ctx context.Context, from, to address.Address, ensureFunds types.BigInt) (*ChannelInfo, error)`
 
-* PaychList
+## PaychAllocateLane
+There are not yet any comments for this method.
 
-  `PaychList(context.Context) ([]address.Address, error)`
+Perms: sign
 
-* PaychStatus
-
-  `PaychStatus(context.Context, address.Address) (*PaychStatus, error)`
-
-* PaychClose
-
-  `PaychClose(context.Context, address.Address) (cid.Cid, error)`
-
-* PaychAllocateLane
-
-  `PaychAllocateLane(ctx context.Context, ch address.Address) (uint64, error)`
-
-* PaychNewPayment
-
-  `PaychNewPayment(ctx context.Context, from, to address.Address, vouchers []VoucherSpec) (*PaymentInfo, error)`
-
-* PaychVoucherCheckValid
-
-  `PaychVoucherCheckValid(context.Context, address.Address, *types.SignedVoucher) error`
-
-* PaychVoucherCheckSpendable
-
-  `PaychVoucherCheckSpendable(context.Context, address.Address, *types.SignedVoucher, []byte, []byte) (bool, error)`
-
-* PaychVoucherCreate
-
-  `PaychVoucherCreate(context.Context, address.Address, types.BigInt, uint64) (*paych.SignedVoucher, error)`
-
-* PaychVoucherAdd
-
-  `PaychVoucherAdd(context.Context, address.Address, *paych.SignedVoucher, []byte, types.BigInt) (types.BigInt, error)`
-
-* PaychVoucherList
-
-  `PaychVoucherList(context.Context, address.Address) ([]*paych.SignedVoucher, error)`
-
-* PaychVoucherSubmit
-
-  `PaychVoucherSubmit(context.Context, address.Address, *paych.SignedVoucher) (cid.Cid, error)`
-
-## CLI
-
-```
-$ lotus paych
-NAME:
-   lotus paych - Manage payment channels
-
-USAGE:
-   lotus paych command [command options] [arguments...]
-
-COMMANDS:
-     get      Create a new payment channel or get existing one
-     list     List all locally registered payment channels
-     voucher  Interact with payment channel vouchers
-     help, h  Shows a list of commands or help for one command
-
-OPTIONS:
-   --help, -h     show help (default: false)
-   --version, -v  print the version (default: false)
+Inputs:
+```json
+[
+  "t01234"
+]
 ```
 
+Response: `42`
+
+## PaychClose
+There are not yet any comments for this method.
+
+Perms: sign
+
+Inputs:
+```json
+[
+  "t01234"
+]
 ```
-$ lotus send # Send funds between accounts
-# 'send' expects two arguments, target and amount
+
+Response:
+```json
+{
+  "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+}
 ```
+
+## PaychGet
+There are not yet any comments for this method.
+
+Perms: sign
+
+Inputs:
+```json
+[
+  "t01234",
+  "t01234",
+  "0"
+]
+```
+
+Response:
+```json
+{
+  "Channel": "t01234",
+  "ChannelMessage": {
+    "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+  }
+}
+```
+
+## PaychList
+There are not yet any comments for this method.
+
+Perms: read
+
+Inputs: `null`
+
+Response: `null`
+
+## PaychNewPayment
+There are not yet any comments for this method.
+
+Perms: sign
+
+Inputs:
+```json
+[
+  "t01234",
+  "t01234",
+  null
+]
+```
+
+Response:
+```json
+{
+  "Channel": "t01234",
+  "ChannelMessage": null,
+  "Vouchers": null
+}
+```
+
+## PaychStatus
+There are not yet any comments for this method.
+
+Perms: read
+
+Inputs:
+```json
+[
+  "t01234"
+]
+```
+
+Response:
+```json
+{
+  "ControlAddr": "t01234",
+  "Direction": 1
+}
+```
+
+## PaychVoucherAdd
+There are not yet any comments for this method.
+
+Perms: write
+
+Inputs:
+```json
+[
+  "t01234",
+  {
+    "TimeLockMin": 10101,
+    "TimeLockMax": 10101,
+    "SecretPreimage": "Ynl0ZSBhcnJheQ==",
+    "Extra": {
+      "Actor": "t01234",
+      "Method": 1,
+      "Data": "Ynl0ZSBhcnJheQ=="
+    },
+    "Lane": 42,
+    "Nonce": 42,
+    "Amount": "0",
+    "MinSettleHeight": 10101,
+    "Merges": null,
+    "Signature": {
+      "Type": 2,
+      "Data": "Ynl0ZSBhcnJheQ=="
+    }
+  },
+  "Ynl0ZSBhcnJheQ==",
+  "0"
+]
+```
+
+Response: `"0"`
+
+## PaychVoucherCheckSpendable
+There are not yet any comments for this method.
+
+Perms: read
+
+Inputs:
+```json
+[
+  "t01234",
+  {
+    "TimeLockMin": 10101,
+    "TimeLockMax": 10101,
+    "SecretPreimage": "Ynl0ZSBhcnJheQ==",
+    "Extra": {
+      "Actor": "t01234",
+      "Method": 1,
+      "Data": "Ynl0ZSBhcnJheQ=="
+    },
+    "Lane": 42,
+    "Nonce": 42,
+    "Amount": "0",
+    "MinSettleHeight": 10101,
+    "Merges": null,
+    "Signature": {
+      "Type": 2,
+      "Data": "Ynl0ZSBhcnJheQ=="
+    }
+  },
+  "Ynl0ZSBhcnJheQ==",
+  "Ynl0ZSBhcnJheQ=="
+]
+```
+
+Response: `true`
+
+## PaychVoucherCheckValid
+There are not yet any comments for this method.
+
+Perms: read
+
+Inputs:
+```json
+[
+  "t01234",
+  {
+    "TimeLockMin": 10101,
+    "TimeLockMax": 10101,
+    "SecretPreimage": "Ynl0ZSBhcnJheQ==",
+    "Extra": {
+      "Actor": "t01234",
+      "Method": 1,
+      "Data": "Ynl0ZSBhcnJheQ=="
+    },
+    "Lane": 42,
+    "Nonce": 42,
+    "Amount": "0",
+    "MinSettleHeight": 10101,
+    "Merges": null,
+    "Signature": {
+      "Type": 2,
+      "Data": "Ynl0ZSBhcnJheQ=="
+    }
+  }
+]
+```
+
+Response: `{}`
+
+## PaychVoucherCreate
+There are not yet any comments for this method.
+
+Perms: sign
+
+Inputs:
+```json
+[
+  "t01234",
+  "0",
+  42
+]
+```
+
+Response:
+```json
+{
+  "TimeLockMin": 10101,
+  "TimeLockMax": 10101,
+  "SecretPreimage": "Ynl0ZSBhcnJheQ==",
+  "Extra": {
+    "Actor": "t01234",
+    "Method": 1,
+    "Data": "Ynl0ZSBhcnJheQ=="
+  },
+  "Lane": 42,
+  "Nonce": 42,
+  "Amount": "0",
+  "MinSettleHeight": 10101,
+  "Merges": null,
+  "Signature": {
+    "Type": 2,
+    "Data": "Ynl0ZSBhcnJheQ=="
+  }
+}
+```
+
+## PaychVoucherList
+There are not yet any comments for this method.
+
+Perms: write
+
+Inputs:
+```json
+[
+  "t01234"
+]
+```
+
+Response: `null`
+
+## PaychVoucherSubmit
+There are not yet any comments for this method.
+
+Perms: sign
+
+Inputs:
+```json
+[
+  "t01234",
+  {
+    "TimeLockMin": 10101,
+    "TimeLockMax": 10101,
+    "SecretPreimage": "Ynl0ZSBhcnJheQ==",
+    "Extra": {
+      "Actor": "t01234",
+      "Method": 1,
+      "Data": "Ynl0ZSBhcnJheQ=="
+    },
+    "Lane": 42,
+    "Nonce": 42,
+    "Amount": "0",
+    "MinSettleHeight": 10101,
+    "Merges": null,
+    "Signature": {
+      "Type": 2,
+      "Data": "Ynl0ZSBhcnJheQ=="
+    }
+  }
+]
+```
+
+Response:
+```json
+{
+  "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+}
+```
+
