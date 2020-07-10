@@ -13,5 +13,3 @@ For these reasons, and also with an eye towards encouraging a healthy ecosystem 
 We decided against developing a single monolithic library as it might get too large for lightweight use cases (eg. mobile web) and it would likely have a higher barrier for accepting individual contributions.
 
 In the future, we may develop some convenience libraries that will bundle together multiple smaller libraries that are optimized for specific use cases. In the beginning, though, we will focus on modularity.
-
-For more information on other libraries and languages, and for basic information on how to build applications for Filecoin, check out the ["Build" documentation on docs.filecoin.io](https://docs.filecoin.io/build/).

@@ -21,5 +21,3 @@ async getVersion () {
 ```
 
 **Caution:** There is a big problem with the above code. Due to the web's [Same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy), the above code will not usually work unmodified in a web page as the API endpoint is likely on a different "origin" than the location the web page is hosted at. Read more about how to set up an endpoint in the [endpoint deployment](endpoint-deployment.md) chapter.
-
-# Lotus JS Client
