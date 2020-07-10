@@ -6,7 +6,7 @@ The Lotus JS Client is a collection of small JavaScript libraries that you can u
 
 You can combine the libraries to build your own lightweight custom client that works in any JavaScript based environment!
 
-Check out the [full documentation](https://filecoin-shipyard.github.io/js-lotus-client/) as well as the [examples](https://github.com/filecoin-shipyard/js-lotus-client/tree/master/docs). Also check out the "Build" category in the [Filecoin Docs](https://docs.filecoin.io/build/) for full tutorials and other ways to build things that use Filecoin.
+Check out the [full documentation](https://filecoin-shipyard.github.io/js-lotus-client/), the [official tutorial](ihttps://docs.filecoin.io/build/examples/network-inspector/overview/) as well as the [examples](https://github.com/filecoin-shipyard/js-lotus-client/tree/master/docs). Also check out the "Build" category in the [Filecoin Docs](https://docs.filecoin.io/build/) for full tutorials and other ways to build things that use Filecoin.
 
 # Libraries
 
@@ -17,7 +17,7 @@ The following libraries are included:
 * [@filecoin-shipyard/lotus-client-provider-nodejs](https://www.npmjs.com/package/@filecoin-shipyard/lotus-client-provider-nodejs) ([GitHub](https://github.com/filecoin-shipyard/js-lotus-client-provider-nodejs))
 * [@filecoin-shipyard/lotus-client-rpc](https://www.npmjs.com/package/@filecoin-shipyard/lotus-client-rpc) ([GitHub](https://github.com/filecoin-shipyard/js-lotus-client-rpc))
 
-Check the [list of libraries](https://filecoin-shipyard.github.io/js-lotus-client/list-of-libraries.html) for more information!
+Check the [list of libraries](https://filecoin-shipyard.github.io/js-lotus-client/list-of-libraries.html) page in the documentation for more information!
 
 # Usage
 

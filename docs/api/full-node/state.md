@@ -128,6 +128,11 @@ Response:
 }
 ```
 
+Examples:
+
+* [curl] [Postman](https://documenter.getpostman.com/view/4872192/SWLh5mUd?version=latest#9d528848-dd1e-4c93-8564-116be624a0ce)
+
+
 ## StateChangedActors
 StateChangedActors returns all the actors whose states change between the two given state CIDs
 TODO: Should this take tipset keys instead?

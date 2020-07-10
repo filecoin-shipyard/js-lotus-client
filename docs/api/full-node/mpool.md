@@ -46,6 +46,10 @@ Inputs:
 
 Response: `42`
 
+Examples:
+
+* [curl] [Postman](https://documenter.getpostman.com/view/4872192/SWLh5mUd?version=latest#0656cf16-a0e0-4fbc-bf62-c6bc3011a10f)
+
 ## MpoolPending
 MpoolPending returns pending mempool messages.
 

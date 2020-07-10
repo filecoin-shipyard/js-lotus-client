@@ -17,6 +17,7 @@ Response: `"0"`
 
 Examples:
 
+* [Curl] [Postman](https://documenter.getpostman.com/view/4872192/SWLh5mUd?version=latest#88f146fe-232e-4624-a6e7-97e53776146b)
 * [JS] [Filecoin Network Inspector](https://github.com/filecoin-shipyard/filecoin-network-inspector/blob/a94747f4967db2cde8bc563aa96675926d9c3193/src/redux/actions/lotus.js#L48) ([Tutorial on docs.filecoin.io](https://docs.filecoin.io/build/examples/network-inspector/overview/))
 
 ## WalletDefaultAddress
