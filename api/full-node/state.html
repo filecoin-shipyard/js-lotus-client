@@ -1172,6 +1172,25 @@ If false, only those sectors in the filter are included.</p>
   &quot;VerifiedDealWeight&quot;: &quot;0&quot;
 }
 </code></pre>
+<h3><a class="header" href="#stateverifiedclientstatus" id="stateverifiedclientstatus">StateVerifiedClientStatus</a></h3>
+<p>StateVerifiedClientStatus returns the data cap for the given address.
+Returns nil if there is no entry in the data cap table for the
+address.</p>
+<p>Perms: read</p>
+<p>Inputs:</p>
+<pre><code class="language-json">[
+  &quot;t01234&quot;,
+  [
+    {
+      &quot;/&quot;: &quot;bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4&quot;
+    },
+    {
+      &quot;/&quot;: &quot;bafy2bzacebp3shtrn43k7g3unredz7fxn4gj533d3o43tqn2p2ipxxhrvchve&quot;
+    }
+  ]
+]
+</code></pre>
+<p>Response: <code>&quot;0&quot;</code></p>
 <h2><a class="header" href="#statewaitmsg" id="statewaitmsg">StateWaitMsg</a></h2>
 <p>StateWaitMsg looks back in the chain for a message. If not found, it blocks until the
 message arrives on chain, and gets to the indicated confidence depth.</p>
@@ -1191,6 +1210,7 @@ message arrives on chain, and gets to the indicated confidence depth.</p>
     &quot;Return&quot;: &quot;Ynl0ZSBhcnJheQ==&quot;,
     &quot;GasUsed&quot;: 9
   },
+  &quot;ReturnDec&quot;: {},
   &quot;TipSet&quot;: {
     &quot;Cids&quot;: null,
     &quot;Blocks&quot;: null,

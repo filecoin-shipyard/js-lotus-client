@@ -175,7 +175,8 @@ retrieval markets as a client</p>
 <pre><code class="language-json">[
   {
     &quot;/&quot;: &quot;bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4&quot;
-  }
+  },
+  null
 ]
 </code></pre>
 <p>Response: <code>null</code></p>
@@ -230,7 +231,7 @@ retrieval markets as a client</p>
 ]
 </code></pre>
 <p>Response: <code>true</code></p>
-<h2><a class="header" href="#clientimport" id="clientimport">ClientImport</a></h2>
+<h3><a class="header" href="#clientimport" id="clientimport">ClientImport</a></h3>
 <p>ClientImport imports file under the specified path into filestore.</p>
 <p>Perms: admin</p>
 <p>Inputs:</p>
@@ -243,7 +244,10 @@ retrieval markets as a client</p>
 </code></pre>
 <p>Response:</p>
 <pre><code class="language-json">{
-  &quot;/&quot;: &quot;bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4&quot;
+  &quot;Root&quot;: {
+    &quot;/&quot;: &quot;bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4&quot;
+  },
+  &quot;ImportID&quot;: 9
 }
 </code></pre>
 <h2><a class="header" href="#clientlistdeals" id="clientlistdeals">ClientListDeals</a></h2>
@@ -261,10 +265,11 @@ retrieval markets as a client</p>
 <p>Perms: read</p>
 <p>Inputs:</p>
 <pre><code class="language-json">[
+  &quot;t01234&quot;,
   {
     &quot;/&quot;: &quot;bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4&quot;
   },
-  &quot;t01234&quot;
+  null
 ]
 </code></pre>
 <p>Response:</p>
@@ -273,6 +278,7 @@ retrieval markets as a client</p>
   &quot;Root&quot;: {
     &quot;/&quot;: &quot;bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4&quot;
   },
+  &quot;Piece&quot;: null,
   &quot;Size&quot;: 42,
   &quot;MinPrice&quot;: &quot;0&quot;,
   &quot;PaymentInterval&quot;: 42,
@@ -307,6 +313,24 @@ retrieval markets as a client</p>
   }
 }
 </code></pre>
+<h2><a class="header" href="#clientremoveimport" id="clientremoveimport">ClientRemoveImport</a></h2>
+<p>ClientRemoveImport removes file import</p>
+<p>Perms: admin</p>
+<p>Inputs:</p>
+<pre><code class="language-json">[
+  9
+]
+</code></pre>
+<p>Response: <code>{}</code></p>
+<h2><a class="header" href="#clientremoveimport-1" id="clientremoveimport-1">ClientRemoveImport</a></h2>
+<p>ClientRemoveImport removes file import</p>
+<p>Perms: admin</p>
+<p>Inputs:</p>
+<pre><code class="language-json">[
+  9
+]
+</code></pre>
+<p>Response: <code>{}</code></p>
 <h2><a class="header" href="#clientretrieve" id="clientretrieve">ClientRetrieve</a></h2>
 <p>ClientRetrieve initiates the retrieval of a file, as specified in the order.</p>
 <p>Perms: admin</p>
@@ -316,6 +340,7 @@ retrieval markets as a client</p>
     &quot;Root&quot;: {
       &quot;/&quot;: &quot;bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4&quot;
     },
+    &quot;Piece&quot;: null,
     &quot;Size&quot;: 42,
     &quot;Total&quot;: &quot;0&quot;,
     &quot;PaymentInterval&quot;: 42,
