@@ -2,3 +2,4 @@ node_modules
 yarn.lock
 book
 .DS_Store
+lotus
