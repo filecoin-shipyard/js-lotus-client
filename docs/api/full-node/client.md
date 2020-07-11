@@ -39,7 +39,8 @@ Inputs:
 [
   {
     "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
-  }
+  },
+  null
 ]
 ```
 
@@ -115,7 +116,7 @@ Inputs:
 
 Response: `true`
 
-## ClientImport
+### ClientImport
 ClientImport imports file under the specified path into filestore.
 
 
@@ -134,7 +135,10 @@ Inputs:
 Response:
 ```json
 {
-  "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+  "Root": {
+    "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+  },
+  "ImportID": 9
 }
 ```
 
@@ -167,10 +171,11 @@ Perms: read
 Inputs:
 ```json
 [
+  "t01234",
   {
     "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
   },
-  "t01234"
+  null
 ]
 ```
 
@@ -181,6 +186,7 @@ Response:
   "Root": {
     "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
   },
+  "Piece": null,
   "Size": 42,
   "MinPrice": "0",
   "PaymentInterval": 42,
@@ -223,6 +229,36 @@ Response:
 }
 ```
 
+## ClientRemoveImport
+ClientRemoveImport removes file import
+
+
+Perms: admin
+
+Inputs:
+```json
+[
+  9
+]
+```
+
+Response: `{}`
+
+## ClientRemoveImport
+ClientRemoveImport removes file import
+
+
+Perms: admin
+
+Inputs:
+```json
+[
+  9
+]
+```
+
+Response: `{}`
+
 ## ClientRetrieve
 ClientRetrieve initiates the retrieval of a file, as specified in the order.
 
@@ -236,6 +272,7 @@ Inputs:
     "Root": {
       "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
     },
+    "Piece": null,
     "Size": 42,
     "Total": "0",
     "PaymentInterval": 42,
