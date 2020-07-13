@@ -1,6 +1,6 @@
 # Introduction
 
-![Lotus loves JS](../images/lotus-loves-js.png)
+![Lotus loves JS](/js-lotus-client/images/lotus-loves-js.png)
 
 The [Lotus JS Client](https://github.com/filecoin-shipyard/js-lotus-client) is a collection of small JavaScript libraries that you can use to communicate with the [Lotus implementation](https://github.com/filecoin-project/lotus) of [Filecoin](https://filecoin.io/) via it's JSON-RPC API.
 

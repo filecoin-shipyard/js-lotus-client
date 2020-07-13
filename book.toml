@@ -4,3 +4,7 @@ language = "en"
 multilingual = false
 src = "docs"
 title = "Lotus JS Client"
+
+[output.html]
+git-repository-url = "https://github.com/filecoin-shipyard/js-lotus-client"
+site-url = "/js-lotus-client/"

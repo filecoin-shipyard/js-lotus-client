@@ -1,6 +1,6 @@
 # Lotus JS Client
 
-![Lotus loves JS](../images/lotus-loves-js.png)
+![Lotus loves JS](/js-lotus-client/images/lotus-loves-js.png)
 
 To make developing applications as easy as possible, the [Lotus JS Client](https://github.com/filecoin-shipyard/js-lotus-client) libraries are available. These libraries contain re-useable code to make the chore of interfacing with your Lotus Filecoin nodes and miners much more enjoyable.
 
