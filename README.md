@@ -85,6 +85,7 @@ Coming soon... ([gist with quick example](https://gist.github.com/jimpick/0b00bc
 Check out the tutorial on docs.filecoin.io:
 
 * [Filecoin Network Inspector Tutorial](https://docs.filecoin.io/build/examples/network-inspector/overview/)
+* Video: [Build a chain explorer using Lotus](https://www.youtube.com/watch?v=QhGhZgUL9iM) - Vaibhav Saini, HackFS (2020.07.13)
 
 ## More examples
 
@@ -103,6 +104,7 @@ We also built a workshop for the [Ready Layer One](https://www.youtube.com/chann
 
 ## Workshop Videos
 
+  * 2020.07.13: [Build a chain explorer using Lotus](https://www.youtube.com/watch?v=QhGhZgUL9iM) - Vaibhav Saini from [HackFS](https://hackfs.com/)
   * 2020.05.31: [30 minute Workshop](https://bafybeihm6irnryqsgrqbvhth7ghewrezokkpr4dajbai642mkhnk3ytpqy.ipfs.dweb.link/filecoin.mp4) from [Distributed Camp 2020](https://distributed.camp/projects/ipfs/)
   * 2020.05.08: [5 minute Lightning Talk Demo](https://www.youtube.com/watch?v=hCNr5Sj323k&list=PLuhRWgmPaHtTvsxuZ9T-tMlu_v0lja6v5) from [IPFS Pinning Summit](https://ipfspinningsummit.com/)
 
