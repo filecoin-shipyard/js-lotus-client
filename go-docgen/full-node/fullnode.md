@@ -40,6 +40,9 @@
   * [ClientRemoveImport](#ClientRemoveImport)
   * [ClientRetrieve](#ClientRetrieve)
   * [ClientStartDeal](#ClientStartDeal)
+* [Gas](#Gas)
+  * [GasEstimateGasLimit](#GasEstimateGasLimit)
+  * [GasEstimateGasPrice](#GasEstimateGasPrice)
 * [I](#I)
   * [ID](#ID)
 * [Log](#Log)
@@ -63,6 +66,9 @@
   * [MsigCreate](#MsigCreate)
   * [MsigGetAvailableBalance](#MsigGetAvailableBalance)
   * [MsigPropose](#MsigPropose)
+  * [MsigSwapApprove](#MsigSwapApprove)
+  * [MsigSwapCancel](#MsigSwapCancel)
+  * [MsigSwapPropose](#MsigSwapPropose)
 * [Net](#Net)
   * [NetAddrsListen](#NetAddrsListen)
   * [NetConnect](#NetConnect)
@@ -73,10 +79,11 @@
   * [NetPubsubScores](#NetPubsubScores)
 * [Paych](#Paych)
   * [PaychAllocateLane](#PaychAllocateLane)
-  * [PaychClose](#PaychClose)
+  * [PaychCollect](#PaychCollect)
   * [PaychGet](#PaychGet)
   * [PaychList](#PaychList)
   * [PaychNewPayment](#PaychNewPayment)
+  * [PaychSettle](#PaychSettle)
   * [PaychStatus](#PaychStatus)
   * [PaychVoucherAdd](#PaychVoucherAdd)
   * [PaychVoucherCheckSpendable](#PaychVoucherCheckSpendable)
@@ -100,14 +107,15 @@
   * [StateMarketDeals](#StateMarketDeals)
   * [StateMarketParticipants](#StateMarketParticipants)
   * [StateMarketStorageDeal](#StateMarketStorageDeal)
+  * [StateMinerActiveSectors](#StateMinerActiveSectors)
   * [StateMinerAvailableBalance](#StateMinerAvailableBalance)
   * [StateMinerDeadlines](#StateMinerDeadlines)
   * [StateMinerFaults](#StateMinerFaults)
   * [StateMinerInfo](#StateMinerInfo)
   * [StateMinerInitialPledgeCollateral](#StateMinerInitialPledgeCollateral)
+  * [StateMinerPartitions](#StateMinerPartitions)
   * [StateMinerPower](#StateMinerPower)
   * [StateMinerProvingDeadline](#StateMinerProvingDeadline)
-  * [StateMinerProvingSet](#StateMinerProvingSet)
   * [StateMinerRecoveries](#StateMinerRecoveries)
   * [StateMinerSectorCount](#StateMinerSectorCount)
   * [StateMinerSectors](#StateMinerSectors)
@@ -116,7 +124,9 @@
   * [StateReadState](#StateReadState)
   * [StateReplay](#StateReplay)
   * [StateSearchMsg](#StateSearchMsg)
+  * [StateSectorExpiration](#StateSectorExpiration)
   * [StateSectorGetInfo](#StateSectorGetInfo)
+  * [StateSectorPartition](#StateSectorPartition)
   * [StateSectorPreCommitInfo](#StateSectorPreCommitInfo)
   * [StateVerifiedClientStatus](#StateVerifiedClientStatus)
   * [StateWaitMsg](#StateWaitMsg)
@@ -171,7 +181,7 @@ Response:
 ```json
 {
   "Version": "string value",
-  "APIVersion": 1280,
+  "APIVersion": 2049,
   "BlockDelay": 42
 }
 ```
@@ -382,7 +392,7 @@ Response:
 ```
 
 ### ChainGetParentMessages
-ChainGetParentReceipts returns messages stored in parent tipset of the
+ChainGetParentMessages returns messages stored in parent tipset of the
 specified block.
 
 
@@ -515,7 +525,7 @@ Response:
 
 ### ChainGetTipSetByHeight
 ChainGetTipSetByHeight looks back for a tipset at the specified epoch.
-If there are no blocks at the specified epoch, a tipset at higher epoch
+If there are no blocks at the specified epoch, a tipset at an earlier epoch
 will be returned.
 
 
@@ -767,6 +777,14 @@ Response:
   "State": 42,
   "Message": "string value",
   "Provider": "t01234",
+  "DataRef": {
+    "TransferType": "string value",
+    "Root": {
+      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+    },
+    "PieceCid": null,
+    "PieceSize": 1024
+  },
   "PieceCID": {
     "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
   },
@@ -816,7 +834,7 @@ Response:
   "Root": {
     "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
   },
-  "ImportID": 9
+  "ImportID": 6
 }
 ```
 
@@ -867,6 +885,7 @@ Response:
   "Piece": null,
   "Size": 42,
   "MinPrice": "0",
+  "UnsealPrice": "0",
   "PaymentInterval": 42,
   "PaymentIntervalIncrease": 42,
   "Miner": "t01234",
@@ -916,7 +935,7 @@ Perms: admin
 Inputs:
 ```json
 [
-  9
+  6
 ]
 ```
 
@@ -938,6 +957,7 @@ Inputs:
     "Piece": null,
     "Size": 42,
     "Total": "0",
+    "UnsealPrice": "0",
     "PaymentInterval": 42,
     "PaymentIntervalIncrease": 42,
     "Client": "t01234",
@@ -983,6 +1003,69 @@ Inputs:
 ```
 
 Response: `null`
+
+## Gas
+
+
+### GasEstimateGasLimit
+GasEstimateGasLimit estimates gas used by the message and returns it.
+It fails if message fails to execute.
+
+
+Perms: read
+
+Inputs:
+```json
+[
+  {
+    "Version": 9,
+    "To": "t01234",
+    "From": "t01234",
+    "Nonce": 42,
+    "Value": "0",
+    "GasPrice": "0",
+    "GasLimit": 9,
+    "Method": 1,
+    "Params": "Ynl0ZSBhcnJheQ=="
+  },
+  [
+    {
+      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+    },
+    {
+      "/": "bafy2bzacebp3shtrn43k7g3unredz7fxn4gj533d3o43tqn2p2ipxxhrvchve"
+    }
+  ]
+]
+```
+
+Response: `9`
+
+### GasEstimateGasPrice
+GasEstimateGasPrice estimates what gas price should be used for a
+message to have high likelihood of inclusion in `nblocksincl` epochs.
+
+
+Perms: read
+
+Inputs:
+```json
+[
+  42,
+  "t01234",
+  9,
+  [
+    {
+      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+    },
+    {
+      "/": "bafy2bzacebp3shtrn43k7g3unredz7fxn4gj533d3o43tqn2p2ipxxhrvchve"
+    }
+  ]
+]
+```
+
+Response: `"0"`
 
 ## I
 
@@ -1170,11 +1253,11 @@ manages all incoming and outgoing 'messages' going over the network.
 
 
 ### MpoolEstimateGasPrice
-MpoolEstimateGasPrice estimates what gas price should be used for a
-message to have high likelihood of inclusion in `nblocksincl` epochs.
+MpoolEstimateGasPrice is depracated
+Deprecated: use GasEstimateGasPrice instead
 
 
-Perms: read
+Perms: 
 
 Inputs:
 ```json
@@ -1381,9 +1464,8 @@ Response:
 
 ### MsigCancel
 MsigCancel cancels a previously-proposed multisig message
-It takes the following params: <multisig address>, <proposed message ID>, <proposer address>, <recipient address>, <value to transfer>,
+It takes the following params: <multisig address>, <proposed message ID>, <recipient address>, <value to transfer>,
 <sender address of the cancel msg>, <method to call in the proposed message>, <params to include in the proposed message>
-TODO: You can't cancel someone else's proposed message, so "src" and "proposer" here are redundant
 
 
 Perms: sign
@@ -1393,7 +1475,6 @@ Inputs:
 [
   "t01234",
   42,
-  "t01234",
   "t01234",
   "0",
   "t01234",
@@ -1410,9 +1491,9 @@ Response:
 ```
 
 ### MsigCreate
-MsigGetAvailableBalance creates a multisig wallet
-It takes the following params: <required number of senders>, <approving addresses>, <initial balance>,
-<sender address of the create msg>, <gas price>
+MsigCreate creates a multisig wallet
+It takes the following params: <required number of senders>, <approving addresses>, <unlock duration>
+<initial balance>, <sender address of the create msg>, <gas price>
 
 
 Perms: sign
@@ -1422,6 +1503,7 @@ Inputs:
 [
   42,
   null,
+  10101,
   "0",
   "t01234",
   "0"
@@ -1475,6 +1557,84 @@ Inputs:
   "t01234",
   42,
   "Ynl0ZSBhcnJheQ=="
+]
+```
+
+Response:
+```json
+{
+  "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+}
+```
+
+### MsigSwapApprove
+MsigSwapApprove approves a previously proposed SwapSigner
+It takes the following params: <multisig address>, <sender address of the approve msg>, <proposed message ID>,
+<proposer address>, <old signer> <new signer>
+
+
+Perms: sign
+
+Inputs:
+```json
+[
+  "t01234",
+  "t01234",
+  42,
+  "t01234",
+  "t01234",
+  "t01234"
+]
+```
+
+Response:
+```json
+{
+  "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+}
+```
+
+### MsigSwapCancel
+MsigSwapCancel cancels a previously proposed SwapSigner message
+It takes the following params: <multisig address>, <sender address of the cancel msg>, <proposed message ID>,
+<old signer> <new signer>
+
+
+Perms: sign
+
+Inputs:
+```json
+[
+  "t01234",
+  "t01234",
+  42,
+  "t01234",
+  "t01234"
+]
+```
+
+Response:
+```json
+{
+  "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+}
+```
+
+### MsigSwapPropose
+MsigSwapPropose proposes swapping 2 signers in the multisig
+It takes the following params: <multisig address>, <sender address of the propose msg>,
+<old signer> <new signer>
+
+
+Perms: sign
+
+Inputs:
+```json
+[
+  "t01234",
+  "t01234",
+  "t01234",
+  "t01234"
 ]
 ```
 
@@ -1604,7 +1764,7 @@ Inputs:
 
 Response: `42`
 
-### PaychClose
+### PaychCollect
 There are not yet any comments for this method.
 
 Perms: sign
@@ -1679,6 +1839,25 @@ Response:
 }
 ```
 
+### PaychSettle
+There are not yet any comments for this method.
+
+Perms: sign
+
+Inputs:
+```json
+[
+  "t01234"
+]
+```
+
+Response:
+```json
+{
+  "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+}
+```
+
 ### PaychStatus
 There are not yet any comments for this method.
 
@@ -1709,6 +1888,7 @@ Inputs:
 [
   "t01234",
   {
+    "ChannelAddr": "t01234",
     "TimeLockMin": 10101,
     "TimeLockMax": 10101,
     "SecretPreimage": "Ynl0ZSBhcnJheQ==",
@@ -1744,6 +1924,7 @@ Inputs:
 [
   "t01234",
   {
+    "ChannelAddr": "t01234",
     "TimeLockMin": 10101,
     "TimeLockMax": 10101,
     "SecretPreimage": "Ynl0ZSBhcnJheQ==",
@@ -1779,6 +1960,7 @@ Inputs:
 [
   "t01234",
   {
+    "ChannelAddr": "t01234",
     "TimeLockMin": 10101,
     "TimeLockMax": 10101,
     "SecretPreimage": "Ynl0ZSBhcnJheQ==",
@@ -1819,6 +2001,7 @@ Inputs:
 Response:
 ```json
 {
+  "ChannelAddr": "t01234",
   "TimeLockMin": 10101,
   "TimeLockMax": 10101,
   "SecretPreimage": "Ynl0ZSBhcnJheQ==",
@@ -1863,6 +2046,7 @@ Inputs:
 [
   "t01234",
   {
+    "ChannelAddr": "t01234",
     "TimeLockMin": 10101,
     "TimeLockMax": 10101,
     "SecretPreimage": "Ynl0ZSBhcnJheQ==",
@@ -2410,6 +2594,29 @@ Response:
 }
 ```
 
+### StateMinerActiveSectors
+StateMinerActiveSectors returns info about sectors that a given miner is actively proving.
+
+
+Perms: read
+
+Inputs:
+```json
+[
+  "t01234",
+  [
+    {
+      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+    },
+    {
+      "/": "bafy2bzacebp3shtrn43k7g3unredz7fxn4gj533d3o43tqn2p2ipxxhrvchve"
+    }
+  ]
+]
+```
+
+Response: `null`
+
 ### StateMinerAvailableBalance
 StateMinerAvailableBalance returns the portion of a miner's balance that can be withdrawn or spent
 
@@ -2454,157 +2661,7 @@ Inputs:
 ]
 ```
 
-Response:
-```json
-{
-  "Due": [
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ],
-    [
-      5,
-      1
-    ]
-  ]
-}
-```
+Response: `null`
 
 ### StateMinerFaults
 StateMinerFaults returns a bitfield indicating the faulty sectors of the given miner
@@ -2691,7 +2748,9 @@ Inputs:
     "DealIDs": null,
     "Expiration": 10101,
     "ReplaceCapacity": true,
-    "ReplaceSector": 9
+    "ReplaceSectorDeadline": 42,
+    "ReplaceSectorPartition": 42,
+    "ReplaceSectorNumber": 9
   },
   [
     {
@@ -2705,6 +2764,30 @@ Inputs:
 ```
 
 Response: `"0"`
+
+### StateMinerPartitions
+StateMinerPartitions loads miner partitions for the specified miner/deadline
+
+
+Perms: read
+
+Inputs:
+```json
+[
+  "t01234",
+  42,
+  [
+    {
+      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+    },
+    {
+      "/": "bafy2bzacebp3shtrn43k7g3unredz7fxn4gj533d3o43tqn2p2ipxxhrvchve"
+    }
+  ]
+]
+```
+
+Response: `null`
 
 ### StateMinerPower
 StateMinerPower returns the power of the indicated miner
@@ -2776,29 +2859,6 @@ Response:
 }
 ```
 
-### StateMinerProvingSet
-StateMinerProvingSet returns info about those sectors that a given miner is actively proving.
-
-
-Perms: read
-
-Inputs:
-```json
-[
-  "t01234",
-  [
-    {
-      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
-    },
-    {
-      "/": "bafy2bzacebp3shtrn43k7g3unredz7fxn4gj533d3o43tqn2p2ipxxhrvchve"
-    }
-  ]
-]
-```
-
-Response: `null`
-
 ### StateMinerRecoveries
 StateMinerRecoveries returns a bitfield indicating the recovering sectors of the given miner
 
@@ -2852,8 +2912,8 @@ Inputs:
 Response:
 ```json
 {
-  "Sset": 42,
-  "Pset": 42
+  "Sectors": 42,
+  "Active": 42
 }
 ```
 
@@ -3040,16 +3100,52 @@ Response:
     "GasUsed": 9
   },
   "ReturnDec": {},
-  "TipSet": {
-    "Cids": null,
-    "Blocks": null,
-    "Height": 0
-  }
+  "TipSet": [
+    {
+      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+    },
+    {
+      "/": "bafy2bzacebp3shtrn43k7g3unredz7fxn4gj533d3o43tqn2p2ipxxhrvchve"
+    }
+  ],
+  "Height": 10101
+}
+```
+
+### StateSectorExpiration
+StateSectorExpiration returns epoch at which given sector will expire
+
+
+Perms: read
+
+Inputs:
+```json
+[
+  "t01234",
+  9,
+  [
+    {
+      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+    },
+    {
+      "/": "bafy2bzacebp3shtrn43k7g3unredz7fxn4gj533d3o43tqn2p2ipxxhrvchve"
+    }
+  ]
+]
+```
+
+Response:
+```json
+{
+  "OnTime": 10101,
+  "Early": 10101
 }
 ```
 
 ### StateSectorGetInfo
 StateSectorGetInfo returns the on-chain info for the specified miner's sector
+NOTE: returned info.Expiration may not be accurate in some cases, use StateSectorExpiration to get accurate
+expiration epoch
 
 
 Perms: read
@@ -3084,6 +3180,36 @@ Response:
   "DealWeight": "0",
   "VerifiedDealWeight": "0",
   "InitialPledge": "0"
+}
+```
+
+### StateSectorPartition
+StateSectorPartition finds deadline/partition with the specified sector
+
+
+Perms: read
+
+Inputs:
+```json
+[
+  "t01234",
+  9,
+  [
+    {
+      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+    },
+    {
+      "/": "bafy2bzacebp3shtrn43k7g3unredz7fxn4gj533d3o43tqn2p2ipxxhrvchve"
+    }
+  ]
+]
+```
+
+Response:
+```json
+{
+  "Deadline": 42,
+  "Partition": 42
 }
 ```
 
@@ -3122,7 +3248,9 @@ Response:
     "DealIDs": null,
     "Expiration": 10101,
     "ReplaceCapacity": true,
-    "ReplaceSector": 9
+    "ReplaceSectorDeadline": 42,
+    "ReplaceSectorPartition": 42,
+    "ReplaceSectorNumber": 9
   },
   "PreCommitDeposit": "0",
   "PreCommitEpoch": 10101,
@@ -3182,11 +3310,15 @@ Response:
     "GasUsed": 9
   },
   "ReturnDec": {},
-  "TipSet": {
-    "Cids": null,
-    "Blocks": null,
-    "Height": 0
-  }
+  "TipSet": [
+    {
+      "/": "bafy2bzacea3wsdh6y3a36tb3skempjoxqpuyompjbmfeyf34fi3uy6uue42v4"
+    },
+    {
+      "/": "bafy2bzacebp3shtrn43k7g3unredz7fxn4gj533d3o43tqn2p2ipxxhrvchve"
+    }
+  ],
+  "Height": 10101
 }
 ```
 
@@ -3444,7 +3576,7 @@ Inputs:
 Response: `"t01234"`
 
 ### WalletList
-WalletHas indicates whether the given address is in the wallet.
+WalletList lists all the addresses in the wallet.
 
 
 Perms: write

@@ -20,8 +20,7 @@ Inputs: `[null]`
 Response: `"Ynl0ZSBhcnJheQ=="`
 
 ### AuthVerify
-Auth
-
+There are not yet any comments for this method.
 
 Inputs: `["string value"]`
 
@@ -73,8 +72,7 @@ Inputs: `[{"Addrs":null,"ID":"12D3KooWGzxzKZYveHXtpG6AsrUJBcWxHBFS2HsEoGTxrMLvKX
 Response: `{}`
 
 ### NetConnectedness
-network
-
+There are not yet any comments for this method.
 
 Inputs: `["12D3KooWGzxzKZYveHXtpG6AsrUJBcWxHBFS2HsEoGTxrMLvKXtf"]`
 

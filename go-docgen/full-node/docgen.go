@@ -25,6 +25,7 @@ import (
 	"github.com/filecoin-project/specs-actors/actors/abi"
 	"github.com/filecoin-project/specs-actors/actors/crypto"
 	"github.com/filecoin-project/specs-actors/actors/runtime/exitcode"
+	"github.com/filecoin-project/go-multistore"
 	"github.com/ipfs/go-cid"
 	"github.com/ipfs/go-filestore"
 	"github.com/libp2p/go-libp2p-core/network"
@@ -113,6 +114,7 @@ func init() {
 	addExample(map[string]api.MarketBalance{
 		"t026363": exampleValue(reflect.TypeOf(api.MarketBalance{}), nil).(api.MarketBalance),
 	})
+	addExample(multistore.StoreID(6))
 
 	maddr, err := multiaddr.NewMultiaddr("/ip4/52.36.61.156/tcp/1347/p2p/12D3KooWFETiESTf1v4PGUvtnxMAcEFMzLZbJGg4tjWfGEimYior")
 	if err != nil {
@@ -360,7 +362,7 @@ func main() {
 			if !ok {
 				meth, ok = commonPermStruct.FieldByName(m.Name)
 				if !ok {
-					panic("no perms for method: " + m.Name)
+					fmt.Fprintf(os.Stderr, "no perms for method: %v\n", m.Name)
 				}
 			}
 

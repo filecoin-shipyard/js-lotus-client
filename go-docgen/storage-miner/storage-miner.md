@@ -1,6 +1,13 @@
 ## 
 
 
+### Closing
+
+
+Inputs: `null`
+
+Response: `{}`
+
 ### Shutdown
 
 
@@ -13,7 +20,7 @@ Response: `{}`
 
 Inputs: `null`
 
-Response: `{"Version":"string value","APIVersion":768,"BlockDelay":42}`
+Response: `{"Version":"string value","APIVersion":2049,"BlockDelay":42}`
 
 ## Actor
 
@@ -52,6 +59,34 @@ Response: `null`
 ## Deals
 
 
+### DealsConsiderOfflineRetrievalDeals
+There are not yet any comments for this method.
+
+Inputs: `null`
+
+Response: `true`
+
+### DealsConsiderOfflineStorageDeals
+There are not yet any comments for this method.
+
+Inputs: `null`
+
+Response: `true`
+
+### DealsConsiderOnlineRetrievalDeals
+There are not yet any comments for this method.
+
+Inputs: `null`
+
+Response: `true`
+
+### DealsConsiderOnlineStorageDeals
+There are not yet any comments for this method.
+
+Inputs: `null`
+
+Response: `true`
+
 ### DealsImportData
 There are not yet any comments for this method.
 
@@ -65,6 +100,48 @@ There are not yet any comments for this method.
 Inputs: `null`
 
 Response: `null`
+
+### DealsPieceCidBlocklist
+There are not yet any comments for this method.
+
+Inputs: `null`
+
+Response: `null`
+
+### DealsSetConsiderOfflineRetrievalDeals
+There are not yet any comments for this method.
+
+Inputs: `[true]`
+
+Response: `{}`
+
+### DealsSetConsiderOfflineStorageDeals
+There are not yet any comments for this method.
+
+Inputs: `[true]`
+
+Response: `{}`
+
+### DealsSetConsiderOnlineRetrievalDeals
+There are not yet any comments for this method.
+
+Inputs: `[true]`
+
+Response: `{}`
+
+### DealsSetConsiderOnlineStorageDeals
+There are not yet any comments for this method.
+
+Inputs: `[true]`
+
+Response: `{}`
+
+### DealsSetPieceCidBlocklist
+There are not yet any comments for this method.
+
+Inputs: `[null]`
+
+Response: `{}`
 
 ## I
 
@@ -96,6 +173,13 @@ Response: `{}`
 ## Market
 
 
+### MarketGetAsk
+There are not yet any comments for this method.
+
+Inputs: `null`
+
+Response: `{"Ask":{"Price":"0","MinPieceSize":1032,"MaxPieceSize":1032,"Miner":"t01234","Timestamp":10101,"Expiry":10101,"SeqNo":42},"Signature":{"Type":2,"Data":"Ynl0ZSBhcnJheQ=="}}`
+
 ### MarketImportDealData
 There are not yet any comments for this method.
 
@@ -117,10 +201,10 @@ Inputs: `null`
 
 Response: `null`
 
-### MarketSetPrice
+### MarketSetAsk
 There are not yet any comments for this method.
 
-Inputs: `["0"]`
+Inputs: `["0",10101,1032,1032]`
 
 Response: `{}`
 
@@ -197,10 +281,74 @@ Inputs: `null`
 
 Response: `{}`
 
-### PledgeSectorJim
-There are not yet any comments for this method.
+## Sealing
+
+
+### SealingSchedDiag
+SealingSchedDiag dumps internal sealing scheduler state
+
 
 Inputs: `null`
+
+Response: `{}`
+
+## Sector
+
+
+### SectorGetExpectedSealDuration
+SectorGetExpectedSealDuration gets the expected time for a sector to seal
+
+
+Inputs: `null`
+
+Response: `60000000000`
+
+### SectorGetSealDelay
+SectorGetSealDelay gets the time that a newly-created sector
+waits for more deals before it starts sealing
+
+
+Inputs: `null`
+
+Response: `60000000000`
+
+### SectorMarkForUpgrade
+There are not yet any comments for this method.
+
+Inputs: `[9]`
+
+Response: `{}`
+
+### SectorRemove
+There are not yet any comments for this method.
+
+Inputs: `[9]`
+
+Response: `{}`
+
+### SectorSetExpectedSealDuration
+SectorSetExpectedSealDuration sets the expected time for a sector to seal
+
+
+Inputs: `[60000000000]`
+
+Response: `{}`
+
+### SectorSetSealDelay
+SectorSetSealDelay sets the time that a newly-created sector
+waits for more deals before it starts sealing
+
+
+Inputs: `[60000000000]`
+
+Response: `{}`
+
+### SectorStartSealing
+SectorStartSealing can be called on sectors in Empty or WaitDeals states
+to trigger sealing early
+
+
+Inputs: `[9]`
 
 Response: `{}`
 
@@ -226,9 +374,9 @@ Response: `{"key1":[{"SectorID":0,"Offset":0,"Size":100}]}`
 Get the status of a given sector by ID
 
 
-Inputs: `[9]`
+Inputs: `[9,true]`
 
-Response: `{"SectorID":9,"State":"sectorState","CommD":null,"CommR":null,"Proof":"Ynl0ZSBhcnJheQ==","Deals":null,"Ticket":{"Value":null,"Epoch":10101},"Seed":{"Value":null,"Epoch":10101},"Retries":42,"LastErr":"string value","Log":null}`
+Response: `{"SectorID":9,"State":"sectorState","CommD":null,"CommR":null,"Proof":"Ynl0ZSBhcnJheQ==","Deals":null,"Ticket":{"Value":null,"Epoch":10101},"Seed":{"Value":null,"Epoch":10101},"Retries":42,"LastErr":"string value","Log":null,"SealProof":0,"Activation":10101,"Expiration":10101,"DealWeight":"0","VerifiedDealWeight":"0","InitialPledge":"0","OnTime":10101,"Early":10101}`
 
 ### SectorsUpdate
 There are not yet any comments for this method.
@@ -250,14 +398,14 @@ Response: `{}`
 ### StorageAttach
 
 
-Inputs: `[{"ID":"uuid","URLs":null,"Weight":42,"CanSeal":true,"CanStore":true,"LastHeartbeat":"0001-01-01T00:00:00Z","HeartbeatErr":null},{"Capacity":42,"Available":42,"Used":42}]`
+Inputs: `[{"ID":"uuid","URLs":null,"Weight":42,"CanSeal":true,"CanStore":true},{"Capacity":9,"Available":9,"Reserved":9}]`
 
 Response: `{}`
 
 ### StorageBestAlloc
 
 
-Inputs: `[0,2,true]`
+Inputs: `[0,0,"sealing"]`
 
 Response: `null`
 
@@ -287,7 +435,7 @@ Response: `null`
 
 Inputs: `["uuid"]`
 
-Response: `{"ID":"uuid","URLs":null,"Weight":42,"CanSeal":true,"CanStore":true,"LastHeartbeat":"0001-01-01T00:00:00Z","HeartbeatErr":null}`
+Response: `{"ID":"uuid","URLs":null,"Weight":42,"CanSeal":true,"CanStore":true}`
 
 ### StorageList
 There are not yet any comments for this method.
@@ -313,7 +461,7 @@ Response: `{}`
 ### StorageReportHealth
 
 
-Inputs: `["uuid",{"Stat":{"Capacity":42,"Available":42,"Used":42},"Err":null}]`
+Inputs: `["uuid",{"Stat":{"Capacity":9,"Available":9,"Reserved":9},"Err":null}]`
 
 Response: `{}`
 
@@ -322,7 +470,14 @@ There are not yet any comments for this method.
 
 Inputs: `["uuid"]`
 
-Response: `{"Capacity":42,"Available":42,"Used":42}`
+Response: `{"Capacity":9,"Available":9,"Reserved":9}`
+
+### StorageTryLock
+
+
+Inputs: `[{"Miner":1234,"Number":9},0,0]`
+
+Response: `true`
 
 ## Worker
 
@@ -334,6 +489,13 @@ WorkerConnect tells the node to connect to workers RPC
 Inputs: `["string value"]`
 
 Response: `{}`
+
+### WorkerJobs
+There are not yet any comments for this method.
+
+Inputs: `null`
+
+Response: `{"0":[{"ID":123,"Sector":{"Miner":0,"Number":0},"Task":"seal/v0/precommit/1","Start":"2020-07-28T12:06:45.278659-07:00"}]}`
 
 ### WorkerStats
 There are not yet any comments for this method.

@@ -18,10 +18,12 @@ import (
 	"github.com/filecoin-project/go-bitfield"
 	"github.com/filecoin-project/go-fil-markets/filestore"
 	"github.com/filecoin-project/go-jsonrpc/auth"
+	"github.com/filecoin-project/go-multistore"
 	"github.com/filecoin-project/lotus/api"
 	"github.com/filecoin-project/lotus/build"
 	"github.com/filecoin-project/lotus/chain/types"
 	"github.com/filecoin-project/lotus/node/modules/dtypes"
+	"github.com/filecoin-project/sector-storage/sealtasks"
 	"github.com/filecoin-project/sector-storage/stores"
 	"github.com/filecoin-project/sector-storage/storiface"
 	"github.com/filecoin-project/specs-actors/actors/abi"
@@ -79,7 +81,7 @@ func init() {
 	addExample(pid)
 
 	addExample(bitfield.NewFromSet([]uint64{5}))
-	addExample(abi.RegisteredProof_StackedDRG32GiBPoSt)
+	// addExample(abi.RegisteredProof_StackedDRG32GiBPoSt)
 	addExample(abi.ChainEpoch(10101))
 	addExample(crypto.SigTypeBLS)
 	addExample(int64(9))
@@ -102,10 +104,12 @@ func init() {
 	addExample(build.APIVersion)
 	addExample(api.PCHInbound)
 	addExample(time.Minute)
-	addExample(&types.ExecutionResult{
-		Msg:    exampleValue(reflect.TypeOf(&types.Message{})).(*types.Message),
-		MsgRct: exampleValue(reflect.TypeOf(&types.MessageReceipt{})).(*types.MessageReceipt),
-	})
+	/*
+		addExample(&types.ExecutionResult{
+			Msg:    exampleValue(reflect.TypeOf(&types.Message{})).(*types.Message),
+			MsgRct: exampleValue(reflect.TypeOf(&types.MessageReceipt{})).(*types.MessageReceipt),
+		})
+	*/
 	addExample(map[string]types.Actor{
 		"t01236": exampleValue(reflect.TypeOf(types.Actor{})).(types.Actor),
 	})
@@ -132,7 +136,7 @@ func init() {
 	var storesSectorFileType stores.SectorFileType = 0
 	addExample(storesSectorFileType)
 	// FIXME: Find actual API example
-	var storesPathType stores.PathType = true
+	var storesPathType stores.PathType = stores.PathSealing
 	addExample(storesPathType)
 	// FIXME: Find actual API example
 	var abiActorID abi.ActorID = 1234
@@ -166,6 +170,19 @@ func init() {
 			MemUsedMax: 5000,
 			GpuUsed:    true,
 			CpuUse:     1000,
+		},
+	})
+	storeID := multistore.StoreID(6)
+	addExample(&storeID)
+	addExample(abi.RegisteredSealProof_StackedDrg2KiBV1)
+	addExample(map[uint64][]storiface.WorkerJob{
+		0: []storiface.WorkerJob{
+			{
+			ID:     123,
+			Sector: abi.SectorID{0, 0},
+			Task:   sealtasks.TTPreCommit1,
+			Start:  time.Now(),
+		},
 		},
 	})
 
