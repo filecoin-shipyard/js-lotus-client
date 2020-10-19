@@ -36,7 +36,7 @@ Let's try using it with JavaScript in a web page!
     <div id="chainHeight">Loading...</div>
     <script type="module">
       // Import ES modules from the npm packages via the unpkg.com CDN
-      import { testnet } from 'https://unpkg.com/@filecoin-shipyard/lotus-client-schema?module'
+      import { mainnet } from 'https://unpkg.com/@filecoin-shipyard/lotus-client-schema?module'
       import { BrowserProvider } from 'https://unpkg.com/@filecoin-shipyard/lotus-client-provider-browser?module'
       import { LotusRPC } from 'https://unpkg.com/@filecoin-shipyard/lotus-client-rpc?module'
 
@@ -52,7 +52,7 @@ Let's try using it with JavaScript in a web page!
       // Create a client object with callable methods using a schema and
       // our provider. Calling methods on this object will send JSON-RPC
       // requests over the websocket.
-      const client = new LotusRPC(provider, { schema: testnet.fullNode })
+      const client = new LotusRPC(provider, { schema: mainnet.fullNode })
 
       // Using the client and the "ChainHead" method, every second,
       // retrieve the chain height and update the web page
