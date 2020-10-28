@@ -106,11 +106,20 @@ Object.values(ApiDocs)
     })
   })
 
+const rootDir = path.resolve('..', 'docs')
+mkdirp.sync(rootDir)
+
+console.log('Writing docs to', rootDir)
+
+// Generate API docs
 Object.values(ApiDocs).forEach(({ name, desc, groups }) => {
-  const dir = path.join('docs', filename(name))
+  const dir = path.join(rootDir, 'api', filename(name))
   mkdirp.sync(dir)
   fs.writeFileSync(path.join(dir, 'index.md'), Template.apiIndexPage(name, desc, groups))
   Object.values(groups).forEach(g => {
     fs.writeFileSync(path.join(dir, filename(g.name) + '.md'), Template.groupPage(g))
   })
 })
+
+// Generate summary
+fs.writeFileSync(path.join(rootDir, 'SUMMARY.md'), Template.summaryPage(Object.values(ApiDocs)))
