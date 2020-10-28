@@ -1,0 +1,24 @@
+{
+  "name": "docgen",
+  "version": "0.0.0",
+  "description": "Generate Lotus API docs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "gen": "npm run gen:typedoc && npm run gen:md",
+    "gen:typedoc": "rm -f typedoc.json && typedoc --includeDeclarations --excludeExternals --mode file --json typedoc.json node_modules/@filecoin-shipyard/lotus-client-rpc/index.d.ts",
+    "gen:md": "node index.js"
+  },
+  "author": "Alan Shaw",
+  "license": "(Apache-2.0 AND MIT)",
+  "devDependencies": {
+    "@filecoin-shipyard/lotus-client-rpc": "0.0.13",
+    "@filecoin-shipyard/lotus-client-schema": "^2.0.0",
+    "standard": "^15.0.1",
+    "typedoc": "^0.19.2",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "mkdirp": "^1.0.4"
+  }
+}
