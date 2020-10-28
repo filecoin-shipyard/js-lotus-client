@@ -18,7 +18,7 @@ const GroupDesc = {
 
 const ApiDocs = {
   fullNode: {
-    name: 'Full Node',
+    name: 'Full Node API',
     desc: '* [github.com/filecoin-project/lotus/api/api_full.go](https://github.com/filecoin-project/lotus/blob/master/api/api_full.go)',
     groups: {
       misc: {
@@ -27,7 +27,7 @@ const ApiDocs = {
     }
   },
   storageMiner: {
-    name: 'Storage Miner',
+    name: 'Storage Miner API',
     desc: '* [github.com/filecoin-project/lotus/api/api_storage.go](https://github.com/filecoin-project/lotus/blob/master/api/api_storage.go)',
     groups: {
       misc: {
@@ -36,16 +36,21 @@ const ApiDocs = {
     }
   },
   gatewayApi: {
-    name: 'Gateway',
+    name: 'Gateway API',
     desc: '* [github.com/filecoin-project/lotus/api/api_gateway.go](https://github.com/filecoin-project/lotus/blob/master/api/api_gateway.go)'
   },
   walletApi: {
-    name: 'Wallet',
+    name: 'Wallet API',
     desc: '* [github.com/filecoin-project/lotus/api/api_wallet.go](https://github.com/filecoin-project/lotus/blob/master/api/api_wallet.go)'
   },
   workerApi: {
-    name: 'Worker',
-    desc: '* [github.com/filecoin-project/lotus/api/api_worker.go](https://github.com/filecoin-project/lotus/blob/master/api/api_worker.go)'
+    name: 'Worker API',
+    desc: '* [github.com/filecoin-project/lotus/api/api_worker.go](https://github.com/filecoin-project/lotus/blob/master/api/api_worker.go)',
+    groups: {
+      misc: {
+        methods: { version: {}, closing: {} }
+      }
+    }
   }
 }
 
@@ -84,7 +89,8 @@ Object.keys(ApiDocs)
   }, [])
   .forEach(([apiName, methodName]) => {
     const { key, group } = findOrCreateGroup(apiName, methodName)
-    group.methods[methodName] = group.methods[methodName] || { name: methodName }
+    group.methods[methodName] = group.methods[methodName] || {}
+    group.methods[methodName].name = methodName
     group.methods[methodName].typeInfo = findMethodTypeInfo(methodName)
     if (!group.methods[methodName].typeInfo) console.warn('missing type info for', `${apiName}.${methodName}`)
     ApiDocs[apiName].groups = ApiDocs[apiName].groups || {}
@@ -117,9 +123,12 @@ Object.values(ApiDocs).forEach(({ name, desc, groups }) => {
   mkdirp.sync(dir)
   fs.writeFileSync(path.join(dir, 'index.md'), Template.apiIndexPage(name, desc, groups))
   Object.values(groups).forEach(g => {
-    fs.writeFileSync(path.join(dir, filename(g.name) + '.md'), Template.groupPage(g))
+    fs.writeFileSync(path.join(dir, filename(g.name) + '.md'), Template.groupPage(g, TypeInfo.children))
   })
 })
 
 // Generate summary
 fs.writeFileSync(path.join(rootDir, 'SUMMARY.md'), Template.summaryPage(Object.values(ApiDocs)))
+
+// Generate types
+fs.writeFileSync(path.join(rootDir, 'api', 'types.md'), Template.typesPage(TypeInfo.children.filter(c => c.name !== 'LotusRPC')))
