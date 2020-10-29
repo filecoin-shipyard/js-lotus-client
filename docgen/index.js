@@ -16,10 +16,25 @@ const GroupDesc = {
   sync: 'The Sync method group contains methods for interacting with and observing the lotus sync service.'
 }
 
+const apiGettingStartedExample = (apiKey, lotusSrcUrl) => `Enable the API by passing the \`${apiKey}\` schema to \`LotusRPC\` e.g.
+
+\`\`\`js
+import { LotusRPC } from '@filecoin-shipyard/lotus-client-rpc'
+import { mainnet } from '@filecoin-shipyard/lotus-client-schema'
+import { NodejsProvider } from '@filecoin-shipyard/lotus-client-provider-nodejs'
+
+const provider = new NodejsProvider('<PROVIDER_URL>')
+const client = new LotusRPC(provider, { schema: mainnet.${apiKey} })
+\`\`\` 
+
+<small>Lotus source: ${lotusSrcUrl}</small>
+`
+
 const ApiDocs = {
   fullNode: {
     name: 'Full Node API',
-    desc: '* [github.com/filecoin-project/lotus/api/api_full.go](https://github.com/filecoin-project/lotus/blob/master/api/api_full.go)',
+    desc: apiGettingStartedExample('fullNode', '[github.com/filecoin-project/lotus/api/api_full.go](https://github.com/filecoin-project/lotus/blob/master/api/api_full.go)'),
+    shortDesc: 'Talk to a Lotus "Full Node" (`lotus`).',
     groups: {
       misc: {
         methods: { id: {}, version: {}, createBackup: {}, closing: {}, shutdown: {} }
@@ -28,7 +43,8 @@ const ApiDocs = {
   },
   storageMiner: {
     name: 'Storage Miner API',
-    desc: '* [github.com/filecoin-project/lotus/api/api_storage.go](https://github.com/filecoin-project/lotus/blob/master/api/api_storage.go)',
+    desc: apiGettingStartedExample('storageMiner', '[github.com/filecoin-project/lotus/api/api_storage.go](https://github.com/filecoin-project/lotus/blob/master/api/api_storage.go)'),
+    shortDesc: 'Talk to a Lotus Storage Miner (`lotus-miner`).',
     groups: {
       misc: {
         methods: { id: {}, version: {}, createBackup: {}, closing: {}, shutdown: {} }
@@ -37,15 +53,18 @@ const ApiDocs = {
   },
   gatewayApi: {
     name: 'Gateway API',
-    desc: '* [github.com/filecoin-project/lotus/api/api_gateway.go](https://github.com/filecoin-project/lotus/blob/master/api/api_gateway.go)'
+    desc: apiGettingStartedExample('gatewayApi', '[github.com/filecoin-project/lotus/api/api_gateway.go](https://github.com/filecoin-project/lotus/blob/master/api/api_gateway.go)'),
+    shortDesc: 'Talk to a Lotus Gateway (`lotus-gateway`).'
   },
   walletApi: {
     name: 'Wallet API',
-    desc: '* [github.com/filecoin-project/lotus/api/api_wallet.go](https://github.com/filecoin-project/lotus/blob/master/api/api_wallet.go)'
+    desc: apiGettingStartedExample('walletApi', '[github.com/filecoin-project/lotus/api/api_wallet.go](https://github.com/filecoin-project/lotus/blob/master/api/api_wallet.go)'),
+    shortDesc: 'A subset of API methods for wallets.'
   },
   workerApi: {
     name: 'Worker API',
-    desc: '* [github.com/filecoin-project/lotus/api/api_worker.go](https://github.com/filecoin-project/lotus/blob/master/api/api_worker.go)',
+    desc: apiGettingStartedExample('workerApi', '[github.com/filecoin-project/lotus/api/api_worker.go](https://github.com/filecoin-project/lotus/blob/master/api/api_worker.go)'),
+    shortDesc: 'Talk to `lotus-worker` (for mining).',
     groups: {
       misc: {
         methods: { version: {}, closing: {} }
@@ -117,9 +136,15 @@ mkdirp.sync(rootDir)
 
 console.log('Writing docs to', rootDir)
 
+const apiDir = path.join(rootDir, 'api')
+mkdirp.sync(apiDir)
+
+// Write APIs listing page
+fs.writeFileSync(path.join(apiDir, 'api.md'), Template.apisPage(ApiDocs))
+
 // Generate API docs
 Object.values(ApiDocs).forEach(({ name, desc, groups }) => {
-  const dir = path.join(rootDir, 'api', filename(name))
+  const dir = path.join(apiDir, filename(name))
   mkdirp.sync(dir)
   fs.writeFileSync(path.join(dir, 'index.md'), Template.apiIndexPage(name, desc, groups))
   Object.values(groups).forEach(g => {
