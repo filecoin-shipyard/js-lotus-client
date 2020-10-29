@@ -184,6 +184,7 @@ function codeLinkedTypes (code, types, url = '../types.md') {
       return `[\`${code}\`](${url}#${name.toLowerCase()})`
     }
   }
+  types = Array.from(types).sort((a, b) => b.name.length - a.name.length)
   code = code.replace(/</g, '&lt;').replace(/>/g, '&gt;')
   for (const { name } of types) {
     code = code.replace(new RegExp(`${name}([&[)])`, 'g'), `<a href="${url}#${name.toLowerCase()}">${name}</a>$1`)

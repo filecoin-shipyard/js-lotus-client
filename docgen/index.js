@@ -67,7 +67,24 @@ const ApiDocs = {
     shortDesc: 'Talk to `lotus-worker` (for mining).',
     groups: {
       misc: {
-        methods: { version: {}, closing: {} }
+        methods: { info: {}, taskTypes: {}, version: {}, closing: {} }
+      },
+      storage: {
+        methods: {
+          addPiece: {},
+          sealPreCommit1: {},
+          sealPreCommit2: {},
+          sealCommit1: {},
+          sealCommit2: {},
+          finalizeSector: {},
+          releaseUnsealed: {},
+          moveStorage: {},
+          unsealPiece: {},
+          readPiece: {},
+          fetch: {},
+          remove: {},
+          paths: {}
+        }
       }
     }
   }
