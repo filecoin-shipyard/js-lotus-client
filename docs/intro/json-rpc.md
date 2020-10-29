@@ -8,7 +8,7 @@ For example, when you run the Lotus node with `lotus daemon`, it will listen for
 
 Applications may connect to this port and issue JSON-RPC calls. For example, using [CURL](https://curl.haxx.se/), if we want to call the [Filecoin.Version](https://github.com/filecoin-project/lotus/blob/1120298b0520f0d5965b89abd71437f6d65496b7/api/apistruct/struct.go#L35) method, we might do this:
 
-```
+```sh
 curl -X POST \
   -H "Content-Type: application/json" \
   --data '{ 
@@ -22,7 +22,7 @@ curl -X POST \
 
 The Lotus daemon will return a response that looks something like:
 
-```
+```json
 {"jsonrpc":"2.0","result":{"Version":"0.3.0+gite4b5f1df.dirty","APIVersion":512,"BlockDelay":6},"id":1}
 ```
 
@@ -30,5 +30,5 @@ Most of the time, when you run commands using the `lotus` command line client, f
 
 Different daemons that are part of Lotus support different sets of methods. When you execute `lotus daemon`, it will listen on port 1234 (by default), exposes JSON-RPC methods for wallets, making deals, checking chain sync status, etc. When you run `lotus-storage-miner run`, it will listen on port 2345 (by default), and it has a number of methods for doing things such as querying the status of sectors.
 
-More details about the JSON-RPC API, including links to the lists of methods available, are at: [https://lotu.sh/en+api](https://lotu.sh/en+api)
+More details about the JSON-RPC API, including links to the lists of methods available, are at: [docs.filecoin.io/reference/lotus-api](https://docs.filecoin.io/reference/lotus-api)
 
