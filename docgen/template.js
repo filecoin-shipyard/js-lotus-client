@@ -49,7 +49,8 @@ ${Template.groupMethodList(groups)}
   },
 
   groupPage (group, types) {
-    return `# ${group.name}
+    return `${generatorWarning()}
+# ${group.name}
 
 ${group.desc}
 
