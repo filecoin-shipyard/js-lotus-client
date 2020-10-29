@@ -11,7 +11,7 @@ const Template = {
 
 These API docs are generated from the [\`lotus-client-schema\`](https://github.com/filecoin-shipyard/js-lotus-client-schema) and the [\`lotus-client-rpc\` Typescript delcarations](https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts), which are themselves generated directly from the Lotus source code. The following APIs are available:
 
-${Object.values(apis).map(api => `* [${api.name}](${filename(api.name)}/index.md}) - ${api.shortDesc}`).join('\n')}
+${Object.values(apis).map(api => `* [${api.name}](${filename(api.name)}/index.md) - ${api.shortDesc}`).join('\n')}
 
 ## JSON-RPC Postman Docs
 
