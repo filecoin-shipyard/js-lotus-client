@@ -3,11 +3,11 @@
 
 These API docs are generated from the [`lotus-client-schema`](https://github.com/filecoin-shipyard/js-lotus-client-schema) and the [`lotus-client-rpc` Typescript delcarations](https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts), which are themselves generated directly from the Lotus source code. The following APIs are available:
 
-* [Full Node API](full-node-api/index.md}) - Talk to a Lotus "Full Node" (`lotus`).
-* [Storage Miner API](storage-miner-api/index.md}) - Talk to a Lotus Storage Miner (`lotus-storage-miner`).
-* [Gateway API](gateway-api/index.md}) - Talk to a Lotus Gateway (`lotus-gateway`).
-* [Wallet API](wallet-api/index.md}) - A subset of API methods for wallets.
-* [Worker API](worker-api/index.md}) - Talk to `lotus-worker` (for mining).
+* [Full Node API](full-node-api/index.md) - Talk to a Lotus "Full Node" (`lotus`).
+* [Storage Miner API](storage-miner-api/index.md) - Talk to a Lotus Storage Miner (`lotus-storage-miner`).
+* [Gateway API](gateway-api/index.md) - Talk to a Lotus Gateway (`lotus-gateway`).
+* [Wallet API](wallet-api/index.md) - A subset of API methods for wallets.
+* [Worker API](worker-api/index.md) - Talk to `lotus-worker` (for mining).
 
 ## JSON-RPC Postman Docs
 
