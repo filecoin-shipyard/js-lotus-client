@@ -44,7 +44,7 @@ const ApiDocs = {
   storageMiner: {
     name: 'Storage Miner API',
     desc: apiGettingStartedExample('storageMiner', '[github.com/filecoin-project/lotus/api/api_storage.go](https://github.com/filecoin-project/lotus/blob/master/api/api_storage.go)'),
-    shortDesc: 'Talk to a Lotus Storage Miner (`lotus-miner`).',
+    shortDesc: 'Talk to a Lotus Storage Miner (`lotus-storage-miner`).',
     groups: {
       misc: {
         methods: { id: {}, version: {}, createBackup: {}, closing: {}, shutdown: {} }
