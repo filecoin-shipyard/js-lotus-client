@@ -12,7 +12,7 @@
   "author": "Alan Shaw",
   "license": "(Apache-2.0 AND MIT)",
   "devDependencies": {
-    "@filecoin-shipyard/lotus-client-rpc": "0.0.13",
+    "@filecoin-shipyard/lotus-client-rpc": "0.0.14",
     "@filecoin-shipyard/lotus-client-schema": "^2.0.0",
     "standard": "^15.0.1",
     "typedoc": "^0.19.2",
