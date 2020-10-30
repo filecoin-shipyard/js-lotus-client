@@ -1,0 +1,1643 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Types - Lotus JS Client</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../intro/intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../intro/json-rpc.html"><strong aria-hidden="true">1.1.</strong> JSON-RPC API</a></li><li class="chapter-item expanded "><a href="../intro/json-rpc-and-js.html"><strong aria-hidden="true">1.2.</strong> JSON-RPC and JavaScript</a></li><li class="chapter-item expanded "><a href="../intro/lotus-js-client.html"><strong aria-hidden="true">1.3.</strong> Lotus JS Client</a></li></ol></li><li class="chapter-item expanded "><a href="../list-of-libraries.html"><strong aria-hidden="true">2.</strong> List of Libraries</a></li><li class="chapter-item expanded "><a href="../quick-start.html"><strong aria-hidden="true">3.</strong> Quick Start</a></li><li class="chapter-item expanded "><a href="../endpoint-deployment.html"><strong aria-hidden="true">4.</strong> Endpoint Deployment</a></li><li class="chapter-item expanded "><a href="../api/api.html"><strong aria-hidden="true">5.</strong> API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/full-node-api/index.html"><strong aria-hidden="true">5.1.</strong> Full Node API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/full-node-api/auth.html"><strong aria-hidden="true">5.1.1.</strong> Auth</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/beacon.html"><strong aria-hidden="true">5.1.2.</strong> Beacon</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/chain.html"><strong aria-hidden="true">5.1.3.</strong> Chain</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/client.html"><strong aria-hidden="true">5.1.4.</strong> Client</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/gas.html"><strong aria-hidden="true">5.1.5.</strong> Gas</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/log.html"><strong aria-hidden="true">5.1.6.</strong> Log</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/market.html"><strong aria-hidden="true">5.1.7.</strong> Market</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/miner.html"><strong aria-hidden="true">5.1.8.</strong> Miner</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/misc.html"><strong aria-hidden="true">5.1.9.</strong> Misc</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/mpool.html"><strong aria-hidden="true">5.1.10.</strong> Mpool</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/msig.html"><strong aria-hidden="true">5.1.11.</strong> Msig</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/net.html"><strong aria-hidden="true">5.1.12.</strong> Net</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/paych.html"><strong aria-hidden="true">5.1.13.</strong> Paych</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/state.html"><strong aria-hidden="true">5.1.14.</strong> State</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/sync.html"><strong aria-hidden="true">5.1.15.</strong> Sync</a></li><li class="chapter-item expanded "><a href="../api/full-node-api/wallet.html"><strong aria-hidden="true">5.1.16.</strong> Wallet</a></li></ol></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/index.html"><strong aria-hidden="true">5.2.</strong> Storage Miner API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/storage-miner-api/actor.html"><strong aria-hidden="true">5.2.1.</strong> Actor</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/auth.html"><strong aria-hidden="true">5.2.2.</strong> Auth</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/deals.html"><strong aria-hidden="true">5.2.3.</strong> Deals</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/log.html"><strong aria-hidden="true">5.2.4.</strong> Log</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/market.html"><strong aria-hidden="true">5.2.5.</strong> Market</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/mining.html"><strong aria-hidden="true">5.2.6.</strong> Mining</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/misc.html"><strong aria-hidden="true">5.2.7.</strong> Misc</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/net.html"><strong aria-hidden="true">5.2.8.</strong> Net</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/pieces.html"><strong aria-hidden="true">5.2.9.</strong> Pieces</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/pledge.html"><strong aria-hidden="true">5.2.10.</strong> Pledge</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/sealing.html"><strong aria-hidden="true">5.2.11.</strong> Sealing</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/sector.html"><strong aria-hidden="true">5.2.12.</strong> Sector</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/sectors.html"><strong aria-hidden="true">5.2.13.</strong> Sectors</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/storage.html"><strong aria-hidden="true">5.2.14.</strong> Storage</a></li><li class="chapter-item expanded "><a href="../api/storage-miner-api/worker.html"><strong aria-hidden="true">5.2.15.</strong> Worker</a></li></ol></li><li class="chapter-item expanded "><a href="../api/gateway-api/index.html"><strong aria-hidden="true">5.3.</strong> Gateway API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/gateway-api/chain.html"><strong aria-hidden="true">5.3.1.</strong> Chain</a></li><li class="chapter-item expanded "><a href="../api/gateway-api/gas.html"><strong aria-hidden="true">5.3.2.</strong> Gas</a></li><li class="chapter-item expanded "><a href="../api/gateway-api/mpool.html"><strong aria-hidden="true">5.3.3.</strong> Mpool</a></li><li class="chapter-item expanded "><a href="../api/gateway-api/msig.html"><strong aria-hidden="true">5.3.4.</strong> Msig</a></li><li class="chapter-item expanded "><a href="../api/gateway-api/state.html"><strong aria-hidden="true">5.3.5.</strong> State</a></li></ol></li><li class="chapter-item expanded "><a href="../api/wallet-api/index.html"><strong aria-hidden="true">5.4.</strong> Wallet API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/wallet-api/wallet.html"><strong aria-hidden="true">5.4.1.</strong> Wallet</a></li></ol></li><li class="chapter-item expanded "><a href="../api/worker-api/index.html"><strong aria-hidden="true">5.5.</strong> Worker API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/worker-api/misc.html"><strong aria-hidden="true">5.5.1.</strong> Misc</a></li><li class="chapter-item expanded "><a href="../api/worker-api/storage.html"><strong aria-hidden="true">5.5.2.</strong> Storage</a></li></ol></li><li class="chapter-item expanded "><a href="../api/types.html" class="active"><strong aria-hidden="true">5.6.</strong> Types</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Lotus JS Client</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/filecoin-shipyard/js-lotus-client" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Code generated by github.com/filecoin-shipyard/js-lotus-client/docgen. DO NOT EDIT. -->
+<h1><a class="header" href="#types" id="types">Types</a></h1>
+<p>In Typescript, import types from the <code>lotus-client-rpc</code> module e.g.</p>
+<pre><code class="language-ts">import { Cid, BlockHeader } from '@filecoin-shipyard/lotus-client-rpc'
+</code></pre>
+<h2><a class="header" href="#type-reference" id="type-reference">Type Reference</a></h2>
+<ul>
+<li><a href="#activesync">ActiveSync</a></li>
+<li><a href="#actor">Actor</a></li>
+<li><a href="#actorstate">ActorState</a></li>
+<li><a href="#addrinfo">AddrInfo</a></li>
+<li><a href="#ask">Ask</a></li>
+<li><a href="#beaconentry">BeaconEntry</a></li>
+<li><a href="#bitfield">BitField</a></li>
+<li><a href="#blockheader">BlockHeader</a></li>
+<li><a href="#blocklocation">BlockLocation</a></li>
+<li><a href="#blockmessages">BlockMessages</a></li>
+<li><a href="#blockmsg">BlockMsg</a></li>
+<li><a href="#blocktemplate">BlockTemplate</a></li>
+<li><a href="#cidinfo">CIDInfo</a></li>
+<li><a href="#cbortime">CborTime</a></li>
+<li><a href="#channelavailablefunds">ChannelAvailableFunds</a></li>
+<li><a href="#channelid">ChannelID</a></li>
+<li><a href="#channelinfo">ChannelInfo</a></li>
+<li><a href="#cid">Cid</a></li>
+<li><a href="#circulatingsupply">CirculatingSupply</a></li>
+<li><a href="#claim">Claim</a></li>
+<li><a href="#clientdealproposal">ClientDealProposal</a></li>
+<li><a href="#commpret">CommPRet</a></li>
+<li><a href="#computestateoutput">ComputeStateOutput</a></li>
+<li><a href="#dataref">DataRef</a></li>
+<li><a href="#datasize">DataSize</a></li>
+<li><a href="#datatransferchannel">DataTransferChannel</a></li>
+<li><a href="#deadline">Deadline</a></li>
+<li><a href="#dealcollateralbounds">DealCollateralBounds</a></li>
+<li><a href="#dealinfo">DealInfo</a></li>
+<li><a href="#dealinfo1">DealInfo1</a></li>
+<li><a href="#dealproposal">DealProposal</a></li>
+<li><a href="#dealproposal1">DealProposal1</a></li>
+<li><a href="#dealproposal2">DealProposal2</a></li>
+<li><a href="#dealstate">DealState</a></li>
+<li><a href="#decl">Decl</a></li>
+<li><a href="#deferred">Deferred</a></li>
+<li><a href="#electionproof">ElectionProof</a></li>
+<li><a href="#executiontrace">ExecutionTrace</a></li>
+<li><a href="#exptipset">ExpTipSet</a></li>
+<li><a href="#fault">Fault</a></li>
+<li><a href="#fileref">FileRef</a></li>
+<li><a href="#fsstat">FsStat</a></li>
+<li><a href="#gastrace">GasTrace</a></li>
+<li><a href="#headchange">HeadChange</a></li>
+<li><a href="#healthreport">HealthReport</a></li>
+<li><a href="#import">Import</a></li>
+<li><a href="#importres">ImportRes</a></li>
+<li><a href="#info">Info</a></li>
+<li><a href="#invocresult">InvocResult</a></li>
+<li><a href="#ipldobject">IpldObject</a></li>
+<li><a href="#keyinfo">KeyInfo</a></li>
+<li><a href="#loc">Loc</a></li>
+<li><a href="#marketbalance">MarketBalance</a></li>
+<li><a href="#marketdeal">MarketDeal</a></li>
+<li><a href="#merge">Merge</a></li>
+<li><a href="#message">Message</a></li>
+<li><a href="#message1">Message1</a></li>
+<li><a href="#messagematch">MessageMatch</a></li>
+<li><a href="#messagereceipt">MessageReceipt</a></li>
+<li><a href="#messagesendspec">MessageSendSpec</a></li>
+<li><a href="#minerdeal">MinerDeal</a></li>
+<li><a href="#minerinfo">MinerInfo</a></li>
+<li><a href="#minerpower">MinerPower</a></li>
+<li><a href="#minersectors">MinerSectors</a></li>
+<li><a href="#miningbaseinfo">MiningBaseInfo</a></li>
+<li><a href="#modverifyparams">ModVerifyParams</a></li>
+<li><a href="#mpoolconfig">MpoolConfig</a></li>
+<li><a href="#mpoolupdate">MpoolUpdate</a></li>
+<li><a href="#msggascost">MsgGasCost</a></li>
+<li><a href="#msglookup">MsgLookup</a></li>
+<li><a href="#msigvesting">MsigVesting</a></li>
+<li><a href="#natinfo">NatInfo</a></li>
+<li><a href="#objstat">ObjStat</a></li>
+<li><a href="#params">Params</a></li>
+<li><a href="#partition">Partition</a></li>
+<li><a href="#paychstatus">PaychStatus</a></li>
+<li><a href="#paymentinfo">PaymentInfo</a></li>
+<li><a href="#peerscoresnapshot">PeerScoreSnapshot</a></li>
+<li><a href="#pieceblocklocation">PieceBlockLocation</a></li>
+<li><a href="#pieceinfo">PieceInfo</a></li>
+<li><a href="#pieceinfo1">PieceInfo1</a></li>
+<li><a href="#postproof">PoStProof</a></li>
+<li><a href="#providerdealstate">ProviderDealState</a></li>
+<li><a href="#pubsubscore">PubsubScore</a></li>
+<li><a href="#queryoffer">QueryOffer</a></li>
+<li><a href="#range">Range</a></li>
+<li><a href="#retrievalevent">RetrievalEvent</a></li>
+<li><a href="#retrievalorder">RetrievalOrder</a></li>
+<li><a href="#retrievalpeer">RetrievalPeer</a></li>
+<li><a href="#sealseed">SealSeed</a></li>
+<li><a href="#sealticket">SealTicket</a></li>
+<li><a href="#sealedref">SealedRef</a></li>
+<li><a href="#sectorcids">SectorCids</a></li>
+<li><a href="#sectorexpiration">SectorExpiration</a></li>
+<li><a href="#sectorid">SectorID</a></li>
+<li><a href="#sectorinfo">SectorInfo</a></li>
+<li><a href="#sectorinfo1">SectorInfo1</a></li>
+<li><a href="#sectorlocation">SectorLocation</a></li>
+<li><a href="#sectorlog">SectorLog</a></li>
+<li><a href="#sectoronchaininfo">SectorOnChainInfo</a></li>
+<li><a href="#sectorprecommitinfo">SectorPreCommitInfo</a></li>
+<li><a href="#sectorprecommitonchaininfo">SectorPreCommitOnChainInfo</a></li>
+<li><a href="#sectorstorageinfo">SectorStorageInfo</a></li>
+<li><a href="#signature">Signature</a></li>
+<li><a href="#signedmessage">SignedMessage</a></li>
+<li><a href="#signedstorageask">SignedStorageAsk</a></li>
+<li><a href="#signedvoucher">SignedVoucher</a></li>
+<li><a href="#startdealparams">StartDealParams</a></li>
+<li><a href="#stats">Stats</a></li>
+<li><a href="#storageask">StorageAsk</a></li>
+<li><a href="#storageinfo">StorageInfo</a></li>
+<li><a href="#storagepath">StoragePath</a></li>
+<li><a href="#syncstate">SyncState</a></li>
+<li><a href="#ticket">Ticket</a></li>
+<li><a href="#time">Time</a></li>
+<li><a href="#tipset">TipSet</a></li>
+<li><a href="#topicscoresnapshot">TopicScoreSnapshot</a></li>
+<li><a href="#version">Version</a></li>
+<li><a href="#vouchercreateresult">VoucherCreateResult</a></li>
+<li><a href="#voucherspec">VoucherSpec</a></li>
+<li><a href="#workerinfo">WorkerInfo</a></li>
+<li><a href="#workerjob">WorkerJob</a></li>
+<li><a href="#workerresources">WorkerResources</a></li>
+<li><a href="#workerstats">WorkerStats</a></li>
+</ul>
+<h2><a class="header" href="#activesync" id="activesync">ActiveSync</a></h2>
+<pre><code class="language-ts">type ActiveSync = { Base: TipSet, End: Time, Height: number, Message: string, Stage: number, Start: Time, Target: TipSet }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Base</code>: <a href="#tipset"><code>TipSet</code></a></li>
+<li><code>End</code>: <a href="#time"><code>Time</code></a></li>
+<li><code>Height</code>: <code>number</code></li>
+<li><code>Message</code>: <code>string</code></li>
+<li><code>Stage</code>: <code>number</code></li>
+<li><code>Start</code>: <a href="#time"><code>Time</code></a></li>
+<li><code>Target</code>: <a href="#tipset"><code>TipSet</code></a></li>
+</ul>
+<h2><a class="header" href="#actor" id="actor">Actor</a></h2>
+<pre><code class="language-ts">type Actor = { Balance: string, Code: Cid, Head: Cid, Nonce: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Balance</code>: <code>string</code></li>
+<li><code>Code</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Head</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Nonce</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#actorstate" id="actorstate">ActorState</a></h2>
+<pre><code class="language-ts">type ActorState = { Balance: string, State: any }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Balance</code>: <code>string</code></li>
+<li><code>State</code>: <code>any</code></li>
+</ul>
+<h2><a class="header" href="#addrinfo" id="addrinfo">AddrInfo</a></h2>
+<pre><code class="language-ts">type AddrInfo = { Addrs: Array&lt;any&gt;, ID: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Addrs</code>: <code>Array&lt;any&gt;</code></li>
+<li><code>ID</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#ask" id="ask">Ask</a></h2>
+<pre><code class="language-ts">type Ask = { PaymentInterval: number, PaymentIntervalIncrease: number, PricePerByte: string, UnsealPrice: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>PaymentInterval</code>: <code>number</code></li>
+<li><code>PaymentIntervalIncrease</code>: <code>number</code></li>
+<li><code>PricePerByte</code>: <code>string</code></li>
+<li><code>UnsealPrice</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#beaconentry" id="beaconentry">BeaconEntry</a></h2>
+<pre><code class="language-ts">type BeaconEntry = { Data: string, Round: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Data</code>: <code>string</code></li>
+<li><code>Round</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#bitfield" id="bitfield">BitField</a></h2>
+<pre><code class="language-ts">type BitField = {}
+</code></pre>
+<h2><a class="header" href="#blockheader" id="blockheader">BlockHeader</a></h2>
+<pre><code class="language-ts">type BlockHeader = { BLSAggregate: Signature, BeaconEntries: Array&lt;BeaconEntry&gt;, BlockSig: Signature, ElectionProof: ElectionProof, ForkSignaling: number, Height: number, Messages: Cid, Miner: string, ParentBaseFee: string, ParentMessageReceipts: Cid, ParentStateRoot: Cid, ParentWeight: string, Parents: Array&lt;Cid&gt;, Ticket: Ticket, Timestamp: number, WinPoStProof: Array&lt;PoStProof&gt; }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>BLSAggregate</code>: <a href="#signature"><code>Signature</code></a></li>
+<li><code>BeaconEntries</code>: <code>Array&lt;<a href="#beaconentry">BeaconEntry</a>&gt;</code></li>
+<li><code>BlockSig</code>: <a href="#signature"><code>Signature</code></a></li>
+<li><code>ElectionProof</code>: <a href="#electionproof"><code>ElectionProof</code></a></li>
+<li><code>ForkSignaling</code>: <code>number</code></li>
+<li><code>Height</code>: <code>number</code></li>
+<li><code>Messages</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Miner</code>: <code>string</code></li>
+<li><code>ParentBaseFee</code>: <code>string</code></li>
+<li><code>ParentMessageReceipts</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>ParentStateRoot</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>ParentWeight</code>: <code>string</code></li>
+<li><code>Parents</code>: <code>Array&lt;<a href="#cid">Cid</a>&gt;</code></li>
+<li><code>Ticket</code>: <a href="#ticket"><code>Ticket</code></a></li>
+<li><code>Timestamp</code>: <code>number</code></li>
+<li><code>WinPoStProof</code>: <code>Array&lt;<a href="#postproof">PoStProof</a>&gt;</code></li>
+</ul>
+<h2><a class="header" href="#blocklocation" id="blocklocation">BlockLocation</a></h2>
+<pre><code class="language-ts">type BlockLocation = { BlockSize: number, RelOffset: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>BlockSize</code>: <code>number</code></li>
+<li><code>RelOffset</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#blockmessages" id="blockmessages">BlockMessages</a></h2>
+<pre><code class="language-ts">type BlockMessages = { BlsMessages: Array&lt;Message&gt;, Cids: Array&lt;Cid&gt;, SecpkMessages: Array&lt;SignedMessage&gt; }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>BlsMessages</code>: <code>Array&lt;<a href="#message">Message</a>&gt;</code></li>
+<li><code>Cids</code>: <code>Array&lt;<a href="#cid">Cid</a>&gt;</code></li>
+<li><code>SecpkMessages</code>: <code>Array&lt;<a href="#signedmessage">SignedMessage</a>&gt;</code></li>
+</ul>
+<h2><a class="header" href="#blockmsg" id="blockmsg">BlockMsg</a></h2>
+<pre><code class="language-ts">type BlockMsg = { BlsMessages: Array&lt;Cid&gt;, Header: BlockHeader, SecpkMessages: Array&lt;Cid&gt; }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>BlsMessages</code>: <code>Array&lt;<a href="#cid">Cid</a>&gt;</code></li>
+<li><code>Header</code>: <a href="#blockheader"><code>BlockHeader</code></a></li>
+<li><code>SecpkMessages</code>: <code>Array&lt;<a href="#cid">Cid</a>&gt;</code></li>
+</ul>
+<h2><a class="header" href="#blocktemplate" id="blocktemplate">BlockTemplate</a></h2>
+<pre><code class="language-ts">type BlockTemplate = { BeaconValues: Array&lt;BeaconEntry&gt;, Epoch: number, Eproof: ElectionProof, Messages: Array&lt;SignedMessage&gt;, Miner: string, Parents: Cid[], Ticket: Ticket, Timestamp: number, WinningPoStProof: Array&lt;PoStProof&gt; }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>BeaconValues</code>: <code>Array&lt;<a href="#beaconentry">BeaconEntry</a>&gt;</code></li>
+<li><code>Epoch</code>: <code>number</code></li>
+<li><code>Eproof</code>: <a href="#electionproof"><code>ElectionProof</code></a></li>
+<li><code>Messages</code>: <code>Array&lt;<a href="#signedmessage">SignedMessage</a>&gt;</code></li>
+<li><code>Miner</code>: <code>string</code></li>
+<li><code>Parents</code>: <code><a href="#cid">Cid</a>[]</code></li>
+<li><code>Ticket</code>: <a href="#ticket"><code>Ticket</code></a></li>
+<li><code>Timestamp</code>: <code>number</code></li>
+<li><code>WinningPoStProof</code>: <code>Array&lt;<a href="#postproof">PoStProof</a>&gt;</code></li>
+</ul>
+<h2><a class="header" href="#cidinfo" id="cidinfo">CIDInfo</a></h2>
+<pre><code class="language-ts">type CIDInfo = { CID: Cid, PieceBlockLocations: Array&lt;PieceBlockLocation&gt; }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>CID</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>PieceBlockLocations</code>: <code>Array&lt;<a href="#pieceblocklocation">PieceBlockLocation</a>&gt;</code></li>
+</ul>
+<h2><a class="header" href="#cbortime" id="cbortime">CborTime</a></h2>
+<pre><code class="language-ts">type CborTime = {}
+</code></pre>
+<h2><a class="header" href="#channelavailablefunds" id="channelavailablefunds">ChannelAvailableFunds</a></h2>
+<pre><code class="language-ts">type ChannelAvailableFunds = { Channel: string, ConfirmedAmt: string, From: string, PendingAmt: string, PendingWaitSentinel: Cid, QueuedAmt: string, To: string, VoucherReedeemedAmt: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Channel</code>: <code>string</code></li>
+<li><code>ConfirmedAmt</code>: <code>string</code></li>
+<li><code>From</code>: <code>string</code></li>
+<li><code>PendingAmt</code>: <code>string</code></li>
+<li><code>PendingWaitSentinel</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>QueuedAmt</code>: <code>string</code></li>
+<li><code>To</code>: <code>string</code></li>
+<li><code>VoucherReedeemedAmt</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#channelid" id="channelid">ChannelID</a></h2>
+<pre><code class="language-ts">type ChannelID = { ID: number, Initiator: string, Responder: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>ID</code>: <code>number</code></li>
+<li><code>Initiator</code>: <code>string</code></li>
+<li><code>Responder</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#channelinfo" id="channelinfo">ChannelInfo</a></h2>
+<pre><code class="language-ts">type ChannelInfo = { Channel: string, WaitSentinel: Cid }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Channel</code>: <code>string</code></li>
+<li><code>WaitSentinel</code>: <a href="#cid"><code>Cid</code></a></li>
+</ul>
+<h2><a class="header" href="#cid" id="cid">Cid</a></h2>
+<pre><code class="language-ts">type Cid = { /: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>/</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#circulatingsupply" id="circulatingsupply">CirculatingSupply</a></h2>
+<pre><code class="language-ts">type CirculatingSupply = { FilBurnt: string, FilCirculating: string, FilLocked: string, FilMined: string, FilVested: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>FilBurnt</code>: <code>string</code></li>
+<li><code>FilCirculating</code>: <code>string</code></li>
+<li><code>FilLocked</code>: <code>string</code></li>
+<li><code>FilMined</code>: <code>string</code></li>
+<li><code>FilVested</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#claim" id="claim">Claim</a></h2>
+<pre><code class="language-ts">type Claim = { QualityAdjPower: string, RawBytePower: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>QualityAdjPower</code>: <code>string</code></li>
+<li><code>RawBytePower</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#clientdealproposal" id="clientdealproposal">ClientDealProposal</a></h2>
+<pre><code class="language-ts">type ClientDealProposal = { ClientSignature: Signature, Proposal: DealProposal1 }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>ClientSignature</code>: <a href="#signature"><code>Signature</code></a></li>
+<li><code>Proposal</code>: <a href="#dealproposal1"><code>DealProposal1</code></a></li>
+</ul>
+<h2><a class="header" href="#commpret" id="commpret">CommPRet</a></h2>
+<pre><code class="language-ts">type CommPRet = { Root: Cid, Size: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Root</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Size</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#computestateoutput" id="computestateoutput">ComputeStateOutput</a></h2>
+<pre><code class="language-ts">type ComputeStateOutput = { Root: Cid, Trace: Array&lt;InvocResult&gt; }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Root</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Trace</code>: <code>Array&lt;<a href="#invocresult">InvocResult</a>&gt;</code></li>
+</ul>
+<h2><a class="header" href="#dataref" id="dataref">DataRef</a></h2>
+<pre><code class="language-ts">type DataRef = { PieceCid: Cid, PieceSize: number, Root: Cid, TransferType: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>PieceCid</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>PieceSize</code>: <code>number</code></li>
+<li><code>Root</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>TransferType</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#datasize" id="datasize">DataSize</a></h2>
+<pre><code class="language-ts">type DataSize = { PayloadSize: number, PieceSize: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>PayloadSize</code>: <code>number</code></li>
+<li><code>PieceSize</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#datatransferchannel" id="datatransferchannel">DataTransferChannel</a></h2>
+<pre><code class="language-ts">type DataTransferChannel = { BaseCID: Cid, IsInitiator: boolean, IsSender: boolean, Message: string, OtherPeer: string, Status: number, TransferID: number, Transferred: number, Voucher: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>BaseCID</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>IsInitiator</code>: <code>boolean</code></li>
+<li><code>IsSender</code>: <code>boolean</code></li>
+<li><code>Message</code>: <code>string</code></li>
+<li><code>OtherPeer</code>: <code>string</code></li>
+<li><code>Status</code>: <code>number</code></li>
+<li><code>TransferID</code>: <code>number</code></li>
+<li><code>Transferred</code>: <code>number</code></li>
+<li><code>Voucher</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#deadline" id="deadline">Deadline</a></h2>
+<pre><code class="language-ts">type Deadline = { PostSubmissions: BitField }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>PostSubmissions</code>: <a href="#bitfield"><code>BitField</code></a></li>
+</ul>
+<h2><a class="header" href="#dealcollateralbounds" id="dealcollateralbounds">DealCollateralBounds</a></h2>
+<pre><code class="language-ts">type DealCollateralBounds = { Max: string, Min: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Max</code>: <code>string</code></li>
+<li><code>Min</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#dealinfo" id="dealinfo">DealInfo</a></h2>
+<pre><code class="language-ts">type DealInfo = { CreationTime: Time, DataRef: DataRef, DealID: number, Duration: number, Message: string, PieceCID: Cid, PricePerEpoch: string, ProposalCid: Cid, Provider: string, Size: number, State: number, Verified: boolean }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>CreationTime</code>: <a href="#time"><code>Time</code></a></li>
+<li><code>DataRef</code>: <a href="#dataref"><code>DataRef</code></a></li>
+<li><code>DealID</code>: <code>number</code></li>
+<li><code>Duration</code>: <code>number</code></li>
+<li><code>Message</code>: <code>string</code></li>
+<li><code>PieceCID</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>PricePerEpoch</code>: <code>string</code></li>
+<li><code>ProposalCid</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Provider</code>: <code>string</code></li>
+<li><code>Size</code>: <code>number</code></li>
+<li><code>State</code>: <code>number</code></li>
+<li><code>Verified</code>: <code>boolean</code></li>
+</ul>
+<h2><a class="header" href="#dealinfo1" id="dealinfo1">DealInfo1</a></h2>
+<pre><code class="language-ts">type DealInfo1 = { DealID: number, Length: number, Offset: number, SectorID: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>DealID</code>: <code>number</code></li>
+<li><code>Length</code>: <code>number</code></li>
+<li><code>Offset</code>: <code>number</code></li>
+<li><code>SectorID</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#dealproposal" id="dealproposal">DealProposal</a></h2>
+<pre><code class="language-ts">type DealProposal = { Client: string, ClientCollateral: string, EndEpoch: number, Label: string, PieceCID: Cid, PieceSize: number, Provider: string, ProviderCollateral: string, StartEpoch: number, StoragePricePerEpoch: string, VerifiedDeal: boolean }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Client</code>: <code>string</code></li>
+<li><code>ClientCollateral</code>: <code>string</code></li>
+<li><code>EndEpoch</code>: <code>number</code></li>
+<li><code>Label</code>: <code>string</code></li>
+<li><code>PieceCID</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>PieceSize</code>: <code>number</code></li>
+<li><code>Provider</code>: <code>string</code></li>
+<li><code>ProviderCollateral</code>: <code>string</code></li>
+<li><code>StartEpoch</code>: <code>number</code></li>
+<li><code>StoragePricePerEpoch</code>: <code>string</code></li>
+<li><code>VerifiedDeal</code>: <code>boolean</code></li>
+</ul>
+<h2><a class="header" href="#dealproposal1" id="dealproposal1">DealProposal1</a></h2>
+<pre><code class="language-ts">type DealProposal1 = { Client: string, ClientCollateral: string, EndEpoch: number, Label: string, PieceCID: Cid, PieceSize: number, Provider: string, ProviderCollateral: string, StartEpoch: number, StoragePricePerEpoch: string, VerifiedDeal: boolean }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Client</code>: <code>string</code></li>
+<li><code>ClientCollateral</code>: <code>string</code></li>
+<li><code>EndEpoch</code>: <code>number</code></li>
+<li><code>Label</code>: <code>string</code></li>
+<li><code>PieceCID</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>PieceSize</code>: <code>number</code></li>
+<li><code>Provider</code>: <code>string</code></li>
+<li><code>ProviderCollateral</code>: <code>string</code></li>
+<li><code>StartEpoch</code>: <code>number</code></li>
+<li><code>StoragePricePerEpoch</code>: <code>string</code></li>
+<li><code>VerifiedDeal</code>: <code>boolean</code></li>
+</ul>
+<h2><a class="header" href="#dealproposal2" id="dealproposal2">DealProposal2</a></h2>
+<pre><code class="language-ts">type DealProposal2 = { ID: number, Params: Params, PayloadCID: Cid }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>ID</code>: <code>number</code></li>
+<li><code>Params</code>: <a href="#params"><code>Params</code></a></li>
+<li><code>PayloadCID</code>: <a href="#cid"><code>Cid</code></a></li>
+</ul>
+<h2><a class="header" href="#dealstate" id="dealstate">DealState</a></h2>
+<pre><code class="language-ts">type DealState = { LastUpdatedEpoch: number, SectorStartEpoch: number, SlashEpoch: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>LastUpdatedEpoch</code>: <code>number</code></li>
+<li><code>SectorStartEpoch</code>: <code>number</code></li>
+<li><code>SlashEpoch</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#decl" id="decl">Decl</a></h2>
+<pre><code class="language-ts">type Decl = { SectorFileType: number, SectorID: SectorID }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>SectorFileType</code>: <code>number</code></li>
+<li><code>SectorID</code>: <a href="#sectorid"><code>SectorID</code></a></li>
+</ul>
+<h2><a class="header" href="#deferred" id="deferred">Deferred</a></h2>
+<pre><code class="language-ts">type Deferred = { Raw: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Raw</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#electionproof" id="electionproof">ElectionProof</a></h2>
+<pre><code class="language-ts">type ElectionProof = { VRFProof: string, WinCount: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>VRFProof</code>: <code>string</code></li>
+<li><code>WinCount</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#executiontrace" id="executiontrace">ExecutionTrace</a></h2>
+<pre><code class="language-ts">type ExecutionTrace = { Duration: number, Error: string, GasCharges: Array&lt;GasTrace&gt;, Msg: Message, MsgRct: MessageReceipt, Subcalls: ExecutionTrace[] }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Duration</code>: <code>number</code></li>
+<li><code>Error</code>: <code>string</code></li>
+<li><code>GasCharges</code>: <code>Array&lt;<a href="#gastrace">GasTrace</a>&gt;</code></li>
+<li><code>Msg</code>: <a href="#message"><code>Message</code></a></li>
+<li><code>MsgRct</code>: <a href="#messagereceipt"><code>MessageReceipt</code></a></li>
+<li><code>Subcalls</code>: <code><a href="#executiontrace">ExecutionTrace</a>[]</code></li>
+</ul>
+<h2><a class="header" href="#exptipset" id="exptipset">ExpTipSet</a></h2>
+<pre><code class="language-ts">type ExpTipSet = { Blocks: Array&lt;BlockHeader&gt;, Cids: Array&lt;Cid&gt;, Height: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Blocks</code>: <code>Array&lt;<a href="#blockheader">BlockHeader</a>&gt;</code></li>
+<li><code>Cids</code>: <code>Array&lt;<a href="#cid">Cid</a>&gt;</code></li>
+<li><code>Height</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#fault" id="fault">Fault</a></h2>
+<pre><code class="language-ts">type Fault = { Epoch: number, Miner: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Epoch</code>: <code>number</code></li>
+<li><code>Miner</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#fileref" id="fileref">FileRef</a></h2>
+<pre><code class="language-ts">type FileRef = { IsCAR: boolean, Path: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>IsCAR</code>: <code>boolean</code></li>
+<li><code>Path</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#fsstat" id="fsstat">FsStat</a></h2>
+<pre><code class="language-ts">type FsStat = { Available: number, Capacity: number, Reserved: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Available</code>: <code>number</code></li>
+<li><code>Capacity</code>: <code>number</code></li>
+<li><code>Reserved</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#gastrace" id="gastrace">GasTrace</a></h2>
+<pre><code class="language-ts">type GasTrace = { Callers: Array&lt;number&gt;, ComputeGas: number, Extra: any, Location: Array&lt;Loc&gt;, Name: string, StorageGas: number, TimeTaken: number, TotalGas: number, TotalVirtualGas: number, VirtualComputeGas: number, VirtualStorageGas: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Callers</code>: <code>Array&lt;number&gt;</code></li>
+<li><code>ComputeGas</code>: <code>number</code></li>
+<li><code>Extra</code>: <code>any</code></li>
+<li><code>Location</code>: <code>Array&lt;<a href="#loc">Loc</a>&gt;</code></li>
+<li><code>Name</code>: <code>string</code></li>
+<li><code>StorageGas</code>: <code>number</code></li>
+<li><code>TimeTaken</code>: <code>number</code></li>
+<li><code>TotalGas</code>: <code>number</code></li>
+<li><code>TotalVirtualGas</code>: <code>number</code></li>
+<li><code>VirtualComputeGas</code>: <code>number</code></li>
+<li><code>VirtualStorageGas</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#headchange" id="headchange">HeadChange</a></h2>
+<pre><code class="language-ts">type HeadChange = { Type: string, Val: TipSet }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Type</code>: <code>string</code></li>
+<li><code>Val</code>: <a href="#tipset"><code>TipSet</code></a></li>
+</ul>
+<h2><a class="header" href="#healthreport" id="healthreport">HealthReport</a></h2>
+<pre><code class="language-ts">type HealthReport = { Err: any, Stat: FsStat }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Err</code>: <code>any</code></li>
+<li><code>Stat</code>: <a href="#fsstat"><code>FsStat</code></a></li>
+</ul>
+<h2><a class="header" href="#import" id="import">Import</a></h2>
+<pre><code class="language-ts">type Import = { Err: string, FilePath: string, Key: number, Root: Cid, Source: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Err</code>: <code>string</code></li>
+<li><code>FilePath</code>: <code>string</code></li>
+<li><code>Key</code>: <code>number</code></li>
+<li><code>Root</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Source</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#importres" id="importres">ImportRes</a></h2>
+<pre><code class="language-ts">type ImportRes = { ImportID: number, Root: Cid }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>ImportID</code>: <code>number</code></li>
+<li><code>Root</code>: <a href="#cid"><code>Cid</code></a></li>
+</ul>
+<h2><a class="header" href="#info" id="info">Info</a></h2>
+<pre><code class="language-ts">type Info = { Challenge: number, Close: number, CurrentEpoch: number, FaultCutoff: number, FaultDeclarationCutoff: number, Index: number, Open: number, PeriodStart: number, WPoStChallengeLookback: number, WPoStChallengeWindow: number, WPoStPeriodDeadlines: number, WPoStProvingPeriod: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Challenge</code>: <code>number</code></li>
+<li><code>Close</code>: <code>number</code></li>
+<li><code>CurrentEpoch</code>: <code>number</code></li>
+<li><code>FaultCutoff</code>: <code>number</code></li>
+<li><code>FaultDeclarationCutoff</code>: <code>number</code></li>
+<li><code>Index</code>: <code>number</code></li>
+<li><code>Open</code>: <code>number</code></li>
+<li><code>PeriodStart</code>: <code>number</code></li>
+<li><code>WPoStChallengeLookback</code>: <code>number</code></li>
+<li><code>WPoStChallengeWindow</code>: <code>number</code></li>
+<li><code>WPoStPeriodDeadlines</code>: <code>number</code></li>
+<li><code>WPoStProvingPeriod</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#invocresult" id="invocresult">InvocResult</a></h2>
+<pre><code class="language-ts">type InvocResult = { Duration: number, Error: string, ExecutionTrace: ExecutionTrace, GasCost: MsgGasCost, Msg: Message, MsgCid: Cid, MsgRct: MessageReceipt }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Duration</code>: <code>number</code></li>
+<li><code>Error</code>: <code>string</code></li>
+<li><code>ExecutionTrace</code>: <a href="#executiontrace"><code>ExecutionTrace</code></a></li>
+<li><code>GasCost</code>: <a href="#msggascost"><code>MsgGasCost</code></a></li>
+<li><code>Msg</code>: <a href="#message"><code>Message</code></a></li>
+<li><code>MsgCid</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>MsgRct</code>: <a href="#messagereceipt"><code>MessageReceipt</code></a></li>
+</ul>
+<h2><a class="header" href="#ipldobject" id="ipldobject">IpldObject</a></h2>
+<pre><code class="language-ts">type IpldObject = { Cid: Cid, Obj: any }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Cid</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Obj</code>: <code>any</code></li>
+</ul>
+<h2><a class="header" href="#keyinfo" id="keyinfo">KeyInfo</a></h2>
+<pre><code class="language-ts">type KeyInfo = { PrivateKey: string, Type: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>PrivateKey</code>: <code>string</code></li>
+<li><code>Type</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#loc" id="loc">Loc</a></h2>
+<pre><code class="language-ts">type Loc = { File: string, Function: string, Line: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>File</code>: <code>string</code></li>
+<li><code>Function</code>: <code>string</code></li>
+<li><code>Line</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#marketbalance" id="marketbalance">MarketBalance</a></h2>
+<pre><code class="language-ts">type MarketBalance = { Escrow: string, Locked: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Escrow</code>: <code>string</code></li>
+<li><code>Locked</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#marketdeal" id="marketdeal">MarketDeal</a></h2>
+<pre><code class="language-ts">type MarketDeal = { Proposal: DealProposal, State: DealState }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Proposal</code>: <a href="#dealproposal"><code>DealProposal</code></a></li>
+<li><code>State</code>: <a href="#dealstate"><code>DealState</code></a></li>
+</ul>
+<h2><a class="header" href="#merge" id="merge">Merge</a></h2>
+<pre><code class="language-ts">type Merge = { Lane: number, Nonce: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Lane</code>: <code>number</code></li>
+<li><code>Nonce</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#message" id="message">Message</a></h2>
+<pre><code class="language-ts">type Message = { From: string, GasFeeCap: string, GasLimit: number, GasPremium: string, Method: number, Nonce: number, Params: string, To: string, Value: string, Version: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>From</code>: <code>string</code></li>
+<li><code>GasFeeCap</code>: <code>string</code></li>
+<li><code>GasLimit</code>: <code>number</code></li>
+<li><code>GasPremium</code>: <code>string</code></li>
+<li><code>Method</code>: <code>number</code></li>
+<li><code>Nonce</code>: <code>number</code></li>
+<li><code>Params</code>: <code>string</code></li>
+<li><code>To</code>: <code>string</code></li>
+<li><code>Value</code>: <code>string</code></li>
+<li><code>Version</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#message1" id="message1">Message1</a></h2>
+<pre><code class="language-ts">type Message1 = { Cid: Cid, Message: Message }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Cid</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Message</code>: <a href="#message"><code>Message</code></a></li>
+</ul>
+<h2><a class="header" href="#messagematch" id="messagematch">MessageMatch</a></h2>
+<pre><code class="language-ts">type MessageMatch = { From: string, To: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>From</code>: <code>string</code></li>
+<li><code>To</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#messagereceipt" id="messagereceipt">MessageReceipt</a></h2>
+<pre><code class="language-ts">type MessageReceipt = { ExitCode: number, GasUsed: number, Return: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>ExitCode</code>: <code>number</code></li>
+<li><code>GasUsed</code>: <code>number</code></li>
+<li><code>Return</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#messagesendspec" id="messagesendspec">MessageSendSpec</a></h2>
+<pre><code class="language-ts">type MessageSendSpec = { MaxFee: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>MaxFee</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#minerdeal" id="minerdeal">MinerDeal</a></h2>
+<pre><code class="language-ts">type MinerDeal = { AddFundsCid: Cid, AvailableForRetrieval: boolean, Client: string, ClientDealProposal: ClientDealProposal, CreationTime: CborTime, DealID: number, FastRetrieval: boolean, FundsReserved: string, Message: string, MetadataPath: string, Miner: string, PiecePath: string, ProposalCid: Cid, PublishCid: Cid, Ref: DataRef, SlashEpoch: number, State: number, StoreID: number, TransferChannelId: ChannelID }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>AddFundsCid</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>AvailableForRetrieval</code>: <code>boolean</code></li>
+<li><code>Client</code>: <code>string</code></li>
+<li><code>ClientDealProposal</code>: <a href="#clientdealproposal"><code>ClientDealProposal</code></a></li>
+<li><code>CreationTime</code>: <a href="#cbortime"><code>CborTime</code></a></li>
+<li><code>DealID</code>: <code>number</code></li>
+<li><code>FastRetrieval</code>: <code>boolean</code></li>
+<li><code>FundsReserved</code>: <code>string</code></li>
+<li><code>Message</code>: <code>string</code></li>
+<li><code>MetadataPath</code>: <code>string</code></li>
+<li><code>Miner</code>: <code>string</code></li>
+<li><code>PiecePath</code>: <code>string</code></li>
+<li><code>ProposalCid</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>PublishCid</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Ref</code>: <a href="#dataref"><code>DataRef</code></a></li>
+<li><code>SlashEpoch</code>: <code>number</code></li>
+<li><code>State</code>: <code>number</code></li>
+<li><code>StoreID</code>: <code>number</code></li>
+<li><code>TransferChannelId</code>: <a href="#channelid"><code>ChannelID</code></a></li>
+</ul>
+<h2><a class="header" href="#minerinfo" id="minerinfo">MinerInfo</a></h2>
+<pre><code class="language-ts">type MinerInfo = { ConsensusFaultElapsed: number, ControlAddresses: Array&lt;string&gt;, Multiaddrs: Array&lt;string&gt;, NewWorker: string, Owner: string, PeerId: string, SealProofType: number, SectorSize: number, WindowPoStPartitionSectors: number, Worker: string, WorkerChangeEpoch: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>ConsensusFaultElapsed</code>: <code>number</code></li>
+<li><code>ControlAddresses</code>: <code>Array&lt;string&gt;</code></li>
+<li><code>Multiaddrs</code>: <code>Array&lt;string&gt;</code></li>
+<li><code>NewWorker</code>: <code>string</code></li>
+<li><code>Owner</code>: <code>string</code></li>
+<li><code>PeerId</code>: <code>string</code></li>
+<li><code>SealProofType</code>: <code>number</code></li>
+<li><code>SectorSize</code>: <code>number</code></li>
+<li><code>WindowPoStPartitionSectors</code>: <code>number</code></li>
+<li><code>Worker</code>: <code>string</code></li>
+<li><code>WorkerChangeEpoch</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#minerpower" id="minerpower">MinerPower</a></h2>
+<pre><code class="language-ts">type MinerPower = { HasMinPower: boolean, MinerPower: Claim, TotalPower: Claim }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>HasMinPower</code>: <code>boolean</code></li>
+<li><code>MinerPower</code>: <a href="#claim"><code>Claim</code></a></li>
+<li><code>TotalPower</code>: <a href="#claim"><code>Claim</code></a></li>
+</ul>
+<h2><a class="header" href="#minersectors" id="minersectors">MinerSectors</a></h2>
+<pre><code class="language-ts">type MinerSectors = { Active: number, Faulty: number, Live: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Active</code>: <code>number</code></li>
+<li><code>Faulty</code>: <code>number</code></li>
+<li><code>Live</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#miningbaseinfo" id="miningbaseinfo">MiningBaseInfo</a></h2>
+<pre><code class="language-ts">type MiningBaseInfo = { BeaconEntries: Array&lt;BeaconEntry&gt;, EligibleForMining: boolean, MinerPower: string, NetworkPower: string, PrevBeaconEntry: BeaconEntry, SectorSize: number, Sectors: Array&lt;SectorInfo&gt;, WorkerKey: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>BeaconEntries</code>: <code>Array&lt;<a href="#beaconentry">BeaconEntry</a>&gt;</code></li>
+<li><code>EligibleForMining</code>: <code>boolean</code></li>
+<li><code>MinerPower</code>: <code>string</code></li>
+<li><code>NetworkPower</code>: <code>string</code></li>
+<li><code>PrevBeaconEntry</code>: <a href="#beaconentry"><code>BeaconEntry</code></a></li>
+<li><code>SectorSize</code>: <code>number</code></li>
+<li><code>Sectors</code>: <code>Array&lt;<a href="#sectorinfo">SectorInfo</a>&gt;</code></li>
+<li><code>WorkerKey</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#modverifyparams" id="modverifyparams">ModVerifyParams</a></h2>
+<pre><code class="language-ts">type ModVerifyParams = { Actor: string, Data: string, Method: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Actor</code>: <code>string</code></li>
+<li><code>Data</code>: <code>string</code></li>
+<li><code>Method</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#mpoolconfig" id="mpoolconfig">MpoolConfig</a></h2>
+<pre><code class="language-ts">type MpoolConfig = { GasLimitOverestimation: number, PriorityAddrs: Array&lt;string&gt;, PruneCooldown: number, ReplaceByFeeRatio: number, SizeLimitHigh: number, SizeLimitLow: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>GasLimitOverestimation</code>: <code>number</code></li>
+<li><code>PriorityAddrs</code>: <code>Array&lt;string&gt;</code></li>
+<li><code>PruneCooldown</code>: <code>number</code></li>
+<li><code>ReplaceByFeeRatio</code>: <code>number</code></li>
+<li><code>SizeLimitHigh</code>: <code>number</code></li>
+<li><code>SizeLimitLow</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#mpoolupdate" id="mpoolupdate">MpoolUpdate</a></h2>
+<pre><code class="language-ts">type MpoolUpdate = { Message: SignedMessage, Type: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Message</code>: <a href="#signedmessage"><code>SignedMessage</code></a></li>
+<li><code>Type</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#msggascost" id="msggascost">MsgGasCost</a></h2>
+<pre><code class="language-ts">type MsgGasCost = { BaseFeeBurn: string, GasUsed: string, Message: Cid, MinerPenalty: string, MinerTip: string, OverEstimationBurn: string, Refund: string, TotalCost: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>BaseFeeBurn</code>: <code>string</code></li>
+<li><code>GasUsed</code>: <code>string</code></li>
+<li><code>Message</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>MinerPenalty</code>: <code>string</code></li>
+<li><code>MinerTip</code>: <code>string</code></li>
+<li><code>OverEstimationBurn</code>: <code>string</code></li>
+<li><code>Refund</code>: <code>string</code></li>
+<li><code>TotalCost</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#msglookup" id="msglookup">MsgLookup</a></h2>
+<pre><code class="language-ts">type MsgLookup = { Height: number, Message: Cid, Receipt: MessageReceipt, ReturnDec: any, TipSet: Cid[] }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Height</code>: <code>number</code></li>
+<li><code>Message</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Receipt</code>: <a href="#messagereceipt"><code>MessageReceipt</code></a></li>
+<li><code>ReturnDec</code>: <code>any</code></li>
+<li><code>TipSet</code>: <code><a href="#cid">Cid</a>[]</code></li>
+</ul>
+<h2><a class="header" href="#msigvesting" id="msigvesting">MsigVesting</a></h2>
+<pre><code class="language-ts">type MsigVesting = { InitialBalance: string, StartEpoch: number, UnlockDuration: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>InitialBalance</code>: <code>string</code></li>
+<li><code>StartEpoch</code>: <code>number</code></li>
+<li><code>UnlockDuration</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#natinfo" id="natinfo">NatInfo</a></h2>
+<pre><code class="language-ts">type NatInfo = { PublicAddr: string, Reachability: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>PublicAddr</code>: <code>string</code></li>
+<li><code>Reachability</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#objstat" id="objstat">ObjStat</a></h2>
+<pre><code class="language-ts">type ObjStat = { Links: number, Size: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Links</code>: <code>number</code></li>
+<li><code>Size</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#params" id="params">Params</a></h2>
+<pre><code class="language-ts">type Params = { PaymentInterval: number, PaymentIntervalIncrease: number, PieceCID: Cid, PricePerByte: string, Selector: Deferred, UnsealPrice: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>PaymentInterval</code>: <code>number</code></li>
+<li><code>PaymentIntervalIncrease</code>: <code>number</code></li>
+<li><code>PieceCID</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>PricePerByte</code>: <code>string</code></li>
+<li><code>Selector</code>: <a href="#deferred"><code>Deferred</code></a></li>
+<li><code>UnsealPrice</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#partition" id="partition">Partition</a></h2>
+<pre><code class="language-ts">type Partition = { ActiveSectors: BitField, AllSectors: BitField, FaultySectors: BitField, LiveSectors: BitField, RecoveringSectors: BitField }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>ActiveSectors</code>: <a href="#bitfield"><code>BitField</code></a></li>
+<li><code>AllSectors</code>: <a href="#bitfield"><code>BitField</code></a></li>
+<li><code>FaultySectors</code>: <a href="#bitfield"><code>BitField</code></a></li>
+<li><code>LiveSectors</code>: <a href="#bitfield"><code>BitField</code></a></li>
+<li><code>RecoveringSectors</code>: <a href="#bitfield"><code>BitField</code></a></li>
+</ul>
+<h2><a class="header" href="#paychstatus" id="paychstatus">PaychStatus</a></h2>
+<pre><code class="language-ts">type PaychStatus = { ControlAddr: string, Direction: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>ControlAddr</code>: <code>string</code></li>
+<li><code>Direction</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#paymentinfo" id="paymentinfo">PaymentInfo</a></h2>
+<pre><code class="language-ts">type PaymentInfo = { Channel: string, Vouchers: Array&lt;SignedVoucher&gt;, WaitSentinel: Cid }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Channel</code>: <code>string</code></li>
+<li><code>Vouchers</code>: <code>Array&lt;<a href="#signedvoucher">SignedVoucher</a>&gt;</code></li>
+<li><code>WaitSentinel</code>: <a href="#cid"><code>Cid</code></a></li>
+</ul>
+<h2><a class="header" href="#peerscoresnapshot" id="peerscoresnapshot">PeerScoreSnapshot</a></h2>
+<pre><code class="language-ts">type PeerScoreSnapshot = { AppSpecificScore: number, BehaviourPenalty: number, IPColocationFactor: number, Score: number, Topics: { [k: string]: TopicScoreSnapshot } }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>AppSpecificScore</code>: <code>number</code></li>
+<li><code>BehaviourPenalty</code>: <code>number</code></li>
+<li><code>IPColocationFactor</code>: <code>number</code></li>
+<li><code>Score</code>: <code>number</code></li>
+<li><code>Topics</code>: <code>{ [k: string]: TopicScoreSnapshot }</code></li>
+</ul>
+<h2><a class="header" href="#pieceblocklocation" id="pieceblocklocation">PieceBlockLocation</a></h2>
+<pre><code class="language-ts">type PieceBlockLocation = { BlockLocation: BlockLocation, PieceCID: Cid }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>BlockLocation</code>: <a href="#blocklocation"><code>BlockLocation</code></a></li>
+<li><code>PieceCID</code>: <a href="#cid"><code>Cid</code></a></li>
+</ul>
+<h2><a class="header" href="#pieceinfo" id="pieceinfo">PieceInfo</a></h2>
+<pre><code class="language-ts">type PieceInfo = { Deals: Array&lt;DealInfo1&gt;, PieceCID: Cid }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Deals</code>: <code>Array&lt;<a href="#dealinfo1">DealInfo1</a>&gt;</code></li>
+<li><code>PieceCID</code>: <a href="#cid"><code>Cid</code></a></li>
+</ul>
+<h2><a class="header" href="#pieceinfo1" id="pieceinfo1">PieceInfo1</a></h2>
+<pre><code class="language-ts">type PieceInfo1 = { PieceCID: Cid, Size: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>PieceCID</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Size</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#postproof" id="postproof">PoStProof</a></h2>
+<pre><code class="language-ts">type PoStProof = { PoStProof: number, ProofBytes: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>PoStProof</code>: <code>number</code></li>
+<li><code>ProofBytes</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#providerdealstate" id="providerdealstate">ProviderDealState</a></h2>
+<pre><code class="language-ts">type ProviderDealState = { ChannelID: ChannelID, CurrentInterval: number, DealProposal: DealProposal2, FundsReceived: string, LegacyProtocol: boolean, Message: string, PieceInfo: PieceInfo, Receiver: string, Status: number, StoreID: number, TotalSent: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>ChannelID</code>: <a href="#channelid"><code>ChannelID</code></a></li>
+<li><code>CurrentInterval</code>: <code>number</code></li>
+<li><code>DealProposal</code>: <a href="#dealproposal2"><code>DealProposal2</code></a></li>
+<li><code>FundsReceived</code>: <code>string</code></li>
+<li><code>LegacyProtocol</code>: <code>boolean</code></li>
+<li><code>Message</code>: <code>string</code></li>
+<li><code>PieceInfo</code>: <a href="#pieceinfo"><code>PieceInfo</code></a></li>
+<li><code>Receiver</code>: <code>string</code></li>
+<li><code>Status</code>: <code>number</code></li>
+<li><code>StoreID</code>: <code>number</code></li>
+<li><code>TotalSent</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#pubsubscore" id="pubsubscore">PubsubScore</a></h2>
+<pre><code class="language-ts">type PubsubScore = { ID: string, Score: PeerScoreSnapshot }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>ID</code>: <code>string</code></li>
+<li><code>Score</code>: <a href="#peerscoresnapshot"><code>PeerScoreSnapshot</code></a></li>
+</ul>
+<h2><a class="header" href="#queryoffer" id="queryoffer">QueryOffer</a></h2>
+<pre><code class="language-ts">type QueryOffer = { Err: string, MinPrice: string, Miner: string, MinerPeer: RetrievalPeer, PaymentInterval: number, PaymentIntervalIncrease: number, Piece: Cid, Root: Cid, Size: number, UnsealPrice: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Err</code>: <code>string</code></li>
+<li><code>MinPrice</code>: <code>string</code></li>
+<li><code>Miner</code>: <code>string</code></li>
+<li><code>MinerPeer</code>: <a href="#retrievalpeer"><code>RetrievalPeer</code></a></li>
+<li><code>PaymentInterval</code>: <code>number</code></li>
+<li><code>PaymentIntervalIncrease</code>: <code>number</code></li>
+<li><code>Piece</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Root</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Size</code>: <code>number</code></li>
+<li><code>UnsealPrice</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#range" id="range">Range</a></h2>
+<pre><code class="language-ts">type Range = { Offset: number, Size: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Offset</code>: <code>number</code></li>
+<li><code>Size</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#retrievalevent" id="retrievalevent">RetrievalEvent</a></h2>
+<pre><code class="language-ts">type RetrievalEvent = { BytesReceived: number, Err: string, Event: number, FundsSpent: string, Status: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>BytesReceived</code>: <code>number</code></li>
+<li><code>Err</code>: <code>string</code></li>
+<li><code>Event</code>: <code>number</code></li>
+<li><code>FundsSpent</code>: <code>string</code></li>
+<li><code>Status</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#retrievalorder" id="retrievalorder">RetrievalOrder</a></h2>
+<pre><code class="language-ts">type RetrievalOrder = { Client: string, Miner: string, MinerPeer: RetrievalPeer, PaymentInterval: number, PaymentIntervalIncrease: number, Piece: Cid, Root: Cid, Size: number, Total: string, UnsealPrice: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Client</code>: <code>string</code></li>
+<li><code>Miner</code>: <code>string</code></li>
+<li><code>MinerPeer</code>: <a href="#retrievalpeer"><code>RetrievalPeer</code></a></li>
+<li><code>PaymentInterval</code>: <code>number</code></li>
+<li><code>PaymentIntervalIncrease</code>: <code>number</code></li>
+<li><code>Piece</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Root</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Size</code>: <code>number</code></li>
+<li><code>Total</code>: <code>string</code></li>
+<li><code>UnsealPrice</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#retrievalpeer" id="retrievalpeer">RetrievalPeer</a></h2>
+<pre><code class="language-ts">type RetrievalPeer = { Address: string, ID: string, PieceCID: Cid }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Address</code>: <code>string</code></li>
+<li><code>ID</code>: <code>string</code></li>
+<li><code>PieceCID</code>: <a href="#cid"><code>Cid</code></a></li>
+</ul>
+<h2><a class="header" href="#sealseed" id="sealseed">SealSeed</a></h2>
+<pre><code class="language-ts">type SealSeed = { Epoch: number, Value: Array&lt;number&gt; }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Epoch</code>: <code>number</code></li>
+<li><code>Value</code>: <code>Array&lt;number&gt;</code></li>
+</ul>
+<h2><a class="header" href="#sealticket" id="sealticket">SealTicket</a></h2>
+<pre><code class="language-ts">type SealTicket = { Epoch: number, Value: Array&lt;number&gt; }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Epoch</code>: <code>number</code></li>
+<li><code>Value</code>: <code>Array&lt;number&gt;</code></li>
+</ul>
+<h2><a class="header" href="#sealedref" id="sealedref">SealedRef</a></h2>
+<pre><code class="language-ts">type SealedRef = { Offset: number, SectorID: number, Size: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Offset</code>: <code>number</code></li>
+<li><code>SectorID</code>: <code>number</code></li>
+<li><code>Size</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#sectorcids" id="sectorcids">SectorCids</a></h2>
+<pre><code class="language-ts">type SectorCids = { Sealed: Cid, Unsealed: Cid }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Sealed</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Unsealed</code>: <a href="#cid"><code>Cid</code></a></li>
+</ul>
+<h2><a class="header" href="#sectorexpiration" id="sectorexpiration">SectorExpiration</a></h2>
+<pre><code class="language-ts">type SectorExpiration = { Early: number, OnTime: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Early</code>: <code>number</code></li>
+<li><code>OnTime</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#sectorid" id="sectorid">SectorID</a></h2>
+<pre><code class="language-ts">type SectorID = { Miner: number, Number: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Miner</code>: <code>number</code></li>
+<li><code>Number</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#sectorinfo" id="sectorinfo">SectorInfo</a></h2>
+<pre><code class="language-ts">type SectorInfo = { SealProof: number, SealedCID: Cid, SectorNumber: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>SealProof</code>: <code>number</code></li>
+<li><code>SealedCID</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>SectorNumber</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#sectorinfo1" id="sectorinfo1">SectorInfo1</a></h2>
+<pre><code class="language-ts">type SectorInfo1 = { Activation: number, CommD: Cid, CommR: Cid, CommitMsg: Cid, DealWeight: string, Deals: Array&lt;number&gt;, Early: number, Expiration: number, InitialPledge: string, LastErr: string, Log: Array&lt;SectorLog&gt;, OnTime: number, PreCommitMsg: Cid, Proof: string, Retries: number, SealProof: number, SectorID: number, Seed: SealSeed, State: string, Ticket: SealTicket, ToUpgrade: boolean, VerifiedDealWeight: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Activation</code>: <code>number</code></li>
+<li><code>CommD</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>CommR</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>CommitMsg</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>DealWeight</code>: <code>string</code></li>
+<li><code>Deals</code>: <code>Array&lt;number&gt;</code></li>
+<li><code>Early</code>: <code>number</code></li>
+<li><code>Expiration</code>: <code>number</code></li>
+<li><code>InitialPledge</code>: <code>string</code></li>
+<li><code>LastErr</code>: <code>string</code></li>
+<li><code>Log</code>: <code>Array&lt;<a href="#sectorlog">SectorLog</a>&gt;</code></li>
+<li><code>OnTime</code>: <code>number</code></li>
+<li><code>PreCommitMsg</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>Proof</code>: <code>string</code></li>
+<li><code>Retries</code>: <code>number</code></li>
+<li><code>SealProof</code>: <code>number</code></li>
+<li><code>SectorID</code>: <code>number</code></li>
+<li><code>Seed</code>: <a href="#sealseed"><code>SealSeed</code></a></li>
+<li><code>State</code>: <code>string</code></li>
+<li><code>Ticket</code>: <a href="#sealticket"><code>SealTicket</code></a></li>
+<li><code>ToUpgrade</code>: <code>boolean</code></li>
+<li><code>VerifiedDealWeight</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#sectorlocation" id="sectorlocation">SectorLocation</a></h2>
+<pre><code class="language-ts">type SectorLocation = { Deadline: number, Partition: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Deadline</code>: <code>number</code></li>
+<li><code>Partition</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#sectorlog" id="sectorlog">SectorLog</a></h2>
+<pre><code class="language-ts">type SectorLog = { Kind: string, Message: string, Timestamp: number, Trace: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Kind</code>: <code>string</code></li>
+<li><code>Message</code>: <code>string</code></li>
+<li><code>Timestamp</code>: <code>number</code></li>
+<li><code>Trace</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#sectoronchaininfo" id="sectoronchaininfo">SectorOnChainInfo</a></h2>
+<pre><code class="language-ts">type SectorOnChainInfo = { Activation: number, DealIDs: Array&lt;number&gt;, DealWeight: string, ExpectedDayReward: string, ExpectedStoragePledge: string, Expiration: number, InitialPledge: string, SealProof: number, SealedCID: Cid, SectorNumber: number, VerifiedDealWeight: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Activation</code>: <code>number</code></li>
+<li><code>DealIDs</code>: <code>Array&lt;number&gt;</code></li>
+<li><code>DealWeight</code>: <code>string</code></li>
+<li><code>ExpectedDayReward</code>: <code>string</code></li>
+<li><code>ExpectedStoragePledge</code>: <code>string</code></li>
+<li><code>Expiration</code>: <code>number</code></li>
+<li><code>InitialPledge</code>: <code>string</code></li>
+<li><code>SealProof</code>: <code>number</code></li>
+<li><code>SealedCID</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>SectorNumber</code>: <code>number</code></li>
+<li><code>VerifiedDealWeight</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#sectorprecommitinfo" id="sectorprecommitinfo">SectorPreCommitInfo</a></h2>
+<pre><code class="language-ts">type SectorPreCommitInfo = { DealIDs: Array&lt;number&gt;, Expiration: number, ReplaceCapacity: boolean, ReplaceSectorDeadline: number, ReplaceSectorNumber: number, ReplaceSectorPartition: number, SealProof: number, SealRandEpoch: number, SealedCID: Cid, SectorNumber: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>DealIDs</code>: <code>Array&lt;number&gt;</code></li>
+<li><code>Expiration</code>: <code>number</code></li>
+<li><code>ReplaceCapacity</code>: <code>boolean</code></li>
+<li><code>ReplaceSectorDeadline</code>: <code>number</code></li>
+<li><code>ReplaceSectorNumber</code>: <code>number</code></li>
+<li><code>ReplaceSectorPartition</code>: <code>number</code></li>
+<li><code>SealProof</code>: <code>number</code></li>
+<li><code>SealRandEpoch</code>: <code>number</code></li>
+<li><code>SealedCID</code>: <a href="#cid"><code>Cid</code></a></li>
+<li><code>SectorNumber</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#sectorprecommitonchaininfo" id="sectorprecommitonchaininfo">SectorPreCommitOnChainInfo</a></h2>
+<pre><code class="language-ts">type SectorPreCommitOnChainInfo = { DealWeight: string, Info: SectorPreCommitInfo, PreCommitDeposit: string, PreCommitEpoch: number, VerifiedDealWeight: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>DealWeight</code>: <code>string</code></li>
+<li><code>Info</code>: <a href="#sectorprecommitinfo"><code>SectorPreCommitInfo</code></a></li>
+<li><code>PreCommitDeposit</code>: <code>string</code></li>
+<li><code>PreCommitEpoch</code>: <code>number</code></li>
+<li><code>VerifiedDealWeight</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#sectorstorageinfo" id="sectorstorageinfo">SectorStorageInfo</a></h2>
+<pre><code class="language-ts">type SectorStorageInfo = { CanSeal: boolean, CanStore: boolean, ID: string, Primary: boolean, URLs: Array&lt;string&gt;, Weight: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>CanSeal</code>: <code>boolean</code></li>
+<li><code>CanStore</code>: <code>boolean</code></li>
+<li><code>ID</code>: <code>string</code></li>
+<li><code>Primary</code>: <code>boolean</code></li>
+<li><code>URLs</code>: <code>Array&lt;string&gt;</code></li>
+<li><code>Weight</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#signature" id="signature">Signature</a></h2>
+<pre><code class="language-ts">type Signature = { Data: string, Type: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Data</code>: <code>string</code></li>
+<li><code>Type</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#signedmessage" id="signedmessage">SignedMessage</a></h2>
+<pre><code class="language-ts">type SignedMessage = { Message: Message, Signature: Signature }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Message</code>: <a href="#message"><code>Message</code></a></li>
+<li><code>Signature</code>: <a href="#signature"><code>Signature</code></a></li>
+</ul>
+<h2><a class="header" href="#signedstorageask" id="signedstorageask">SignedStorageAsk</a></h2>
+<pre><code class="language-ts">type SignedStorageAsk = { Ask: StorageAsk, Signature: Signature }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Ask</code>: <a href="#storageask"><code>StorageAsk</code></a></li>
+<li><code>Signature</code>: <a href="#signature"><code>Signature</code></a></li>
+</ul>
+<h2><a class="header" href="#signedvoucher" id="signedvoucher">SignedVoucher</a></h2>
+<pre><code class="language-ts">type SignedVoucher = { Amount: string, ChannelAddr: string, Extra: ModVerifyParams, Lane: number, Merges: Array&lt;Merge&gt;, MinSettleHeight: number, Nonce: number, SecretPreimage: string, Signature: Signature, TimeLockMax: number, TimeLockMin: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Amount</code>: <code>string</code></li>
+<li><code>ChannelAddr</code>: <code>string</code></li>
+<li><code>Extra</code>: <a href="#modverifyparams"><code>ModVerifyParams</code></a></li>
+<li><code>Lane</code>: <code>number</code></li>
+<li><code>Merges</code>: <code>Array&lt;<a href="#merge">Merge</a>&gt;</code></li>
+<li><code>MinSettleHeight</code>: <code>number</code></li>
+<li><code>Nonce</code>: <code>number</code></li>
+<li><code>SecretPreimage</code>: <code>string</code></li>
+<li><code>Signature</code>: <a href="#signature"><code>Signature</code></a></li>
+<li><code>TimeLockMax</code>: <code>number</code></li>
+<li><code>TimeLockMin</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#startdealparams" id="startdealparams">StartDealParams</a></h2>
+<pre><code class="language-ts">type StartDealParams = { Data: DataRef, DealStartEpoch: number, EpochPrice: string, FastRetrieval: boolean, MinBlocksDuration: number, Miner: string, ProviderCollateral: string, VerifiedDeal: boolean, Wallet: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Data</code>: <a href="#dataref"><code>DataRef</code></a></li>
+<li><code>DealStartEpoch</code>: <code>number</code></li>
+<li><code>EpochPrice</code>: <code>string</code></li>
+<li><code>FastRetrieval</code>: <code>boolean</code></li>
+<li><code>MinBlocksDuration</code>: <code>number</code></li>
+<li><code>Miner</code>: <code>string</code></li>
+<li><code>ProviderCollateral</code>: <code>string</code></li>
+<li><code>VerifiedDeal</code>: <code>boolean</code></li>
+<li><code>Wallet</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#stats" id="stats">Stats</a></h2>
+<pre><code class="language-ts">type Stats = { RateIn: number, RateOut: number, TotalIn: number, TotalOut: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>RateIn</code>: <code>number</code></li>
+<li><code>RateOut</code>: <code>number</code></li>
+<li><code>TotalIn</code>: <code>number</code></li>
+<li><code>TotalOut</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#storageask" id="storageask">StorageAsk</a></h2>
+<pre><code class="language-ts">type StorageAsk = { Expiry: number, MaxPieceSize: number, MinPieceSize: number, Miner: string, Price: string, SeqNo: number, Timestamp: number, VerifiedPrice: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Expiry</code>: <code>number</code></li>
+<li><code>MaxPieceSize</code>: <code>number</code></li>
+<li><code>MinPieceSize</code>: <code>number</code></li>
+<li><code>Miner</code>: <code>string</code></li>
+<li><code>Price</code>: <code>string</code></li>
+<li><code>SeqNo</code>: <code>number</code></li>
+<li><code>Timestamp</code>: <code>number</code></li>
+<li><code>VerifiedPrice</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#storageinfo" id="storageinfo">StorageInfo</a></h2>
+<pre><code class="language-ts">type StorageInfo = { CanSeal: boolean, CanStore: boolean, ID: string, URLs: Array&lt;string&gt;, Weight: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>CanSeal</code>: <code>boolean</code></li>
+<li><code>CanStore</code>: <code>boolean</code></li>
+<li><code>ID</code>: <code>string</code></li>
+<li><code>URLs</code>: <code>Array&lt;string&gt;</code></li>
+<li><code>Weight</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#storagepath" id="storagepath">StoragePath</a></h2>
+<pre><code class="language-ts">type StoragePath = { CanSeal: boolean, CanStore: boolean, ID: string, LocalPath: string, Weight: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>CanSeal</code>: <code>boolean</code></li>
+<li><code>CanStore</code>: <code>boolean</code></li>
+<li><code>ID</code>: <code>string</code></li>
+<li><code>LocalPath</code>: <code>string</code></li>
+<li><code>Weight</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#syncstate" id="syncstate">SyncState</a></h2>
+<pre><code class="language-ts">type SyncState = { ActiveSyncs: Array&lt;ActiveSync&gt;, VMApplied: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>ActiveSyncs</code>: <code>Array&lt;<a href="#activesync">ActiveSync</a>&gt;</code></li>
+<li><code>VMApplied</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#ticket" id="ticket">Ticket</a></h2>
+<pre><code class="language-ts">type Ticket = { VRFProof: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>VRFProof</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#time" id="time">Time</a></h2>
+<pre><code class="language-ts">type Time = {}
+</code></pre>
+<h2><a class="header" href="#tipset" id="tipset">TipSet</a></h2>
+<pre><code class="language-ts">type TipSet = { Blocks: Array&lt;BlockHeader&gt;, Cids: Array&lt;Cid&gt;, Height: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Blocks</code>: <code>Array&lt;<a href="#blockheader">BlockHeader</a>&gt;</code></li>
+<li><code>Cids</code>: <code>Array&lt;<a href="#cid">Cid</a>&gt;</code></li>
+<li><code>Height</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#topicscoresnapshot" id="topicscoresnapshot">TopicScoreSnapshot</a></h2>
+<pre><code class="language-ts">type TopicScoreSnapshot = { FirstMessageDeliveries: number, InvalidMessageDeliveries: number, MeshMessageDeliveries: number, TimeInMesh: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>FirstMessageDeliveries</code>: <code>number</code></li>
+<li><code>InvalidMessageDeliveries</code>: <code>number</code></li>
+<li><code>MeshMessageDeliveries</code>: <code>number</code></li>
+<li><code>TimeInMesh</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#version" id="version">Version</a></h2>
+<pre><code class="language-ts">type Version = { APIVersion: number, BlockDelay: number, Version: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>APIVersion</code>: <code>number</code></li>
+<li><code>BlockDelay</code>: <code>number</code></li>
+<li><code>Version</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#vouchercreateresult" id="vouchercreateresult">VoucherCreateResult</a></h2>
+<pre><code class="language-ts">type VoucherCreateResult = { Shortfall: string, Voucher: SignedVoucher }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Shortfall</code>: <code>string</code></li>
+<li><code>Voucher</code>: <a href="#signedvoucher"><code>SignedVoucher</code></a></li>
+</ul>
+<h2><a class="header" href="#voucherspec" id="voucherspec">VoucherSpec</a></h2>
+<pre><code class="language-ts">type VoucherSpec = { Amount: string, Extra: ModVerifyParams, MinSettle: number, TimeLockMax: number, TimeLockMin: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Amount</code>: <code>string</code></li>
+<li><code>Extra</code>: <a href="#modverifyparams"><code>ModVerifyParams</code></a></li>
+<li><code>MinSettle</code>: <code>number</code></li>
+<li><code>TimeLockMax</code>: <code>number</code></li>
+<li><code>TimeLockMin</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#workerinfo" id="workerinfo">WorkerInfo</a></h2>
+<pre><code class="language-ts">type WorkerInfo = { Hostname: string, Resources: WorkerResources }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>Hostname</code>: <code>string</code></li>
+<li><code>Resources</code>: <a href="#workerresources"><code>WorkerResources</code></a></li>
+</ul>
+<h2><a class="header" href="#workerjob" id="workerjob">WorkerJob</a></h2>
+<pre><code class="language-ts">type WorkerJob = { ID: number, RunWait: number, Sector: SectorID, Start: Time, Task: string }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>ID</code>: <code>number</code></li>
+<li><code>RunWait</code>: <code>number</code></li>
+<li><code>Sector</code>: <a href="#sectorid"><code>SectorID</code></a></li>
+<li><code>Start</code>: <a href="#time"><code>Time</code></a></li>
+<li><code>Task</code>: <code>string</code></li>
+</ul>
+<h2><a class="header" href="#workerresources" id="workerresources">WorkerResources</a></h2>
+<pre><code class="language-ts">type WorkerResources = { CPUs: number, GPUs: Array&lt;string&gt;, MemPhysical: number, MemReserved: number, MemSwap: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>CPUs</code>: <code>number</code></li>
+<li><code>GPUs</code>: <code>Array&lt;string&gt;</code></li>
+<li><code>MemPhysical</code>: <code>number</code></li>
+<li><code>MemReserved</code>: <code>number</code></li>
+<li><code>MemSwap</code>: <code>number</code></li>
+</ul>
+<h2><a class="header" href="#workerstats" id="workerstats">WorkerStats</a></h2>
+<pre><code class="language-ts">type WorkerStats = { CpuUse: number, GpuUsed: boolean, Info: WorkerInfo, MemUsedMax: number, MemUsedMin: number }
+</code></pre>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><code>CpuUse</code>: <code>number</code></li>
+<li><code>GpuUsed</code>: <code>boolean</code></li>
+<li><code>Info</code>: <a href="#workerinfo"><code>WorkerInfo</code></a></li>
+<li><code>MemUsedMax</code>: <code>number</code></li>
+<li><code>MemUsedMin</code>: <code>number</code></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../api/worker-api/storage.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../api/worker-api/storage.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

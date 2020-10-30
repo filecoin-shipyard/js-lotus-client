@@ -1,0 +1,400 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Mpool - Lotus JS Client</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../intro/intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../intro/json-rpc.html"><strong aria-hidden="true">1.1.</strong> JSON-RPC API</a></li><li class="chapter-item expanded "><a href="../../intro/json-rpc-and-js.html"><strong aria-hidden="true">1.2.</strong> JSON-RPC and JavaScript</a></li><li class="chapter-item expanded "><a href="../../intro/lotus-js-client.html"><strong aria-hidden="true">1.3.</strong> Lotus JS Client</a></li></ol></li><li class="chapter-item expanded "><a href="../../list-of-libraries.html"><strong aria-hidden="true">2.</strong> List of Libraries</a></li><li class="chapter-item expanded "><a href="../../quick-start.html"><strong aria-hidden="true">3.</strong> Quick Start</a></li><li class="chapter-item expanded "><a href="../../endpoint-deployment.html"><strong aria-hidden="true">4.</strong> Endpoint Deployment</a></li><li class="chapter-item expanded "><a href="../../api/api.html"><strong aria-hidden="true">5.</strong> API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/full-node-api/index.html"><strong aria-hidden="true">5.1.</strong> Full Node API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/full-node-api/auth.html"><strong aria-hidden="true">5.1.1.</strong> Auth</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/beacon.html"><strong aria-hidden="true">5.1.2.</strong> Beacon</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/chain.html"><strong aria-hidden="true">5.1.3.</strong> Chain</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/client.html"><strong aria-hidden="true">5.1.4.</strong> Client</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/gas.html"><strong aria-hidden="true">5.1.5.</strong> Gas</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/log.html"><strong aria-hidden="true">5.1.6.</strong> Log</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/market.html"><strong aria-hidden="true">5.1.7.</strong> Market</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/miner.html"><strong aria-hidden="true">5.1.8.</strong> Miner</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/misc.html"><strong aria-hidden="true">5.1.9.</strong> Misc</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/mpool.html" class="active"><strong aria-hidden="true">5.1.10.</strong> Mpool</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/msig.html"><strong aria-hidden="true">5.1.11.</strong> Msig</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/net.html"><strong aria-hidden="true">5.1.12.</strong> Net</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/paych.html"><strong aria-hidden="true">5.1.13.</strong> Paych</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/state.html"><strong aria-hidden="true">5.1.14.</strong> State</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/sync.html"><strong aria-hidden="true">5.1.15.</strong> Sync</a></li><li class="chapter-item expanded "><a href="../../api/full-node-api/wallet.html"><strong aria-hidden="true">5.1.16.</strong> Wallet</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/index.html"><strong aria-hidden="true">5.2.</strong> Storage Miner API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/storage-miner-api/actor.html"><strong aria-hidden="true">5.2.1.</strong> Actor</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/auth.html"><strong aria-hidden="true">5.2.2.</strong> Auth</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/deals.html"><strong aria-hidden="true">5.2.3.</strong> Deals</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/log.html"><strong aria-hidden="true">5.2.4.</strong> Log</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/market.html"><strong aria-hidden="true">5.2.5.</strong> Market</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/mining.html"><strong aria-hidden="true">5.2.6.</strong> Mining</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/misc.html"><strong aria-hidden="true">5.2.7.</strong> Misc</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/net.html"><strong aria-hidden="true">5.2.8.</strong> Net</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/pieces.html"><strong aria-hidden="true">5.2.9.</strong> Pieces</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/pledge.html"><strong aria-hidden="true">5.2.10.</strong> Pledge</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/sealing.html"><strong aria-hidden="true">5.2.11.</strong> Sealing</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/sector.html"><strong aria-hidden="true">5.2.12.</strong> Sector</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/sectors.html"><strong aria-hidden="true">5.2.13.</strong> Sectors</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/storage.html"><strong aria-hidden="true">5.2.14.</strong> Storage</a></li><li class="chapter-item expanded "><a href="../../api/storage-miner-api/worker.html"><strong aria-hidden="true">5.2.15.</strong> Worker</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/gateway-api/index.html"><strong aria-hidden="true">5.3.</strong> Gateway API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/gateway-api/chain.html"><strong aria-hidden="true">5.3.1.</strong> Chain</a></li><li class="chapter-item expanded "><a href="../../api/gateway-api/gas.html"><strong aria-hidden="true">5.3.2.</strong> Gas</a></li><li class="chapter-item expanded "><a href="../../api/gateway-api/mpool.html"><strong aria-hidden="true">5.3.3.</strong> Mpool</a></li><li class="chapter-item expanded "><a href="../../api/gateway-api/msig.html"><strong aria-hidden="true">5.3.4.</strong> Msig</a></li><li class="chapter-item expanded "><a href="../../api/gateway-api/state.html"><strong aria-hidden="true">5.3.5.</strong> State</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/wallet-api/index.html"><strong aria-hidden="true">5.4.</strong> Wallet API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/wallet-api/wallet.html"><strong aria-hidden="true">5.4.1.</strong> Wallet</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/worker-api/index.html"><strong aria-hidden="true">5.5.</strong> Worker API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/worker-api/misc.html"><strong aria-hidden="true">5.5.1.</strong> Misc</a></li><li class="chapter-item expanded "><a href="../../api/worker-api/storage.html"><strong aria-hidden="true">5.5.2.</strong> Storage</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/types.html"><strong aria-hidden="true">5.6.</strong> Types</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Lotus JS Client</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/filecoin-shipyard/js-lotus-client" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Code generated by github.com/filecoin-shipyard/js-lotus-client/docgen. DO NOT EDIT. -->
+<h1><a class="header" href="#mpool" id="mpool">Mpool</a></h1>
+<p>The Mpool methods are for interacting with the message pool. The message pool manages all incoming and outgoing 'messages' going over the network.</p>
+<ul>
+<li><a href="mpool.html#mpoolbatchpush">mpoolBatchPush</a></li>
+<li><a href="mpool.html#mpoolbatchpushmessage">mpoolBatchPushMessage</a></li>
+<li><a href="mpool.html#mpoolbatchpushuntrusted">mpoolBatchPushUntrusted</a></li>
+<li><a href="mpool.html#mpoolclear">mpoolClear</a></li>
+<li><a href="mpool.html#mpoolgetconfig">mpoolGetConfig</a></li>
+<li><a href="mpool.html#mpoolgetnonce">mpoolGetNonce</a></li>
+<li><a href="mpool.html#mpoolpending">mpoolPending</a></li>
+<li><a href="mpool.html#mpoolpush">mpoolPush</a></li>
+<li><a href="mpool.html#mpoolpushmessage">mpoolPushMessage</a></li>
+<li><a href="mpool.html#mpoolpushuntrusted">mpoolPushUntrusted</a></li>
+<li><a href="mpool.html#mpoolselect">mpoolSelect</a></li>
+<li><a href="mpool.html#mpoolsetconfig">mpoolSetConfig</a></li>
+<li><a href="mpool.html#mpoolsub">mpoolSub</a></li>
+</ul>
+<h2><a class="header" href="#mpoolbatchpush" id="mpoolbatchpush">mpoolBatchPush</a></h2>
+<pre><code class="language-ts">mpoolBatchPush (signedMessage: Array&lt;SignedMessage&gt;): Promise&lt;Array&lt;Cid&gt;&gt;
+</code></pre>
+<p>Batch pushes a signed message to mempool.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>signedMessage</code>: <code>Array&lt;<a href="../types.html#signedmessage">SignedMessage</a>&gt;</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><code>Promise&lt;Array&lt;<a href="../types.html#cid">Cid</a>&gt;&gt;</code></p>
+<p><small>Source: <a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts#L380">index.d.ts, line 380, character 16</a></small></p>
+<h2><a class="header" href="#mpoolbatchpushmessage" id="mpoolbatchpushmessage">mpoolBatchPushMessage</a></h2>
+<pre><code class="language-ts">mpoolBatchPushMessage (message: Array&lt;Message&gt;, messageSendSpec: MessageSendSpec): Promise&lt;Array&lt;SignedMessage&gt;&gt;
+</code></pre>
+<p>Batch pushes a unsigned message to mempool.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>message</code>: <code>Array&lt;<a href="../types.html#message">Message</a>&gt;</code></li>
+<li><code>messageSendSpec</code>: <a href="../types.html#messagesendspec"><code>MessageSendSpec</code></a></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><code>Promise&lt;Array&lt;<a href="../types.html#signedmessage">SignedMessage</a>&gt;&gt;</code></p>
+<p><small>Source: <a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts#L384">index.d.ts, line 384, character 23</a></small></p>
+<h2><a class="header" href="#mpoolbatchpushuntrusted" id="mpoolbatchpushuntrusted">mpoolBatchPushUntrusted</a></h2>
+<pre><code class="language-ts">mpoolBatchPushUntrusted (signedMessage: Array&lt;SignedMessage&gt;): Promise&lt;Array&lt;Cid&gt;&gt;
+</code></pre>
+<p>Batch pushes a signed message to mempool from untrusted sources.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>signedMessage</code>: <code>Array&lt;<a href="../types.html#signedmessage">SignedMessage</a>&gt;</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><code>Promise&lt;Array&lt;<a href="../types.html#cid">Cid</a>&gt;&gt;</code></p>
+<p><small>Source: <a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts#L388">index.d.ts, line 388, character 25</a></small></p>
+<h2><a class="header" href="#mpoolclear" id="mpoolclear">mpoolClear</a></h2>
+<pre><code class="language-ts">mpoolClear (bool: boolean): Promise&lt;void&gt;
+</code></pre>
+<p>Clears pending messages from the mpool</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>bool</code>: <code>boolean</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><code>Promise&lt;void&gt;</code></p>
+<p><small>Source: <a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts#L392">index.d.ts, line 392, character 12</a></small></p>
+<h2><a class="header" href="#mpoolgetconfig" id="mpoolgetconfig">mpoolGetConfig</a></h2>
+<pre><code class="language-ts">mpoolGetConfig (): Promise&lt;MpoolConfig&gt;
+</code></pre>
+<p>Returns (a copy of) the current mpool config</p>
+<p><strong>Returns:</strong></p>
+<p><code>Promise&lt;<a href="../types.html#mpoolconfig">MpoolConfig</a>&gt;</code></p>
+<p><small>Source: <a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts#L396">index.d.ts, line 396, character 16</a></small></p>
+<h2><a class="header" href="#mpoolgetnonce" id="mpoolgetnonce">mpoolGetNonce</a></h2>
+<pre><code class="language-ts">mpoolGetNonce (address: string): Promise&lt;number&gt;
+</code></pre>
+<p>Gets next nonce for the specified sender.
+Note that this method may not be atomic. Use MpoolPushMessage instead.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>address</code>: <code>string</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><code>Promise&lt;number&gt;</code></p>
+<p><small>Source: <a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts#L401">index.d.ts, line 401, character 15</a></small></p>
+<h2><a class="header" href="#mpoolpending" id="mpoolpending">mpoolPending</a></h2>
+<pre><code class="language-ts">mpoolPending (tipSetKey: Cid[]): Promise&lt;Array&lt;SignedMessage&gt;&gt;
+</code></pre>
+<p>Returns pending mempool messages.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>tipSetKey</code>: <code><a href="../types.html#cid">Cid</a>[]</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><code>Promise&lt;Array&lt;<a href="../types.html#signedmessage">SignedMessage</a>&gt;&gt;</code></p>
+<p><small>Source: <a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts#L405">index.d.ts, line 405, character 14</a></small></p>
+<h2><a class="header" href="#mpoolpush" id="mpoolpush">mpoolPush</a></h2>
+<pre><code class="language-ts">mpoolPush (signedMessage: SignedMessage): Promise&lt;Cid&gt;
+</code></pre>
+<p>Pushes a signed message to mempool.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>signedMessage</code>: <a href="../types.html#signedmessage"><code>SignedMessage</code></a></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><code>Promise&lt;<a href="../types.html#cid">Cid</a>&gt;</code></p>
+<p><small>Source: <a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts#L409">index.d.ts, line 409, character 11</a></small></p>
+<h2><a class="header" href="#mpoolpushmessage" id="mpoolpushmessage">mpoolPushMessage</a></h2>
+<pre><code class="language-ts">mpoolPushMessage (message: Message, messageSendSpec: MessageSendSpec): Promise&lt;SignedMessage&gt;
+</code></pre>
+<p>Atomically assigns a nonce, signs, and pushes a message
+to mempool.
+maxFee is only used when GasFeeCap/GasPremium fields aren't specified</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>message</code>: <a href="../types.html#message"><code>Message</code></a></li>
+<li><code>messageSendSpec</code>: <a href="../types.html#messagesendspec"><code>MessageSendSpec</code></a></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><code>Promise&lt;<a href="../types.html#signedmessage">SignedMessage</a>&gt;</code></p>
+<p><small>Source: <a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts#L418">index.d.ts, line 418, character 18</a></small></p>
+<h2><a class="header" href="#mpoolpushuntrusted" id="mpoolpushuntrusted">mpoolPushUntrusted</a></h2>
+<pre><code class="language-ts">mpoolPushUntrusted (signedMessage: SignedMessage): Promise&lt;Cid&gt;
+</code></pre>
+<p>Pushes a signed message to mempool from untrusted sources.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>signedMessage</code>: <a href="../types.html#signedmessage"><code>SignedMessage</code></a></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><code>Promise&lt;<a href="../types.html#cid">Cid</a>&gt;</code></p>
+<p><small>Source: <a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts#L422">index.d.ts, line 422, character 20</a></small></p>
+<h2><a class="header" href="#mpoolselect" id="mpoolselect">mpoolSelect</a></h2>
+<pre><code class="language-ts">mpoolSelect (tipSetKey: Cid[], num: number): Promise&lt;Array&lt;SignedMessage&gt;&gt;
+</code></pre>
+<p>Returns a list of pending messages for inclusion in the next block</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>tipSetKey</code>: <code><a href="../types.html#cid">Cid</a>[]</code></li>
+<li><code>num</code>: <code>number</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><code>Promise&lt;Array&lt;<a href="../types.html#signedmessage">SignedMessage</a>&gt;&gt;</code></p>
+<p><small>Source: <a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts#L426">index.d.ts, line 426, character 13</a></small></p>
+<h2><a class="header" href="#mpoolsetconfig" id="mpoolsetconfig">mpoolSetConfig</a></h2>
+<pre><code class="language-ts">mpoolSetConfig (mpoolConfig: MpoolConfig): Promise&lt;void&gt;
+</code></pre>
+<p>Sets the mpool config to (a copy of) the supplied config</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>mpoolConfig</code>: <a href="../types.html#mpoolconfig"><code>MpoolConfig</code></a></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><code>Promise&lt;void&gt;</code></p>
+<p><small>Source: <a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts#L430">index.d.ts, line 430, character 16</a></small></p>
+<h2><a class="header" href="#mpoolsub" id="mpoolsub">mpoolSub</a></h2>
+<pre><code class="language-ts">mpoolSub (handler: (data: MpoolUpdate) =&gt; void): [() =&gt; void, Promise&lt;void&gt;]
+</code></pre>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>handler</code>: <code>(data: <a href="../types.html#mpoolupdate">MpoolUpdate</a>) =&gt; void</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><code>[() =&gt; void, Promise&lt;void&gt;]</code></p>
+<p><small>Source: <a href="https://github.com/filecoin-shipyard/js-lotus-client-rpc/blob/master/index.d.ts#L431">index.d.ts, line 431, character 10</a></small></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../api/full-node-api/misc.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../api/full-node-api/msig.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../api/full-node-api/misc.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../api/full-node-api/msig.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
