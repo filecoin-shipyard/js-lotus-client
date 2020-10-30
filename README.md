@@ -78,7 +78,9 @@ It will look like this: (5x speed)
 
 ## From Node.js
 
-Coming soon... ([gist with quick example](https://gist.github.com/jimpick/0b00bcd0a618238f3fe3ff89f9ac800c))
+https://github.com/alanshaw/js-lotus-client-examples
+
+([gist with quick example](https://gist.github.com/jimpick/0b00bcd0a618238f3fe3ff89f9ac800c))
 
 ## Full Tutorial
 
