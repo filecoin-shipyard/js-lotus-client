@@ -14,6 +14,6 @@
   "author": "Jim Pick (@jimpick)",
   "license": "(Apache-2.0 AND MIT)",
   "dependencies": {
-    "standardx": "^5.0.0"
+    "standardx": "^7.0.0"
   }
 }
