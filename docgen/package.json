@@ -15,7 +15,7 @@
     "@filecoin-shipyard/lotus-client-rpc": "0.0.14",
     "@filecoin-shipyard/lotus-client-schema": "^2.0.0",
     "standard": "^16.0.3",
-    "typedoc": "^0.19.2",
+    "typedoc": "^0.21.6",
     "typescript": "^4.0.8"
   },
   "dependencies": {
