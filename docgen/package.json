@@ -13,7 +13,7 @@
   "license": "(Apache-2.0 AND MIT)",
   "devDependencies": {
     "@filecoin-shipyard/lotus-client-rpc": "1.1.2",
-    "@filecoin-shipyard/lotus-client-schema": "^4.0.3",
+    "@filecoin-shipyard/lotus-client-schema": "^4.0.4",
     "standard": "^16.0.4",
     "typedoc": "^0.22.6",
     "typescript": "^4.4.4"
