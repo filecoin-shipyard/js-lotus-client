@@ -16,7 +16,7 @@
     "@filecoin-shipyard/lotus-client-schema": "^4.0.6",
     "standard": "^16.0.4",
     "typedoc": "^0.22.10",
-    "typescript": "^4.4.4"
+    "typescript": "^4.5.2"
   },
   "dependencies": {
     "mkdirp": "^1.0.4"
